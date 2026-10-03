@@ -1,0 +1,6 @@
+{
+  "name": "LuxeAttire - Full-Stack Clothing E-Commerce",
+  "description": "Production-ready full-stack clothing shopping platform with dedicated Admin, Sales Manager, and Customer dashboards, real-time catalog, cart, checkout, OTP verification, order tracking, and inventory management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,770 @@
+{
+  "users": [
+    {
+      "_id": "mugq1t60_n1t5kua",
+      "id": "mugq1t60_n1t5kua",
+      "name": "SALES MANAGER",
+      "email": "salesmanager@gmail.com",
+      "passwordHash": "$2b$10$bvYzXKyEnxdKtIR/C2HsOudTjzBV/I7dT8cxzQAoqtwlsxBhCuRVe",
+      "role": "SALES_MANAGER",
+      "permissions": [
+        "products.read",
+        "products.write",
+        "orders.read",
+        "orders.update",
+        "inventory.read",
+        "refunds.manage",
+        "shipments.manage"
+      ],
+      "isVerified": true,
+      "phone": "",
+      "addresses": [],
+      "emailPreferences": {
+        "orderEmails": true,
+        "shipmentEmails": true,
+        "promotionalEmails": true,
+        "newLaunchEmails": true,
+        "newsletter": true
+      },
+      "sessionVersion": 1,
+      "lastLogin": "2026-09-25T08:52:26.407Z",
+      "createdAt": "2026-09-25T08:51:33.480Z",
+      "updatedAt": "2026-09-25T08:52:26.407Z"
+    },
+    {
+      "_id": "mugpzhax_vqlitnb",
+      "id": "mugpzhax_vqlitnb",
+      "name": "SALES MANAGER",
+      "email": "storemanager@gmail.com",
+      "passwordHash": "$2b$10$Y1NxVGFV51CU/syN9RRo8ekouwHEXXRefHAUid28Td/Td1YCBINqW",
+      "role": "CUSTOMER",
+      "permissions": [],
+      "isVerified": true,
+      "phone": "",
+      "addresses": [],
+      "emailPreferences": {
+        "orderEmails": true,
+        "shipmentEmails": true,
+        "promotionalEmails": true,
+        "newLaunchEmails": true,
+        "newsletter": true
+      },
+      "sessionVersion": 1,
+      "lastLogin": "2026-09-25T08:50:29.873Z",
+      "createdAt": "2026-09-25T08:49:44.793Z",
+      "updatedAt": "2026-09-25T08:50:29.873Z"
+    },
+    {
+      "_id": "mugpvl8d_husvy8g",
+      "id": "mugpvl8d_husvy8g",
+      "name": "ADMIN",
+      "email": "sksawan240@gmail.com",
+      "passwordHash": "$2b$10$ns7zJzPbEjupHmYnIHcfT.CskZQHqKsihNt.HS4/PezjVUa.YXx8C",
+      "role": "ADMIN",
+      "permissions": [],
+      "isVerified": true,
+      "phone": "",
+      "addresses": [],
+      "emailPreferences": {
+        "orderEmails": true,
+        "shipmentEmails": true,
+        "promotionalEmails": true,
+        "newLaunchEmails": true,
+        "newsletter": true
+      },
+      "sessionVersion": 1,
+      "lastLogin": "2026-10-01T15:21:14.569Z",
+      "createdAt": "2026-09-25T08:46:43.261Z",
+      "updatedAt": "2026-10-01T15:21:14.569Z"
+    },
+    {
+      "_id": "mugn6zkm_8s5tc4t",
+      "id": "mugn6zkm_8s5tc4t",
+      "name": "SAWAN HALLI",
+      "email": "halliramesh5@gmail.com",
+      "passwordHash": "$2b$10$fgoEkwyOKH1tOL52KyV83.BSqyFjS8rCsoVN.G0AjyIkZcleKdGX2",
+      "role": "CUSTOMER",
+      "permissions": [],
+      "isVerified": true,
+      "phone": "",
+      "addresses": [],
+      "emailPreferences": {
+        "orderEmails": true,
+        "shipmentEmails": true,
+        "promotionalEmails": true,
+        "newLaunchEmails": true,
+        "newsletter": true
+      },
+      "sessionVersion": 1,
+      "lastLogin": "2026-10-01T15:14:15.908Z",
+      "createdAt": "2026-09-25T07:31:36.214Z",
+      "updatedAt": "2026-10-01T15:14:15.909Z"
+    },
+    {
+      "_id": "mugn0udt_zgwrqm9",
+      "id": "mugn0udt_zgwrqm9",
+      "name": "sawanhalli",
+      "email": "sksawan240@gmail.com",
+      "passwordHash": "$2b$10$9q64XMlnWmZ8Rn.TbswA2.0QlILyDInVfjXNW2owopkUykRfuUPgO",
+      "role": "CUSTOMER",
+      "permissions": [],
+      "isVerified": true,
+      "phone": "",
+      "addresses": [],
+      "emailPreferences": {
+        "orderEmails": true,
+        "shipmentEmails": true,
+        "promotionalEmails": true,
+        "newLaunchEmails": true,
+        "newsletter": true
+      },
+      "sessionVersion": 1,
+      "lastLogin": "2026-09-25T07:27:01.492Z",
+      "createdAt": "2026-09-25T07:26:49.553Z",
+      "updatedAt": "2026-09-25T07:27:01.492Z"
+    }
+  ],
+  "products": [
+    {
+      "_id": "mugqzjxw_x5bw16i",
+      "id": "mugqzjxw_x5bw16i",
+      "name": "DOUBLE FACED CASHMERE OVERCOAT",
+      "slug": "double-faced-cashmere-overcoat-moki",
+      "description": "BOOK IT FAST AS SOON AS POSSIBLE",
+      "shortDescription": "",
+      "brand": "Luxe Atelier",
+      "category": "Outerwear & Coats",
+      "subcategory": "",
+      "gender": "Men",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        {
+          "name": "Camel",
+          "hex": "#1c1917"
+        },
+        {
+          "name": "Black",
+          "hex": "#1c1917"
+        },
+        {
+          "name": "Charcoal",
+          "hex": "#1c1917"
+        }
+      ],
+      "material": "100% Cashmere & Virgin Wool",
+      "price": 250,
+      "discount": 10,
+      "salePrice": 225,
+      "sku": "LUXE-OUT-MUGQZJXU",
+      "barcode": "",
+      "stock": 19,
+      "lowStockThreshold": 5,
+      "tags": [],
+      "images": [
+        "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18"
+      ],
+      "videoUrl": "",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "isTrending": false,
+      "status": "PUBLISHED",
+      "rating": 5,
+      "numReviews": 0,
+      "createdAt": "2026-09-25T09:17:47.828Z",
+      "updatedAt": "2026-09-25T09:23:03.604Z"
+    }
+  ],
+  "categories": [],
+  "orders": [
+    {
+      "_id": "mugr1vnu_421f7le",
+      "id": "mugr1vnu_421f7le",
+      "orderId": "ORD-2026-B88745A9",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Camel",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "CARD",
+      "paymentStatus": "PAID",
+      "orderStatus": "DELIVERED",
+      "shippingAddress": {
+        "id": "",
+        "street": "PLOT NO 34 SAI NIVAS JAYATEETH NAGAR AKLABURAGI ",
+        "city": "KALABURAGI",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "France"
+      },
+      "billingAddress": {
+        "id": "",
+        "street": "PLOT NO 34 SAI NIVAS JAYATEETH NAGAR AKLABURAGI ",
+        "city": "KALABURAGI",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "France"
+      },
+      "trackingNumber": "LXCB63C022",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "29/9/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order successfully authorized and confirmed.",
+          "timestamp": "2026-09-25T09:19:36.330Z",
+          "updatedBy": "Customer Checkout"
+        },
+        {
+          "status": "DELIVERED",
+          "note": "Order updated to DELIVERED",
+          "timestamp": "2026-09-25T09:21:35.737Z",
+          "updatedBy": "ADMIN"
+        },
+        {
+          "status": "DELIVERED",
+          "note": "Order updated to DELIVERED",
+          "timestamp": "2026-09-25T09:21:47.104Z",
+          "updatedBy": "ADMIN"
+        },
+        {
+          "status": "OUT_FOR_DELIVERY",
+          "note": "Order updated to OUT FOR DELIVERY",
+          "timestamp": "2026-09-25T09:23:13.900Z",
+          "updatedBy": "ADMIN"
+        },
+        {
+          "status": "DELIVERED",
+          "note": "Order updated to DELIVERED",
+          "timestamp": "2026-09-25T09:23:40.951Z",
+          "updatedBy": "ADMIN"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-09-25T09:19:36.330Z",
+      "updatedAt": "2026-09-25T09:23:40.951Z"
+    }
+  ],
+  "carts": [
+    {
+      "_id": "mugq2y0q_r36fniw",
+      "id": "mugq2y0q_r36fniw",
+      "userId": "mugq1t60_n1t5kua",
+      "items": [],
+      "createdAt": "2026-09-25T08:52:26.426Z",
+      "updatedAt": "2026-09-25T08:52:26.426Z"
+    },
+    {
+      "_id": "mugq0g3n_x0li958",
+      "id": "mugq0g3n_x0li958",
+      "userId": "mugpzhax_vqlitnb",
+      "items": [],
+      "createdAt": "2026-09-25T08:50:29.891Z",
+      "updatedAt": "2026-09-25T08:50:29.891Z"
+    },
+    {
+      "_id": "mugpvx39_a19hxf2",
+      "id": "mugpvx39_a19hxf2",
+      "userId": "mugpvl8d_husvy8g",
+      "items": [],
+      "createdAt": "2026-09-25T08:46:58.629Z",
+      "updatedAt": "2026-09-25T08:46:58.629Z"
+    },
+    {
+      "_id": "mugn7e59_4thmbgo",
+      "id": "mugn7e59_4thmbgo",
+      "userId": "mugn6zkm_8s5tc4t",
+      "items": [],
+      "createdAt": "2026-09-25T07:31:55.101Z",
+      "updatedAt": "2026-09-25T09:19:36.360Z"
+    },
+    {
+      "_id": "mugn13m2_r2gx8w5",
+      "id": "mugn13m2_r2gx8w5",
+      "userId": "mugn0udt_zgwrqm9",
+      "items": [],
+      "createdAt": "2026-09-25T07:27:01.514Z",
+      "updatedAt": "2026-09-25T07:27:01.514Z"
+    }
+  ],
+  "wishlists": [
+    {
+      "_id": "mugq2y0o_ovz9psu",
+      "id": "mugq2y0o_ovz9psu",
+      "userId": "mugq1t60_n1t5kua",
+      "productIds": [],
+      "createdAt": "2026-09-25T08:52:26.424Z",
+      "updatedAt": "2026-09-25T08:52:26.424Z"
+    },
+    {
+      "_id": "mugq0g3m_c1p2b5e",
+      "id": "mugq0g3m_c1p2b5e",
+      "userId": "mugpzhax_vqlitnb",
+      "productIds": [],
+      "createdAt": "2026-09-25T08:50:29.890Z",
+      "updatedAt": "2026-09-25T08:50:29.890Z"
+    },
+    {
+      "_id": "mugpvx38_vq81etc",
+      "id": "mugpvx38_vq81etc",
+      "userId": "mugpvl8d_husvy8g",
+      "productIds": [],
+      "createdAt": "2026-09-25T08:46:58.628Z",
+      "updatedAt": "2026-09-25T08:46:58.628Z"
+    },
+    {
+      "_id": "mugn7e58_fyjxdkr",
+      "id": "mugn7e58_fyjxdkr",
+      "userId": "mugn6zkm_8s5tc4t",
+      "productIds": [],
+      "createdAt": "2026-09-25T07:31:55.100Z",
+      "updatedAt": "2026-09-25T07:31:55.100Z"
+    },
+    {
+      "_id": "mugn13m1_11bm4j1",
+      "id": "mugn13m1_11bm4j1",
+      "userId": "mugn0udt_zgwrqm9",
+      "productIds": [],
+      "createdAt": "2026-09-25T07:27:01.513Z",
+      "updatedAt": "2026-09-25T07:27:01.513Z"
+    }
+  ],
+  "coupons": [],
+  "reviews": [],
+  "notifications": [
+    {
+      "_id": "mugr74ey_371tg9g",
+      "id": "mugr74ey_371tg9g",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Status Update",
+      "message": "Your order ORD-2026-B88745A9 status changed to DELIVERED.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-B88745A9",
+      "createdAt": "2026-09-25T09:23:40.954Z",
+      "updatedAt": "2026-09-25T09:23:40.954Z"
+    },
+    {
+      "_id": "mugr6jjo_ufp2ose",
+      "id": "mugr6jjo_ufp2ose",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Status Update",
+      "message": "Your order ORD-2026-B88745A9 status changed to OUT FOR DELIVERY.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-B88745A9",
+      "createdAt": "2026-09-25T09:23:13.908Z",
+      "updatedAt": "2026-09-25T09:23:13.908Z"
+    },
+    {
+      "_id": "mugr4okj_229fp19",
+      "id": "mugr4okj_229fp19",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Status Update",
+      "message": "Your order ORD-2026-B88745A9 status changed to DELIVERED.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-B88745A9",
+      "createdAt": "2026-09-25T09:21:47.107Z",
+      "updatedAt": "2026-09-25T09:21:47.107Z"
+    },
+    {
+      "_id": "mugr4fss_9d23e35",
+      "id": "mugr4fss_9d23e35",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Status Update",
+      "message": "Your order ORD-2026-B88745A9 status changed to DELIVERED.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-B88745A9",
+      "createdAt": "2026-09-25T09:21:35.740Z",
+      "updatedAt": "2026-09-25T09:21:35.740Z"
+    },
+    {
+      "_id": "mugr1vo8_1s2xo8h",
+      "id": "mugr1vo8_1s2xo8h",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Confirmed",
+      "message": "Your order ORD-2026-B88745A9 for $243.00 has been placed.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-B88745A9",
+      "isRead": false,
+      "createdAt": "2026-09-25T09:19:36.344Z",
+      "updatedAt": "2026-09-25T09:19:36.344Z"
+    }
+  ],
+  "emailLogs": [
+    {
+      "_id": "mugr78kh_4ziddp7",
+      "id": "mugr78kh_4ziddp7",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_STATUS_UPDATE",
+      "subject": "Order Update: ORD-2026-B88745A9 is now DELIVERED",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .status-badge { display: inline-block; background: #38bdf8; color: #0f172a; font-weight: 700; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-top: 12px; }\n          .content { padding: 32px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 20px; color: #ffffff;\">Order Status Update</h1>\n            <div class=\"status-badge\">DELIVERED</div>\n          </div>\n          <div class=\"content\">\n            <p>Dear SAWAN HALLI,</p>\n            <p>Your order <strong>ORD-2026-B88745A9</strong> has been updated to: <strong>DELIVERED</strong>.</p>\n            \n            <p><strong>Carrier:</strong> DHL Express<br><strong>Tracking Number:</strong> LXCB63C022</p>\n            <div style=\"text-align: center; margin-top: 28px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B88745A9\" class=\"btn\">View Live Tracking</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc.\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:23:46.337Z",
+      "createdAt": "2026-09-25T09:23:46.337Z",
+      "updatedAt": "2026-09-25T09:23:46.337Z"
+    },
+    {
+      "_id": "mugr6nrn_8w60w6y",
+      "id": "mugr6nrn_8w60w6y",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_STATUS_UPDATE",
+      "subject": "Order Update: ORD-2026-B88745A9 is now OUT FOR DELIVERY",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .status-badge { display: inline-block; background: #38bdf8; color: #0f172a; font-weight: 700; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-top: 12px; }\n          .content { padding: 32px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 20px; color: #ffffff;\">Order Status Update</h1>\n            <div class=\"status-badge\">OUT FOR DELIVERY</div>\n          </div>\n          <div class=\"content\">\n            <p>Dear SAWAN HALLI,</p>\n            <p>Your order <strong>ORD-2026-B88745A9</strong> has been updated to: <strong>OUT FOR DELIVERY</strong>.</p>\n            \n            <p><strong>Carrier:</strong> DHL Express<br><strong>Tracking Number:</strong> LXCB63C022</p>\n            <div style=\"text-align: center; margin-top: 28px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B88745A9\" class=\"btn\">View Live Tracking</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc.\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:23:19.379Z",
+      "createdAt": "2026-09-25T09:23:19.379Z",
+      "updatedAt": "2026-09-25T09:23:19.379Z"
+    },
+    {
+      "_id": "mugr4qlg_sleqi6w",
+      "id": "mugr4qlg_sleqi6w",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_STATUS_UPDATE",
+      "subject": "Order Update: ORD-2026-B88745A9 is now DELIVERED",
+      "status": "FAILED",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .status-badge { display: inline-block; background: #38bdf8; color: #0f172a; font-weight: 700; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-top: 12px; }\n          .content { padding: 32px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 20px; color: #ffffff;\">Order Status Update</h1>\n            <div class=\"status-badge\">DELIVERED</div>\n          </div>\n          <div class=\"content\">\n            <p>Dear SAWAN HALLI,</p>\n            <p>Your order <strong>ORD-2026-B88745A9</strong> has been updated to: <strong>DELIVERED</strong>.</p>\n            \n            <p><strong>Carrier:</strong> DHL Express<br><strong>Tracking Number:</strong> LXCB63C022</p>\n            <div style=\"text-align: center; margin-top: 28px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B88745A9\" class=\"btn\">View Live Tracking</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc.\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:21:49.732Z",
+      "errorMessage": "connect ENETUNREACH 2404:6800:4000:1025::6c:587",
+      "createdAt": "2026-09-25T09:21:49.732Z",
+      "updatedAt": "2026-09-25T09:21:49.732Z"
+    },
+    {
+      "_id": "mugr4qld_d6ou9p6",
+      "id": "mugr4qld_d6ou9p6",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_STATUS_UPDATE",
+      "subject": "Order Update: ORD-2026-B88745A9 is now DELIVERED",
+      "status": "FAILED",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .status-badge { display: inline-block; background: #38bdf8; color: #0f172a; font-weight: 700; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-top: 12px; }\n          .content { padding: 32px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 20px; color: #ffffff;\">Order Status Update</h1>\n            <div class=\"status-badge\">DELIVERED</div>\n          </div>\n          <div class=\"content\">\n            <p>Dear SAWAN HALLI,</p>\n            <p>Your order <strong>ORD-2026-B88745A9</strong> has been updated to: <strong>DELIVERED</strong>.</p>\n            \n            <p><strong>Carrier:</strong> DHL Express<br><strong>Tracking Number:</strong> LXCB63C022</p>\n            <div style=\"text-align: center; margin-top: 28px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B88745A9\" class=\"btn\">View Live Tracking</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc.\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:21:49.729Z",
+      "errorMessage": "connect ENETUNREACH 2404:6800:4000:1025::6c:587",
+      "createdAt": "2026-09-25T09:21:49.729Z",
+      "updatedAt": "2026-09-25T09:21:49.729Z"
+    },
+    {
+      "_id": "mugr1yv9_d6ii022",
+      "id": "mugr1yv9_d6ii022",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_CONFIRMATION",
+      "subject": "Order Confirmation - ORD-2026-B88745A9",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-B88745A9</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              PLOT NO 34 SAI NIVAS JAYATEETH NAGAR AKLABURAGI , KALABURAGI, Karnataka 585102, France\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B88745A9\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:19:40.485Z",
+      "createdAt": "2026-09-25T09:19:40.485Z",
+      "updatedAt": "2026-09-25T09:19:40.485Z"
+    },
+    {
+      "_id": "mugqzovu_2u50n31",
+      "id": "mugqzovu_2u50n31",
+      "recipient": "salesmanager@gmail.com",
+      "emailType": "NEW_LAUNCH",
+      "subject": "Exclusive Launch: DOUBLE FACED CASHMERE OVERCOAT",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .image { width: 100%; height: 320px; object-fit: cover; }\n          .content { padding: 32px; text-align: center; }\n          .title { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }\n          .price { font-size: 20px; color: #0284c7; font-weight: 700; margin-bottom: 16px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <img src=\"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18\" class=\"image\" alt=\"DOUBLE FACED CASHMERE OVERCOAT\" />\n          <div class=\"content\">\n            <div style=\"font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #64748b; margin-bottom: 8px;\">New Release</div>\n            <h1 class=\"title\">DOUBLE FACED CASHMERE OVERCOAT</h1>\n            <div class=\"price\">$225.00</div>\n            <p style=\"color: #64748b; line-height: 1.6; margin-bottom: 24px;\">BOOK IT FAST AS SOON AS POSSIBLE</p>\n            <a href=\"http://localhost:3000/products/double-faced-cashmere-overcoat-moki\" class=\"btn\">Shop The Launch</a>\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:17:54.234Z",
+      "createdAt": "2026-09-25T09:17:54.234Z",
+      "updatedAt": "2026-09-25T09:17:54.234Z"
+    },
+    {
+      "_id": "mugqzo6n_qjayags",
+      "id": "mugqzo6n_qjayags",
+      "recipient": "sksawan240@gmail.com",
+      "emailType": "NEW_LAUNCH",
+      "subject": "Exclusive Launch: DOUBLE FACED CASHMERE OVERCOAT",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .image { width: 100%; height: 320px; object-fit: cover; }\n          .content { padding: 32px; text-align: center; }\n          .title { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }\n          .price { font-size: 20px; color: #0284c7; font-weight: 700; margin-bottom: 16px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <img src=\"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18\" class=\"image\" alt=\"DOUBLE FACED CASHMERE OVERCOAT\" />\n          <div class=\"content\">\n            <div style=\"font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #64748b; margin-bottom: 8px;\">New Release</div>\n            <h1 class=\"title\">DOUBLE FACED CASHMERE OVERCOAT</h1>\n            <div class=\"price\">$225.00</div>\n            <p style=\"color: #64748b; line-height: 1.6; margin-bottom: 24px;\">BOOK IT FAST AS SOON AS POSSIBLE</p>\n            <a href=\"http://localhost:3000/products/double-faced-cashmere-overcoat-moki\" class=\"btn\">Shop The Launch</a>\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:17:53.327Z",
+      "createdAt": "2026-09-25T09:17:53.327Z",
+      "updatedAt": "2026-09-25T09:17:53.327Z"
+    },
+    {
+      "_id": "mugqznm6_3yif14u",
+      "id": "mugqznm6_3yif14u",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "NEW_LAUNCH",
+      "subject": "Exclusive Launch: DOUBLE FACED CASHMERE OVERCOAT",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .image { width: 100%; height: 320px; object-fit: cover; }\n          .content { padding: 32px; text-align: center; }\n          .title { font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }\n          .price { font-size: 20px; color: #0284c7; font-weight: 700; margin-bottom: 16px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <img src=\"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18\" class=\"image\" alt=\"DOUBLE FACED CASHMERE OVERCOAT\" />\n          <div class=\"content\">\n            <div style=\"font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #64748b; margin-bottom: 8px;\">New Release</div>\n            <h1 class=\"title\">DOUBLE FACED CASHMERE OVERCOAT</h1>\n            <div class=\"price\">$225.00</div>\n            <p style=\"color: #64748b; line-height: 1.6; margin-bottom: 24px;\">BOOK IT FAST AS SOON AS POSSIBLE</p>\n            <a href=\"http://localhost:3000/products/double-faced-cashmere-overcoat-moki\" class=\"btn\">Shop The Launch</a>\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T09:17:52.590Z",
+      "createdAt": "2026-09-25T09:17:52.590Z",
+      "updatedAt": "2026-09-25T09:17:52.590Z"
+    },
+    {
+      "_id": "mugq1xwq_gyof9um",
+      "id": "mugq1xwq_gyof9um",
+      "recipient": "salesmanager@gmail.com",
+      "emailType": "WELCOME",
+      "subject": "Welcome to LuxeAttire - Exclusive Fashion & Ready-to-Wear",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }\n          .header { background: linear-gradient(135deg, #0f172a 0%, #312e81 100%); padding: 48px 32px; text-align: center; color: #ffffff; }\n          .logo { font-size: 28px; font-weight: 800; letter-spacing: 2px; color: #fbbf24; }\n          .content { padding: 40px 32px; line-height: 1.6; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; font-weight: 600; border-radius: 8px; margin-top: 20px; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px 32px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <div class=\"logo\">LUXE ATTIRE</div>\n            <h1 style=\"font-size: 24px; margin: 16px 0 0 0; color: #ffffff;\">Welcome to the Inner Circle</h1>\n          </div>\n          <div class=\"content\">\n            <p>Dear SALES MANAGER,</p>\n            <p>Your account is now fully verified. Welcome to LuxeAttire, where contemporary craftsmanship meets uncompromising luxury.</p>\n            <p>As a valued member, enjoy tailored styling suggestions, expedited express shipping, and exclusive invitations to seasonal private sales.</p>\n            <div style=\"text-align: center; margin: 30px 0;\">\n              <a href=\"http://localhost:3000\" class=\"btn\">Explore The New Collection</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc. · 540 Madison Ave, New York, NY 10022\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T08:51:39.626Z",
+      "createdAt": "2026-09-25T08:51:39.626Z",
+      "updatedAt": "2026-09-25T08:51:39.626Z"
+    },
+    {
+      "_id": "mugpzmg5_iji5zmn",
+      "id": "mugpzmg5_iji5zmn",
+      "recipient": "storemanager@gmail.com",
+      "emailType": "WELCOME",
+      "subject": "Welcome to LuxeAttire - Exclusive Fashion & Ready-to-Wear",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }\n          .header { background: linear-gradient(135deg, #0f172a 0%, #312e81 100%); padding: 48px 32px; text-align: center; color: #ffffff; }\n          .logo { font-size: 28px; font-weight: 800; letter-spacing: 2px; color: #fbbf24; }\n          .content { padding: 40px 32px; line-height: 1.6; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; font-weight: 600; border-radius: 8px; margin-top: 20px; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px 32px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <div class=\"logo\">LUXE ATTIRE</div>\n            <h1 style=\"font-size: 24px; margin: 16px 0 0 0; color: #ffffff;\">Welcome to the Inner Circle</h1>\n          </div>\n          <div class=\"content\">\n            <p>Dear SALES MANAGER,</p>\n            <p>Your account is now fully verified. Welcome to LuxeAttire, where contemporary craftsmanship meets uncompromising luxury.</p>\n            <p>As a valued member, enjoy tailored styling suggestions, expedited express shipping, and exclusive invitations to seasonal private sales.</p>\n            <div style=\"text-align: center; margin: 30px 0;\">\n              <a href=\"http://localhost:3000\" class=\"btn\">Explore The New Collection</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc. · 540 Madison Ave, New York, NY 10022\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T08:49:51.461Z",
+      "createdAt": "2026-09-25T08:49:51.461Z",
+      "updatedAt": "2026-09-25T08:49:51.461Z"
+    },
+    {
+      "_id": "mugpvopv_xgapfu3",
+      "id": "mugpvopv_xgapfu3",
+      "recipient": "sksawan240@gmail.com",
+      "emailType": "WELCOME",
+      "subject": "Welcome to LuxeAttire - Exclusive Fashion & Ready-to-Wear",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }\n          .header { background: linear-gradient(135deg, #0f172a 0%, #312e81 100%); padding: 48px 32px; text-align: center; color: #ffffff; }\n          .logo { font-size: 28px; font-weight: 800; letter-spacing: 2px; color: #fbbf24; }\n          .content { padding: 40px 32px; line-height: 1.6; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; font-weight: 600; border-radius: 8px; margin-top: 20px; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px 32px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <div class=\"logo\">LUXE ATTIRE</div>\n            <h1 style=\"font-size: 24px; margin: 16px 0 0 0; color: #ffffff;\">Welcome to the Inner Circle</h1>\n          </div>\n          <div class=\"content\">\n            <p>Dear ADMIN,</p>\n            <p>Your account is now fully verified. Welcome to LuxeAttire, where contemporary craftsmanship meets uncompromising luxury.</p>\n            <p>As a valued member, enjoy tailored styling suggestions, expedited express shipping, and exclusive invitations to seasonal private sales.</p>\n            <div style=\"text-align: center; margin: 30px 0;\">\n              <a href=\"http://localhost:3000\" class=\"btn\">Explore The New Collection</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc. · 540 Madison Ave, New York, NY 10022\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T08:46:47.779Z",
+      "createdAt": "2026-09-25T08:46:47.779Z",
+      "updatedAt": "2026-09-25T08:46:47.779Z"
+    },
+    {
+      "_id": "mugn737x_swkelpz",
+      "id": "mugn737x_swkelpz",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "WELCOME",
+      "subject": "Welcome to LuxeAttire - Exclusive Fashion & Ready-to-Wear",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }\n          .header { background: linear-gradient(135deg, #0f172a 0%, #312e81 100%); padding: 48px 32px; text-align: center; color: #ffffff; }\n          .logo { font-size: 28px; font-weight: 800; letter-spacing: 2px; color: #fbbf24; }\n          .content { padding: 40px 32px; line-height: 1.6; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; font-weight: 600; border-radius: 8px; margin-top: 20px; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px 32px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <div class=\"logo\">LUXE ATTIRE</div>\n            <h1 style=\"font-size: 24px; margin: 16px 0 0 0; color: #ffffff;\">Welcome to the Inner Circle</h1>\n          </div>\n          <div class=\"content\">\n            <p>Dear SAWAN HALLI,</p>\n            <p>Your account is now fully verified. Welcome to LuxeAttire, where contemporary craftsmanship meets uncompromising luxury.</p>\n            <p>As a valued member, enjoy tailored styling suggestions, expedited express shipping, and exclusive invitations to seasonal private sales.</p>\n            <div style=\"text-align: center; margin: 30px 0;\">\n              <a href=\"http://localhost:3000\" class=\"btn\">Explore The New Collection</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc. · 540 Madison Ave, New York, NY 10022\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T07:31:40.941Z",
+      "createdAt": "2026-09-25T07:31:40.941Z",
+      "updatedAt": "2026-09-25T07:31:40.941Z"
+    },
+    {
+      "_id": "mugn0y35_wvaxw96",
+      "id": "mugn0y35_wvaxw96",
+      "recipient": "sksawan240@gmail.com",
+      "emailType": "WELCOME",
+      "subject": "Welcome to LuxeAttire - Exclusive Fashion & Ready-to-Wear",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }\n          .header { background: linear-gradient(135deg, #0f172a 0%, #312e81 100%); padding: 48px 32px; text-align: center; color: #ffffff; }\n          .logo { font-size: 28px; font-weight: 800; letter-spacing: 2px; color: #fbbf24; }\n          .content { padding: 40px 32px; line-height: 1.6; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; font-weight: 600; border-radius: 8px; margin-top: 20px; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px 32px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <div class=\"logo\">LUXE ATTIRE</div>\n            <h1 style=\"font-size: 24px; margin: 16px 0 0 0; color: #ffffff;\">Welcome to the Inner Circle</h1>\n          </div>\n          <div class=\"content\">\n            <p>Dear sawanhalli,</p>\n            <p>Your account is now fully verified. Welcome to LuxeAttire, where contemporary craftsmanship meets uncompromising luxury.</p>\n            <p>As a valued member, enjoy tailored styling suggestions, expedited express shipping, and exclusive invitations to seasonal private sales.</p>\n            <div style=\"text-align: center; margin: 30px 0;\">\n              <a href=\"http://localhost:3000\" class=\"btn\">Explore The New Collection</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 LuxeAttire Inc. · 540 Madison Ave, New York, NY 10022\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-09-25T07:26:54.353Z",
+      "createdAt": "2026-09-25T07:26:54.353Z",
+      "updatedAt": "2026-09-25T07:26:54.353Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "_id": "mugr74f2_7ol8o2v",
+      "id": "mugr74f2_7ol8o2v",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_STATUS_UPDATED",
+      "entity": "Order",
+      "entityId": "mugr1vnu_421f7le",
+      "metadata": {
+        "orderId": "ORD-2026-B88745A9",
+        "oldStatus": "OUT_FOR_DELIVERY",
+        "newStatus": "DELIVERED"
+      },
+      "timestamp": "2026-09-25T09:23:40.958Z",
+      "createdAt": "2026-09-25T09:23:40.958Z",
+      "updatedAt": "2026-09-25T09:23:40.958Z"
+    },
+    {
+      "_id": "mugr6jju_16wlfw6",
+      "id": "mugr6jju_16wlfw6",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_STATUS_UPDATED",
+      "entity": "Order",
+      "entityId": "mugr1vnu_421f7le",
+      "metadata": {
+        "orderId": "ORD-2026-B88745A9",
+        "oldStatus": "DELIVERED",
+        "newStatus": "OUT_FOR_DELIVERY"
+      },
+      "timestamp": "2026-09-25T09:23:13.914Z",
+      "createdAt": "2026-09-25T09:23:13.914Z",
+      "updatedAt": "2026-09-25T09:23:13.914Z"
+    },
+    {
+      "_id": "mugr6blj_fty3hjy",
+      "id": "mugr6blj_fty3hjy",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_UPDATED",
+      "entity": "Product",
+      "entityId": "mugqzjxw_x5bw16i",
+      "metadata": {
+        "changedFields": [
+          "stock"
+        ]
+      },
+      "timestamp": "2026-09-25T09:23:03.607Z",
+      "createdAt": "2026-09-25T09:23:03.607Z",
+      "updatedAt": "2026-09-25T09:23:03.607Z"
+    },
+    {
+      "_id": "mugr4okm_ekwlc0a",
+      "id": "mugr4okm_ekwlc0a",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_STATUS_UPDATED",
+      "entity": "Order",
+      "entityId": "mugr1vnu_421f7le",
+      "metadata": {
+        "orderId": "ORD-2026-B88745A9",
+        "oldStatus": "DELIVERED",
+        "newStatus": "DELIVERED"
+      },
+      "timestamp": "2026-09-25T09:21:47.110Z",
+      "createdAt": "2026-09-25T09:21:47.110Z",
+      "updatedAt": "2026-09-25T09:21:47.110Z"
+    },
+    {
+      "_id": "mugr4fsx_qie9nqt",
+      "id": "mugr4fsx_qie9nqt",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_STATUS_UPDATED",
+      "entity": "Order",
+      "entityId": "mugr1vnu_421f7le",
+      "metadata": {
+        "orderId": "ORD-2026-B88745A9",
+        "oldStatus": "PLACED",
+        "newStatus": "DELIVERED"
+      },
+      "timestamp": "2026-09-25T09:21:35.745Z",
+      "createdAt": "2026-09-25T09:21:35.745Z",
+      "updatedAt": "2026-09-25T09:21:35.745Z"
+    },
+    {
+      "_id": "mugr1voc_74yu8sh",
+      "id": "mugr1voc_74yu8sh",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED",
+      "entity": "Order",
+      "entityId": "mugr1vnu_421f7le",
+      "metadata": {
+        "orderId": "ORD-2026-B88745A9",
+        "total": 243,
+        "itemCount": 1
+      },
+      "timestamp": "2026-09-25T09:19:36.348Z",
+      "createdAt": "2026-09-25T09:19:36.348Z",
+      "updatedAt": "2026-09-25T09:19:36.348Z"
+    },
+    {
+      "_id": "mugqzjxz_ybmb37z",
+      "id": "mugqzjxz_ybmb37z",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_CREATED",
+      "entity": "Product",
+      "entityId": "mugqzjxw_x5bw16i",
+      "metadata": {
+        "name": "DOUBLE FACED CASHMERE OVERCOAT",
+        "sku": "LUXE-OUT-MUGQZJXU",
+        "price": 225,
+        "stock": 15
+      },
+      "timestamp": "2026-09-25T09:17:47.831Z",
+      "createdAt": "2026-09-25T09:17:47.831Z",
+      "updatedAt": "2026-09-25T09:17:47.831Z"
+    }
+  ],
+  "settings": [
+    {
+      "_id": "default_store_settings",
+      "hero": {
+        "title": "Elevate Your Signature Style",
+        "subtitle": "Discover meticulously curated luxury apparel crafted for timeless modern elegance.",
+        "ctaText": "Shop New Arrivals",
+        "ctaLink": "/products",
+        "secondaryCtaText": "Explore Collections",
+        "secondaryCtaLink": "/categories",
+        "bannerImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop",
+        "badge": "Spring / Summer 2026"
+      },
+      "announcementBar": {
+        "text": "Complimentary Worldwide Shipping on Orders Over $200 · Use Code LUXE15 for 15% Off",
+        "isActive": true
+      },
+      "updatedAt": "2026-09-25T07:21:05.718Z"
+    }
+  ]
+}
