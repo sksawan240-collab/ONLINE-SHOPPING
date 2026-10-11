@@ -161,10 +161,10 @@ export const Footer: React.FC = () => {
             <h5 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">The Atelier</h5>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <span className="text-stone-400">540 Madison Ave, New York, NY</span>
+                <span className="text-stone-400">BANGLORE</span>
               </li>
               <li>
-                <span className="text-stone-400">Via Montenapoleone 8, Milan</span>
+                <span className="text-stone-400">INDIA</span>
               </li>
               <li>
                 <span className="text-stone-400">naveorindia@gmail.com</span>
