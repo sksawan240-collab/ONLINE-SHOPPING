@@ -28,7 +28,7 @@ const isProd = process.env.NODE_ENV === 'production';
 async function startServer() {
   const app = express();
 
-  // Basic security and parsing middleware
+  // CORS and body parser
   app.use(cors({
     origin: true,
     credentials: true,
@@ -37,25 +37,19 @@ async function startServer() {
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-  // REMOVE CSP FROM HTML - SET IT HERE IN SERVER ONLY
+  // CSP MIDDLEWARE - MUST BE FIRST AFTER BODY PARSERS
   app.use((req: Request, res: Response, next: NextFunction) => {
-    // Comprehensive CSP that allows Google Fonts
     res.setHeader(
       'Content-Security-Policy',
-      "default-src 'self'; " +
-      "script-src 'self'; " +
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; " +
-      "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com data:; " +
-      "img-src 'self' data: https: blob:; " +
-      "connect-src 'self' https: wss:; " +
-      "frame-ancestors 'none'; " +
-      "object-src 'none'; " +
-      "base-uri 'self';"
+      "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com data:; img-src 'self' data: https: blob:; connect-src 'self' https: wss:; frame-ancestors 'none'; object-src 'none'; base-uri 'self';"
     );
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
     next();
   });
 
-  // Initialize Database (MongoDB via Mongoose if MONGODB_URI set, or persistent disk storage)
+  // Initialize Database
   await initDatabaseConnection();
 
   // API Routes
@@ -81,16 +75,6 @@ async function startServer() {
     });
   });
 
-  // Centralized Error Handling Middleware
-  app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-    console.error('[Server Error]:', err);
-    res.status(err.status || 500).json({
-      success: false,
-      message: err.message || 'Internal server error occurred.',
-      code: err.code || 'INTERNAL_ERROR',
-    });
-  });
-
   if (!isProd) {
     // Vite middleware in dev
     const vite = await createViteServer({
@@ -99,27 +83,42 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    // Serve static files in production
+    // Production: Serve built dist folder
     const distPath = path.resolve(process.cwd(), 'dist');
     if (fs.existsSync(distPath)) {
-      // Serve static assets with proper cache headers
+      // Serve static files with cache headers
       app.use(express.static(distPath, {
-        maxAge: '1d',
+        maxAge: '1h',
         etag: false,
       }));
-      
-      // Catch-all route: serve index.html for all non-API routes (SPA routing)
+
+      // SPA catch-all: serve index.html for all non-API routes
       app.get('*', (req: Request, res: Response) => {
-        // Don't serve index.html for API requests
         if (req.path.startsWith('/api/')) {
           return res.status(404).json({ success: false, message: 'API endpoint not found' });
         }
         res.sendFile(path.resolve(distPath, 'index.html'));
       });
     } else {
-      console.warn('[Server] dist directory not found. Running in development mode instead.');
+      console.warn('[Server] dist directory not found');
+      // Fallback to dev mode
+      const vite = await createViteServer({
+        server: { middlewareMode: true },
+        appType: 'spa',
+      });
+      app.use(vite.middlewares);
     }
   }
+
+  // Error handling middleware
+  app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+    console.error('[Server Error]:', err);
+    res.status(err.status || 500).json({
+      success: false,
+      message: err.message || 'Internal server error occurred.',
+      code: err.code || 'INTERNAL_ERROR',
+    });
+  });
 
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`[LuxeAttire Server] Running on http://localhost:${PORT}`);
