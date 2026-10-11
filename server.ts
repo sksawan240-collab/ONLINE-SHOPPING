@@ -37,6 +37,15 @@ async function startServer() {
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+  // Content Security Policy Middleware
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    res.setHeader(
+      'Content-Security-Policy',
+      "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data: https:; connect-src 'self'"
+    );
+    next();
+  });
+
   // Initialize Database (MongoDB via Mongoose if MONGODB_URI set, or persistent disk storage)
   await initDatabaseConnection();
 
