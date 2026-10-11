@@ -167,7 +167,7 @@ export const Footer: React.FC = () => {
                 <span className="text-stone-400">Via Montenapoleone 8, Milan</span>
               </li>
               <li>
-                <span className="text-stone-400">support@luxeattire.fashion</span>
+                <span className="text-stone-400">naveorindia@gmail.com</span>
               </li>
               <li className="pt-2">
                 <div className="flex items-center space-x-3 text-stone-400">
