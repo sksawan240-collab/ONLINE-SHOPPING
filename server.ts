@@ -84,10 +84,22 @@ async function startServer() {
     // Serve static files in production
     const distPath = path.resolve(process.cwd(), 'dist');
     if (fs.existsSync(distPath)) {
-      app.use(express.static(distPath));
+      // Serve static assets with proper cache headers
+      app.use(express.static(distPath, {
+        maxAge: '1d',
+        etag: false,
+      }));
+      
+      // Catch-all route: serve index.html for all non-API routes (SPA routing)
       app.get('*', (req: Request, res: Response) => {
+        // Don't serve index.html for API requests
+        if (req.path.startsWith('/api/')) {
+          return res.status(404).json({ success: false, message: 'API endpoint not found' });
+        }
         res.sendFile(path.resolve(distPath, 'index.html'));
       });
+    } else {
+      console.warn('[Server] dist directory not found. Running in development mode instead.');
     }
   }
 
