@@ -39,7 +39,7 @@ export const ProductSchema = new Schema({
   brand: { type: String, required: true, index: true },
   category: { type: String, required: true, index: true },
   subcategory: { type: String, default: '' },
-  gender: { type: String, enum: ['Men', 'Women', 'Kids', 'Unisex'], required: true, index: true },
+    gender: { type: String, enum: ['Men', 'Unisex'], required: true, index: true },
   sizes: [{ type: String }], // e.g. XS, S, M, L, XL, XXL
   colors: [{
     name: String,

@@ -238,7 +238,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2.5">Gender</h4>
               <div className="space-y-1">
-                {['All', 'Women', 'Men', 'Kids', 'Unisex'].map(g => (
+                {['All', 'Men', 'Unisex'].map(g => (
                   <button
                     key={g}
                     onClick={() => updateParam('gender', g === 'All' ? null : g)}

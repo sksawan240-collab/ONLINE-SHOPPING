@@ -57,7 +57,7 @@ export interface Product {
   brand: string;
   category: string;
   subcategory?: string;
-  gender: 'Men' | 'Women' | 'Kids' | 'Unisex';
+    gender: 'Men' | 'Unisex';
   sizes: string[];
   colors: ProductColor[];
   material: string;

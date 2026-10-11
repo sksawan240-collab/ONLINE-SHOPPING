@@ -53,7 +53,7 @@ export const AdminDashboard: React.FC = () => {
   const [pName, setPName] = useState('');
   const [pBrand, setPBrand] = useState('Luxe Atelier');
   const [pCategory, setPCategory] = useState('Outerwear & Coats');
-  const [pGender, setPGender] = useState<'Men' | 'Women' | 'Kids' | 'Unisex'>('Men');
+    const [pGender, setPGender] = useState<'Men' | 'Unisex'>('Men');
   const [pPrice, setPPrice] = useState('350');
   const [pDiscount, setPDiscount] = useState('0');
   const [pStock, setPStock] = useState('20');
@@ -777,9 +777,7 @@ export const AdminDashboard: React.FC = () => {
                           onChange={e => setPGender(e.target.value as any)}
                           className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-lg text-xs"
                         >
-                          <option value="Men">Men</option>
-                          <option value="Women">Women</option>
-                          <option value="Kids">Kids</option>
+                                                    <option value="Men">Men</option>
                           <option value="Unisex">Unisex</option>
                         </select>
                       </div>
