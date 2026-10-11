@@ -21,7 +21,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
 
-  // Available filter options fetched from actual catalog
   const [filterMeta, setFilterMeta] = useState<{
     categories: string[];
     brands: string[];
@@ -38,10 +37,9 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
     maxPrice: 1000,
   });
 
-  // Extract query filters
   const currentCategory = searchParams.get('category') || '';
   const currentBrand = searchParams.get('brand') || '';
-  const currentGender = searchParams.get('gender') || '';
+  const currentGender = searchParams.get('gender') || 'Men';
   const currentSize = searchParams.get('size') || '';
   const currentColor = searchParams.get('color') || '';
   const currentSearch = searchParams.get('search') || '';
@@ -50,7 +48,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
   const currentMaxPrice = searchParams.get('maxPrice') || '';
   const currentNewArrival = searchParams.get('isNewArrival') || '';
 
-  // Load catalog filter metadata
   useEffect(() => {
     api.products.getFilters()
       .then(res => {
@@ -61,7 +58,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
       .catch(() => {});
   }, []);
 
-  // Fetch products on query param changes
   useEffect(() => {
     async function fetchCatalog() {
       try {
@@ -69,10 +65,12 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
         const page = parseInt(searchParams.get('page') || '1', 10);
         setCurrentPage(page);
 
+        const genderParam = currentGender === 'All' ? undefined : (currentGender || 'Men');
+
         const res = await api.products.list({
           category: currentCategory || undefined,
           brand: currentBrand || undefined,
-          gender: currentGender && currentGender !== 'All' ? currentGender : undefined,
+          gender: genderParam,
           size: currentSize || undefined,
           color: currentColor || undefined,
           search: currentSearch || undefined,
@@ -96,7 +94,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
       }
     }
     fetchCatalog();
-  }, [searchParams]);
+  }, [searchParams, currentGender, currentCategory, currentBrand, currentSize, currentColor, currentSearch, currentSort, currentMinPrice, currentMaxPrice, currentNewArrival]);
 
   const updateParam = (key: string, val: string | null) => {
     const next = new URLSearchParams(searchParams);
@@ -105,26 +103,27 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
     } else {
       next.set(key, val);
     }
-    next.set('page', '1'); // reset page
+    next.set('page', '1');
     setSearchParams(next);
   };
 
   const clearAllFilters = () => {
-    setSearchParams(new URLSearchParams());
+    const next = new URLSearchParams();
+    next.set('gender', 'Men');
+    setSearchParams(next);
   };
 
   const hasActiveFilters =
-    Boolean(currentCategory || currentBrand || currentGender || currentSize || currentColor || currentSearch || currentMinPrice || currentMaxPrice || currentNewArrival);
+    Boolean(currentCategory || currentBrand || currentGender !== 'Men' || currentSize || currentColor || currentSearch || currentMinPrice || currentMaxPrice || currentNewArrival);
 
   return (
     <div className="min-h-screen bg-[#fafaf9] py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb & Header */}
         <div className="mb-6">
           <div className="text-xs text-stone-500 mb-1">
             <span>Atelier</span>
             <span className="mx-1.5">/</span>
-            <span className="text-stone-900 font-medium">Collections</span>
+            <span className="text-stone-900 font-medium">Men’s Fashion</span>
             {currentCategory && (
               <>
                 <span className="mx-1.5">/</span>
@@ -135,14 +134,13 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h1 className="font-serif text-3xl font-bold text-stone-900">
-                {currentCategory || (currentGender ? `${currentGender}'s Collection` : 'All Garments')}
+                {currentCategory || (currentGender ? `${currentGender}'s Collection` : 'Men’s Collection')}
               </h1>
               <p className="text-xs text-stone-500 mt-0.5">
-                Displaying {totalProducts} verified piece{totalProducts === 1 ? '' : 's'}
+                Displaying {totalProducts} verified men’s style{totalProducts === 1 ? '' : 's'}
               </p>
             </div>
 
-            {/* Sort & Mobile Filter Toggle */}
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setMobileFilterOpen(true)}
@@ -171,7 +169,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
           </div>
         </div>
 
-        {/* Active Filters Chips */}
         {hasActiveFilters && (
           <div className="flex flex-wrap items-center gap-2 mb-6 p-3 bg-white rounded-xl border border-stone-200">
             <span className="text-xs text-stone-500 font-medium">Applied Filters:</span>
@@ -181,10 +178,10 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
                 <button onClick={() => updateParam('category', null)}><X className="w-3 h-3 hover:text-stone-950" /></button>
               </span>
             )}
-            {currentGender && (
+            {currentGender && currentGender !== 'Men' && (
               <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 bg-stone-100 text-stone-800 rounded-md">
                 Gender: {currentGender}
-                <button onClick={() => updateParam('gender', null)}><X className="w-3 h-3 hover:text-stone-950" /></button>
+                <button onClick={() => updateParam('gender', 'Men')}><X className="w-3 h-3 hover:text-stone-950" /></button>
               </span>
             )}
             {currentBrand && (
@@ -221,9 +218,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
           </div>
         )}
 
-        {/* Main Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Desktop Filter Sidebar */}
           <aside className="hidden lg:block space-y-6 bg-white p-5 rounded-2xl border border-stone-200 h-fit sticky top-24">
             <div className="flex items-center justify-between pb-3 border-b border-stone-100">
               <h3 className="font-serif text-base font-bold text-stone-900">Refine Selection</h3>
@@ -234,16 +229,15 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
               )}
             </div>
 
-            {/* Gender filter */}
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2.5">Gender</h4>
               <div className="space-y-1">
-                {['All', 'Men', 'Unisex'].map(g => (
+                {['All', 'Men'].map(g => (
                   <button
                     key={g}
                     onClick={() => updateParam('gender', g === 'All' ? null : g)}
                     className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-colors flex items-center justify-between ${
-                      (currentGender === g || (!currentGender && g === 'All'))
+                      (currentGender === g || (!currentGender && g === 'Men'))
                         ? 'bg-stone-900 text-white font-semibold'
                         : 'text-stone-600 hover:bg-stone-100'
                     }`}
@@ -254,7 +248,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
               </div>
             </div>
 
-            {/* Category filter */}
             {filterMeta.categories.length > 0 && (
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2.5">Category</h4>
@@ -276,10 +269,9 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
               </div>
             )}
 
-            {/* Brand filter */}
             {filterMeta.brands.length > 0 && (
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2.5">Atelier Brand</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2.5">Brand</h4>
                 <div className="space-y-1 max-h-36 overflow-y-auto">
                   {filterMeta.brands.map(brand => (
                     <button
@@ -298,7 +290,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
               </div>
             )}
 
-            {/* Sizes */}
             {filterMeta.sizes.length > 0 && (
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2.5">Sizes</h4>
@@ -320,7 +311,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
               </div>
             )}
 
-            {/* Colors */}
             {filterMeta.colors.length > 0 && (
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2.5">Palette</h4>
@@ -342,7 +332,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
             )}
           </aside>
 
-          {/* Product Grid Area */}
           <main className="lg:col-span-3">
             {loading ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
@@ -363,7 +352,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
                   ))}
                 </div>
 
-                {/* Pagination */}
                 {totalPages > 1 && (
                   <div className="flex items-center justify-center space-x-2 mt-12">
                     <button
@@ -400,11 +388,11 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
                 )}
               </>
             ) : (
-              <div className="text-center py-20 px-4 bg-white rounded-2xl border border-stone-200 shadow-2xs">
+              <div className="text-center py-20 px-4 bg-white rounded-2xl border border-stone-200 shadow-sm">
                 <Search className="w-12 h-12 text-stone-300 mx-auto mb-3" />
-                <h3 className="font-serif text-lg font-bold text-stone-900">No matching garments found</h3>
+                <h3 className="font-serif text-lg font-bold text-stone-900">No matching men’s styles found</h3>
                 <p className="text-xs text-stone-500 mt-1 max-w-sm mx-auto">
-                  Try adjusting or resetting your filter criteria to discover pieces in other ateliers.
+                  Try adjusting or resetting your filters to discover premium men’s essentials.
                 </p>
                 <button
                   onClick={clearAllFilters}
@@ -418,7 +406,6 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
         </div>
       </div>
 
-      {/* Quick View Modal */}
       <QuickViewModal
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
@@ -427,3 +414,4 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onOpenAuth }) => {
     </div>
   );
 };
+

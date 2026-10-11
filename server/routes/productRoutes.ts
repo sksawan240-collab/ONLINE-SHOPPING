@@ -11,7 +11,45 @@ import { sendEmail, emailTemplates } from '../services/emailService';
 
 const router = Router();
 
-// Helper to slugify string
+const MEN_CATEGORIES = new Set([
+  'T-Shirts',
+  'Polo T-Shirts',
+  'Casual Shirts',
+  'Formal Shirts',
+  'Oversized T-Shirts',
+  'Printed T-Shirts',
+  'Hoodies',
+  'Sweatshirts',
+  'Jackets',
+  'Blazers',
+  'Suits',
+  'Traditional Wear',
+  'Kurtas',
+  'Ethnic Sets',
+  'Jeans',
+  'Cargo Pants',
+  'Chinos',
+  'Formal Trousers',
+  'Casual Trousers',
+  'Joggers',
+  'Shorts',
+  'Sneakers',
+  'Casual Shoes',
+  'Formal Shoes',
+  'Sports Shoes',
+  'Sandals',
+  'Slippers',
+  'Boots',
+  'Watches',
+  'Wallets',
+  'Belts',
+  'Sunglasses',
+  'Caps',
+  'Bags',
+  'Backpacks',
+  'Bracelets',
+]);
+
 function slugify(text: string): string {
   return text
     .toString()
@@ -22,7 +60,16 @@ function slugify(text: string): string {
     .replace(/\-\-+/g, '-') + '-' + Math.random().toString(36).substring(2, 6);
 }
 
-// GET /api/products (Public with role-based visibility)
+function isMenProduct(product: any): boolean {
+  const category = String(product?.category || '').trim();
+  const gender = String(product?.gender || '').trim();
+
+  if (gender === 'Men') return true;
+  if (gender === 'Unisex') return MEN_CATEGORIES.has(category);
+  if (!gender) return MEN_CATEGORIES.has(category) || category === '';
+  return false;
+}
+
 router.get('/', optionalAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
     const {
@@ -51,14 +98,14 @@ router.get('/', optionalAuth, async (req: AuthenticatedRequest, res: Response) =
 
     let allProducts = await db.products.find();
 
-    // Visibility filter: Public callers only see PUBLISHED products
+    allProducts = allProducts.filter((p: any) => isMenProduct(p));
+
     if (!isStaff) {
       allProducts = allProducts.filter((p: any) => p.status === 'PUBLISHED');
     } else if (status) {
       allProducts = allProducts.filter((p: any) => p.status === status);
     }
 
-    // Filter by Search (Name, Description, SKU, Brand, Category, Tags)
     if (search && typeof search === 'string' && search.trim().length > 0) {
       const q = search.toLowerCase().trim();
       allProducts = allProducts.filter((p: any) => {
@@ -73,22 +120,18 @@ router.get('/', optionalAuth, async (req: AuthenticatedRequest, res: Response) =
       });
     }
 
-    // Filter by Category
     if (category) {
       allProducts = allProducts.filter((p: any) => p.category?.toLowerCase() === (category as string).toLowerCase());
     }
 
-    // Filter by Brand
     if (brand) {
       allProducts = allProducts.filter((p: any) => p.brand?.toLowerCase() === (brand as string).toLowerCase());
     }
 
-    // Filter by Gender
     if (gender && gender !== 'All') {
-      allProducts = allProducts.filter((p: any) => p.gender === gender || p.gender === 'Unisex');
+      allProducts = allProducts.filter((p: any) => p.gender === gender || (gender === 'Men' && p.gender === 'Unisex' && MEN_CATEGORIES.has(String(p.category || ''))));
     }
 
-    // Filter by Price
     if (minPrice) {
       const min = parseFloat(minPrice as string);
       if (!isNaN(min)) {
@@ -102,12 +145,10 @@ router.get('/', optionalAuth, async (req: AuthenticatedRequest, res: Response) =
       }
     }
 
-    // Filter by Size
     if (size) {
       allProducts = allProducts.filter((p: any) => Array.isArray(p.sizes) && p.sizes.includes(size));
     }
 
-    // Filter by Color
     if (color) {
       allProducts = allProducts.filter((p: any) => {
         if (!Array.isArray(p.colors)) return false;
@@ -115,13 +156,11 @@ router.get('/', optionalAuth, async (req: AuthenticatedRequest, res: Response) =
       });
     }
 
-    // Flags
     if (isFeatured === 'true') allProducts = allProducts.filter((p: any) => p.isFeatured);
     if (isNewArrival === 'true') allProducts = allProducts.filter((p: any) => p.isNewArrival);
     if (isBestSeller === 'true') allProducts = allProducts.filter((p: any) => p.isBestSeller);
     if (isTrending === 'true') allProducts = allProducts.filter((p: any) => p.isTrending);
 
-    // Sorting
     allProducts.sort((a: any, b: any) => {
       const priceA = a.salePrice || a.price || 0;
       const priceB = b.salePrice || b.price || 0;
@@ -129,7 +168,6 @@ router.get('/', optionalAuth, async (req: AuthenticatedRequest, res: Response) =
       if (sort === 'price-desc') return priceB - priceA;
       if (sort === 'rating') return (b.rating || 0) - (a.rating || 0);
       if (sort === 'popularity') return (b.numReviews || 0) - (a.numReviews || 0);
-      // default: newest
       return new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime();
     });
 
@@ -155,10 +193,10 @@ router.get('/', optionalAuth, async (req: AuthenticatedRequest, res: Response) =
   }
 });
 
-// GET /api/products/meta/filters (Distinct filters from actual catalog)
 router.get('/meta/filters', async (req, res: Response) => {
   try {
     const products = await db.products.find({ status: 'PUBLISHED' });
+    const menProducts = products.filter((p: any) => isMenProduct(p));
 
     const categoriesSet = new Set<string>();
     const brandsSet = new Set<string>();
@@ -168,7 +206,7 @@ router.get('/meta/filters', async (req, res: Response) => {
     let minPrice = Number.MAX_VALUE;
     let maxPrice = 0;
 
-    for (const p of products) {
+    for (const p of menProducts) {
       if (p.category) categoriesSet.add(p.category);
       if (p.brand) brandsSet.add(p.brand);
       if (Array.isArray(p.sizes)) {
@@ -188,7 +226,7 @@ router.get('/meta/filters', async (req, res: Response) => {
       if (price > maxPrice) maxPrice = price;
     }
 
-    if (products.length === 0) {
+    if (menProducts.length === 0) {
       minPrice = 0;
       maxPrice = 0;
     }
@@ -209,7 +247,6 @@ router.get('/meta/filters', async (req, res: Response) => {
   }
 });
 
-// GET /api/products/:idOrSlug
 router.get('/:idOrSlug', optionalAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { idOrSlug } = req.params;
@@ -223,24 +260,22 @@ router.get('/:idOrSlug', optionalAuth, async (req: AuthenticatedRequest, res: Re
     }
 
     const isStaff = req.user && (req.user.role === 'ADMIN' || req.user.role === 'SALES_MANAGER');
-    if (!isStaff && product.status !== 'PUBLISHED') {
+    if (!isStaff && (!isMenProduct(product) || product.status !== 'PUBLISHED')) {
       return res.status(404).json({ success: false, message: 'Product is currently unavailable.' });
     }
 
-    // Fetch related products in the same category
     const related = await db.products.find({
       category: product.category,
       status: 'PUBLISHED',
       _id: { $ne: product._id },
     }, { limit: 4 });
 
-    // Fetch reviews for this product
     const reviews = await db.reviews.find({ productId: product._id, isApproved: true });
 
     return res.status(200).json({
       success: true,
       product,
-      related,
+      related: related.filter((p: any) => isMenProduct(p)),
       reviews,
     });
   } catch (err: any) {
@@ -248,7 +283,6 @@ router.get('/:idOrSlug', optionalAuth, async (req: AuthenticatedRequest, res: Re
   }
 });
 
-// POST /api/products (Admin or SalesManager with products.write)
 router.post('/', requireAuth, requirePermission('products.write'), async (req: AuthenticatedRequest, res: Response) => {
   try {
     const {
@@ -258,10 +292,10 @@ router.post('/', requireAuth, requirePermission('products.write'), async (req: A
       brand,
       category,
       subcategory,
-      gender = 'Unisex',
+      gender = 'Men',
       sizes = ['S', 'M', 'L', 'XL'],
       colors = [{ name: 'Black', hex: '#000000' }],
-      material = '100% Organic Cotton',
+      material = '100% Premium Cotton',
       price,
       discount = 0,
       sku,
@@ -286,12 +320,18 @@ router.post('/', requireAuth, requirePermission('products.write'), async (req: A
       });
     }
 
+    if (!MEN_CATEGORIES.has(String(category).trim())) {
+      return res.status(400).json({
+        success: false,
+        message: 'This storefront only accepts men’s fashion categories.',
+      });
+    }
+
     const numPrice = parseFloat(price);
     const numDiscount = Math.min(100, Math.max(0, parseFloat(discount) || 0));
     const salePrice = Number((numPrice * (1 - numDiscount / 100)).toFixed(2));
-    const generatedSku = sku?.trim() || `LUXE-${category.substring(0, 3).toUpperCase()}-${Date.now().toString(36).toUpperCase()}`;
+    const generatedSku = sku?.trim() || `NVR-${category.substring(0, 3).toUpperCase()}-${Date.now().toString(36).toUpperCase()}`;
 
-    // Verify SKU uniqueness
     const existingSku = await db.products.findOne({ sku: generatedSku });
     if (existingSku) {
       return res.status(409).json({ success: false, message: 'SKU already assigned to another product.' });
@@ -307,7 +347,7 @@ router.post('/', requireAuth, requirePermission('products.write'), async (req: A
       brand: brand.trim(),
       category: category.trim(),
       subcategory: subcategory?.trim() || '',
-      gender,
+      gender: gender || 'Men',
       sizes,
       colors,
       material,
@@ -337,7 +377,6 @@ router.post('/', requireAuth, requirePermission('products.write'), async (req: A
       stock: newProduct.stock,
     });
 
-    // If published and notifySubscribers is checked, dispatch new launch notifications
     if (status === 'PUBLISHED' && notifySubscribers) {
       const subscribedUsers = await db.users.find({
         isVerified: true,
@@ -365,7 +404,6 @@ router.post('/', requireAuth, requirePermission('products.write'), async (req: A
   }
 });
 
-// PATCH /api/products/:id (Admin or SalesManager with products.write)
 router.patch('/:id', requireAuth, requirePermission('products.write'), async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { id } = req.params;
@@ -375,6 +413,13 @@ router.patch('/:id', requireAuth, requirePermission('products.write'), async (re
     }
 
     const updates = { ...req.body };
+
+    if (updates.category && !MEN_CATEGORIES.has(String(updates.category).trim())) {
+      return res.status(400).json({
+        success: false,
+        message: 'This storefront only accepts men’s fashion categories.',
+      });
+    }
 
     if (updates.price !== undefined || updates.discount !== undefined) {
       const price = updates.price !== undefined ? parseFloat(updates.price) : existing.price;
@@ -398,7 +443,6 @@ router.patch('/:id', requireAuth, requirePermission('products.write'), async (re
   }
 });
 
-// DELETE /api/products/:id (Admin or SalesManager with products.write)
 router.delete('/:id', requireAuth, requirePermission('products.write'), async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { id } = req.params;
@@ -424,3 +468,4 @@ router.delete('/:id', requireAuth, requirePermission('products.write'), async (r
 });
 
 export default router;
+

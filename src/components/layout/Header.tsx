@@ -39,13 +39,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchSuggestions, setSearchSuggestions] = useState<Product[]>([]);
-  const [announcement, setAnnouncement] = useState('Complimentary Worldwide Shipping on Orders Over $200 · Use Code LUXE15 for 15% Off');
+  const [announcement, setAnnouncement] = useState('Free shipping on men’s essentials over ₹2000');
   const [announcementActive, setAnnouncementActive] = useState(true);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -54,7 +53,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fetch announcement setting
   useEffect(() => {
     api.admin.getSettings()
       .then(res => {
@@ -66,7 +64,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
       .catch(() => {});
   }, []);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -77,7 +74,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Debounced search suggestions
   useEffect(() => {
     if (!searchQuery.trim() || searchQuery.length < 2) {
       setSearchSuggestions([]);
@@ -107,7 +103,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
 
   return (
     <>
-      {/* Top Announcement Bar */}
       {announcementActive && announcement && (
         <div className="bg-stone-900 text-stone-200 text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-stone-800">
           <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
@@ -115,7 +110,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
         </div>
       )}
 
-      {/* Main Sticky Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
@@ -125,7 +119,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
-            {/* Mobile Menu Button */}
             <div className="flex items-center lg:hidden">
               <button
                 type="button"
@@ -137,69 +130,45 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
               </button>
             </div>
 
-            {/* Brand Logo */}
             <div className="flex items-center">
               <Link to="/" className="flex flex-col group">
                 <span className="font-serif text-2xl sm:text-3xl font-bold tracking-widest text-stone-900 group-hover:text-amber-800 transition-colors">
                   NAVEOR
                 </span>
                 <span className="text-[9px] uppercase tracking-[0.25em] text-stone-500 font-medium">
-                  WEAR YOUR STORY
+                  MENS FASHION
                 </span>
               </Link>
             </div>
 
-            {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide text-stone-700">
-              <Link
-                to="/"
-                className={`hover:text-stone-950 transition-colors pb-1 ${
-                  location.pathname === '/' ? 'text-stone-950 border-b-2 border-stone-900' : ''
-                }`}
-              >
+              <Link to="/" className={`hover:text-stone-950 transition-colors pb-1 ${location.pathname === '/' ? 'text-stone-950 border-b-2 border-stone-900' : ''}`}>
                 Home
               </Link>
-              <Link
-                to="/products?gender=Women"
-                className="hover:text-stone-950 transition-colors pb-1"
-              >
-                Women
+              <Link to="/products" className="hover:text-stone-950 transition-colors pb-1">
+                Shop All
               </Link>
-              <Link
-                to="/products?gender=Men"
-                className="hover:text-stone-950 transition-colors pb-1"
-              >
-                Men
+              <Link to="/products?category=T-Shirts" className="hover:text-stone-950 transition-colors pb-1">
+                Clothing
               </Link>
-              <Link
-                to="/products?gender=Kids"
-                className="hover:text-stone-950 transition-colors pb-1"
-              >
-                Kids
+              <Link to="/products?category=Jeans" className="hover:text-stone-950 transition-colors pb-1">
+                Bottom Wear
               </Link>
-              <Link
-                to="/products?isNewArrival=true"
-                className="hover:text-stone-950 transition-colors pb-1 text-amber-800"
-              >
+              <Link to="/products?category=Sneakers" className="hover:text-stone-950 transition-colors pb-1">
+                Footwear
+              </Link>
+              <Link to="/products?category=Watches" className="hover:text-stone-950 transition-colors pb-1">
+                Accessories
+              </Link>
+              <Link to="/products?isNewArrival=true" className="hover:text-stone-950 transition-colors pb-1 text-amber-800">
                 New Arrivals
               </Link>
-              <Link
-                to="/products"
-                className="hover:text-stone-950 transition-colors pb-1"
-              >
-                All Collections
-              </Link>
-              <Link
-                to="/track-order"
-                className="hover:text-stone-950 transition-colors pb-1 text-stone-500"
-              >
-                Track Order
+              <Link to="/products?sort=price-desc" className="hover:text-stone-950 transition-colors pb-1">
+                Sale
               </Link>
             </nav>
 
-            {/* Header Right Action Icons */}
             <div className="flex items-center space-x-2 sm:space-x-4">
-              {/* Search Toggle */}
               <button
                 onClick={() => {
                   setSearchOpen(!searchOpen);
@@ -211,7 +180,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                 <Search className="w-5 h-5" />
               </button>
 
-              {/* Wishlist Icon */}
               <Link
                 to={isAuthenticated ? '/account?tab=wishlist' : '#'}
                 onClick={e => {
@@ -231,7 +199,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                 )}
               </Link>
 
-              {/* Cart Icon */}
               <button
                 onClick={() => {
                   if (!isAuthenticated) {
@@ -251,7 +218,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                 )}
               </button>
 
-              {/* User Account Menu */}
               <div className="relative" ref={dropdownRef}>
                 {isAuthenticated ? (
                   <div>
@@ -266,7 +232,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                       <ChevronDown className="w-3.5 h-3.5 text-stone-500 hidden sm:block mr-1" />
                     </button>
 
-                    {/* Account Dropdown */}
                     {userDropdownOpen && (
                       <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-stone-200 py-2 z-50 animate-fade-in">
                         <div className="px-4 py-2 border-b border-stone-100">
@@ -282,7 +247,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                           </div>
                         </div>
 
-                        {/* Admin Link */}
                         {isAdmin && (
                           <Link
                             to="/admin"
@@ -294,7 +258,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                           </Link>
                         )}
 
-                        {/* Sales Manager Link */}
                         {isSalesManager && (
                           <Link
                             to="/sales-manager"
@@ -306,14 +269,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                           </Link>
                         )}
 
-                        {/* Customer Dashboard Links */}
                         <Link
                           to="/account?tab=orders"
                           onClick={() => setUserDropdownOpen(false)}
                           className="flex items-center space-x-2 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition-colors"
                         >
                           <Package className="w-4 h-4 text-stone-500" />
-                          <span>My Orders & Returns</span>
+                          <span>My Orders</span>
                         </Link>
 
                         <Link
@@ -363,7 +325,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
           </div>
         </div>
 
-        {/* Search Overlay / Bar */}
         {searchOpen && (
           <div className="border-t border-stone-200 bg-white/95 px-4 py-3 animate-fade-in shadow-md">
             <div className="max-w-3xl mx-auto">
@@ -374,7 +335,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                   type="text"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  placeholder="Search cashmere coats, silk dresses, shirts, SKUs, colors..."
+                  placeholder="Search T-shirts, jackets, footwear, brands..."
                   className="w-full pl-10 pr-10 py-2.5 bg-stone-50 border border-stone-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-stone-900 focus:bg-white transition-all"
                 />
                 <button
@@ -386,7 +347,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                 </button>
               </form>
 
-              {/* Suggestions Popup */}
               {searchSuggestions.length > 0 && (
                 <div className="mt-2 bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden divide-y divide-stone-100">
                   {searchSuggestions.map(product => (
@@ -409,7 +369,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                         <p className="text-[11px] text-stone-500">{product.brand} · {product.category}</p>
                       </div>
                       <span className="text-xs font-bold text-stone-900">
-                        ${Number(product.salePrice || product.price).toFixed(2)}
+                        ₹{Number(product.salePrice || product.price).toFixed(2)}
                       </span>
                     </Link>
                   ))}
@@ -425,58 +385,32 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
           </div>
         )}
 
-        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-stone-200 bg-white px-4 pt-3 pb-6 space-y-3 animate-fade-in">
             <div className="space-y-1">
-              <Link
-                to="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100"
-              >
+              <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100">
                 Home
               </Link>
-              <Link
-                to="/products?gender=Women"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100"
-              >
-                Women's Collection
+              <Link to="/products" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100">
+                Shop All
               </Link>
-              <Link
-                to="/products?gender=Men"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100"
-              >
-                Men's Collection
+              <Link to="/products?category=T-Shirts" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100">
+                Clothing
               </Link>
-              <Link
-                to="/products?gender=Kids"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100"
-              >
-                Kids' Collection
+              <Link to="/products?category=Jeans" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100">
+                Bottom Wear
               </Link>
-              <Link
-                to="/products?isNewArrival=true"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-amber-800 hover:bg-stone-100"
-              >
+              <Link to="/products?category=Sneakers" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100">
+                Footwear
+              </Link>
+              <Link to="/products?category=Watches" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100">
+                Accessories
+              </Link>
+              <Link to="/products?isNewArrival=true" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-amber-800 hover:bg-stone-100">
                 New Arrivals
               </Link>
-              <Link
-                to="/products"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100"
-              >
-                Shop All Collections
-              </Link>
-              <Link
-                to="/track-order"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-stone-600 hover:bg-stone-100"
-              >
-                Track Your Order
+              <Link to="/products?sort=price-desc" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-lg text-base font-medium text-stone-800 hover:bg-stone-100">
+                Sale
               </Link>
             </div>
 
@@ -510,3 +444,4 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
     </>
   );
 };
+

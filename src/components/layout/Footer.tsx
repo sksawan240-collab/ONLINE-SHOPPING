@@ -28,7 +28,6 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-stone-950 text-stone-300 pt-16 pb-12 border-t border-stone-800">
-      {/* Service Value Pillars */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-stone-800">
           <div className="flex items-start space-x-4">
@@ -36,8 +35,8 @@ export const Footer: React.FC = () => {
               <Truck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">White-Glove Express</h4>
-              <p className="text-xs text-stone-400 mt-1">Complimentary worldwide delivery on qualifying orders over $200.</p>
+              <h4 className="text-sm font-semibold text-white">Fast Dispatch</h4>
+              <p className="text-xs text-stone-400 mt-1">Priority delivery on premium men’s essentials and everyday staples.</p>
             </div>
           </div>
           <div className="flex items-start space-x-4">
@@ -45,8 +44,8 @@ export const Footer: React.FC = () => {
               <RotateCcw className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Seamless 30-Day Returns</h4>
-              <p className="text-xs text-stone-400 mt-1">Doorstep pickup and full refunds processed through our portal.</p>
+              <h4 className="text-sm font-semibold text-white">Easy Exchanges</h4>
+              <p className="text-xs text-stone-400 mt-1">Simple 30-day returns and size support for better fit confidence.</p>
             </div>
           </div>
           <div className="flex items-start space-x-4">
@@ -54,8 +53,8 @@ export const Footer: React.FC = () => {
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Authenticity Guaranteed</h4>
-              <p className="text-xs text-stone-400 mt-1">Sourced directly from European ateliers with individual SKU provenance.</p>
+              <h4 className="text-sm font-semibold text-white">Authenticity Promise</h4>
+              <p className="text-xs text-stone-400 mt-1">Verified products, quality materials, and trusted brand sourcing.</p>
             </div>
           </div>
           <div className="flex items-start space-x-4">
@@ -63,35 +62,32 @@ export const Footer: React.FC = () => {
               <Sparkles className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-white">Private Atelier Care</h4>
-              <p className="text-xs text-stone-400 mt-1">Bespoke sizing recommendations and styling consultations available.</p>
+              <h4 className="text-sm font-semibold text-white">Styling Guidance</h4>
+              <p className="text-xs text-stone-400 mt-1">Curated essential pieces for modern, polished wardrobes.</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Footer Links */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
-          {/* Brand Info & Newsletter */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="inline-block">
               <span className="font-serif text-2xl font-bold tracking-widest text-white">NAVEOR</span>
-              <p className="text-[10px] uppercase tracking-widest text-stone-400 mt-0.5">WEAR YOUR STORY</p>
+              <p className="text-[10px] uppercase tracking-widest text-stone-400 mt-0.5">MENS FASHION</p>
             </Link>
             <p className="text-xs text-stone-400 leading-relaxed max-w-sm">
-              Crafting modern luxury with uncompromising standards. Discover architectural outerwear, pure mulberry silks, and sustainably sourced Mongolian cashmere.
+              Premium men’s essentials for elevated everyday style — from tailored layers to denim, streetwear, and refined accessories.
             </p>
 
-            {/* Newsletter form */}
             <div className="pt-2">
-              <p className="text-xs font-semibold text-white mb-2 uppercase tracking-wider">Join The Private Guestlist</p>
+              <p className="text-xs font-semibold text-white mb-2 uppercase tracking-wider">Join the style list</p>
               <form onSubmit={handleSubscribe} className="flex max-w-md">
                 <input
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  placeholder="Enter your email for private previews"
+                  placeholder="Enter your email for new arrivals"
                   required
                   className="bg-stone-900 border border-stone-800 text-white placeholder-stone-500 text-xs px-4 py-2.5 rounded-l-lg focus:outline-none focus:ring-1 focus:ring-amber-500 flex-1"
                 />
@@ -106,49 +102,47 @@ export const Footer: React.FC = () => {
               {subscribed && (
                 <div className="mt-2 flex items-center space-x-1.5 text-xs text-emerald-400">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Thank you for subscribing to Naveor Wear your Story.</span>
+                  <span>Thanks for joining the Naveor men’s updates.</span>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Collections */}
           <div>
             <h5 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">Collections</h5>
             <ul className="space-y-2.5 text-xs">
-                            <li>
-                <Link to="/products?gender=Men" className="hover:text-white transition-colors">Men's Tailoring</Link>
+              <li>
+                <Link to="/products?category=T-Shirts" className="hover:text-white transition-colors">T-Shirts</Link>
               </li>
               <li>
-                <Link to="/products?category=Outerwear%20%26%20Coats" className="hover:text-white transition-colors">Outerwear & Coats</Link>
+                <Link to="/products?category=Jackets" className="hover:text-white transition-colors">Jackets</Link>
               </li>
               <li>
-                <Link to="/products?category=Knitwear%20%26%20Sweaters" className="hover:text-white transition-colors">Mongolian Cashmere</Link>
+                <Link to="/products?category=Jeans" className="hover:text-white transition-colors">Jeans</Link>
               </li>
               <li>
-                <Link to="/products?category=Dresses%20%26%20Gowns" className="hover:text-white transition-colors">Evening Silks</Link>
+                <Link to="/products?category=Sneakers" className="hover:text-white transition-colors">Sneakers</Link>
               </li>
               <li>
-                <Link to="/products?isNewArrival=true" className="hover:text-white transition-colors text-amber-400">New Arrivals 2026</Link>
+                <Link to="/products?isNewArrival=true" className="hover:text-white transition-colors text-amber-400">New Arrivals</Link>
               </li>
             </ul>
           </div>
 
-          {/* Client Concierge */}
           <div>
-            <h5 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">Client Care</h5>
+            <h5 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">Customer Care</h5>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link to="/track-order" className="hover:text-white transition-colors">Track Your Order</Link>
+                <Link to="/track-order" className="hover:text-white transition-colors">Track Order</Link>
               </li>
               <li>
                 <Link to="/account?tab=orders" className="hover:text-white transition-colors">Returns & Exchanges</Link>
               </li>
               <li>
-                <a href="#size-guide" className="hover:text-white transition-colors">Size & Fit Guidance</a>
+                <a href="#size-guide" className="hover:text-white transition-colors">Size & Fit Guide</a>
               </li>
               <li>
-                <a href="mailto:support@luxeattire.fashion" className="hover:text-white transition-colors">Atelier Concierge</a>
+                <a href="mailto:support@naveor.fashion" className="hover:text-white transition-colors">Style Concierge</a>
               </li>
               <li>
                 <Link to="/account" className="hover:text-white transition-colors">Account Portal</Link>
@@ -156,18 +150,17 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Legal & Compliance */}
           <div>
-            <h5 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">The Atelier</h5>
+            <h5 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">The Store</h5>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <span className="text-stone-400">BANGLORE</span>
+                <span className="text-stone-400">BANGALORE</span>
               </li>
               <li>
                 <span className="text-stone-400">INDIA</span>
               </li>
               <li>
-                <span className="text-stone-400">naveorindia@gmail.com</span>
+                <span className="text-stone-400">hello@naveor.fashion</span>
               </li>
               <li className="pt-2">
                 <div className="flex items-center space-x-3 text-stone-400">
@@ -180,17 +173,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
-          <p>© 2026 NAVEOR WEAR YOUR STORY Inc. All rights reserved. Registered Trademark.</p>
+          <p>© 2026 NAVEOR. All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
             <span>Cookie Preferences</span>
-            <span>Security & GDPR</span>
+            <span>Security</span>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
