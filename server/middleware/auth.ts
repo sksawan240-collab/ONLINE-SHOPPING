@@ -12,6 +12,7 @@ export interface AuthUser {
   role: 'CUSTOMER' | 'SALES_MANAGER' | 'ADMIN';
   permissions?: string[];
   name: string;
+  phone?: string;
   isVerified: boolean;
   sessionVersion: number;
 }

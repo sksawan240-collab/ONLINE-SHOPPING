@@ -186,6 +186,16 @@ export interface Order {
   createdAt: string;
 }
 
+export type PaymentStatus = 'PENDING' | 'PAID' | 'FAILED' | 'REFUNDED';
+
+export interface PaymentSession {
+  paymentId: string;
+  orderId: string;
+  checkoutUrl: string;
+  amount: number;
+  status: string;
+}
+
 export interface Coupon {
   _id: string;
   code: string;

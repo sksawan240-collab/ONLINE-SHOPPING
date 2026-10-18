@@ -341,6 +341,19 @@ export const api = {
       }),
   },
 
+  // Payments (YouPI-PG UPI)
+  payments: {
+    create: (payload: { items: any[]; shippingAddress: any; billingAddress?: any; couponCode?: string; deliveryOption?: string }) =>
+      request<{ success: boolean; order: any; paymentId?: string; checkoutUrl?: string; amount?: number; message: string }>(
+        '/payments/create',
+        { method: 'POST', body: JSON.stringify(payload) }
+      ),
+    status: (paymentId: string) =>
+      request<{ success: boolean; paymentId: string; orderId: string; status: string; isTerminal?: boolean; message: string }>(
+        `/payments/status/${paymentId}`
+      ),
+  },
+
   // Notifications
   notifications: {
     list: () => request<{ success: boolean; notifications: NotificationItem[]; unreadCount: number }>('/notifications'),

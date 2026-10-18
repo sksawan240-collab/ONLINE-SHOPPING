@@ -39,6 +39,14 @@ router.post('/', requireAuth, async (req: AuthenticatedRequest, res: Response) =
       return res.status(400).json({ success: false, message: 'Valid shipping address is required.' });
     }
 
+    // UPI payments must be created via /api/payments/create endpoint
+    if (paymentMethod === 'UPI') {
+      return res.status(400).json({
+        success: false,
+        message: 'UPI payments must be initialized via /api/payments/create. Use paymentMethod=COD for Cash on Delivery.',
+      });
+    }
+
     // Server-side inventory and price verification
     let calculatedSubtotal = 0;
     const validatedItems = [];
@@ -156,7 +164,7 @@ router.post('/', requireAuth, async (req: AuthenticatedRequest, res: Response) =
       total: finalTotal,
       couponCode: appliedCoupon ? appliedCoupon.code : '',
       paymentMethod,
-      paymentStatus: 'PAID',
+      paymentStatus: paymentMethod === 'COD' ? 'UNPAID' : 'PENDING',
       orderStatus: 'PLACED',
       shippingAddress,
       billingAddress: billingAddress || shippingAddress,
@@ -166,7 +174,9 @@ router.post('/', requireAuth, async (req: AuthenticatedRequest, res: Response) =
       timeline: [
         {
           status: 'PLACED',
-          note: 'Order successfully authorized and confirmed.',
+          note: paymentMethod === 'COD'
+            ? 'Order placed with Cash on Delivery. Payment will be collected on delivery.'
+            : 'Order placed. Payment pending confirmation.',
           timestamp: new Date().toISOString(),
           updatedBy: 'Customer Checkout',
         },
@@ -181,10 +191,13 @@ router.post('/', requireAuth, async (req: AuthenticatedRequest, res: Response) =
     }
 
     // In-app Notification
+    const isCod = paymentMethod === 'COD';
     await db.notifications.create({
       userId: user.id,
-      title: 'Order Confirmed',
-      message: `Your order ${orderId} for $${finalTotal.toFixed(2)} has been placed.`,
+      title: isCod ? 'Order Placed - Cash on Delivery' : 'Order Placed - Awaiting Payment',
+      message: isCod
+        ? `Your order ${orderId} for $${finalTotal.toFixed(2)} has been placed with Cash on Delivery. Payment will be collected on delivery.`
+        : `Your order ${orderId} for $${finalTotal.toFixed(2)} has been placed. Payment is pending confirmation.`,
       type: 'ORDER',
       link: `/track-order?id=${orderId}`,
       isRead: false,

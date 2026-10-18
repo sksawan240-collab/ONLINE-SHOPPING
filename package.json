@@ -9,7 +9,10 @@
     "start": "tsx server.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "pg:install": "npm --prefix youpi-pg install",
+    "pg:dev": "npm --prefix youpi-pg run dev",
+    "pg:start": "npm --prefix youpi-pg run start"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

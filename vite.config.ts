@@ -1,7 +1,12 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import {defineConfig} from 'vite';
+
+// Resolve the project root without `__dirname` so the config stays compatible
+// with Vite's native config loader (no VITE_CONFIG_NATIVE_IGNORE_WARNING needed).
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(() => {
   return {

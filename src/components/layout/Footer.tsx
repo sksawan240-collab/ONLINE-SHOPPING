@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
           <div>
             <h5 className="text-xs font-semibold uppercase tracking-wider text-white mb-4">Collections</h5>
             <ul className="space-y-2.5 text-xs">
-                            <li>
+                                          <li>
                 <Link to="/products?gender=Men" className="hover:text-white transition-colors">Men's Tailoring</Link>
               </li>
               <li>
