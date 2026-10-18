@@ -163,7 +163,7 @@
       "salePrice": 225,
       "sku": "LUXE-OUT-MUGQZJXU",
       "barcode": "",
-      "stock": 3,
+      "stock": 2,
       "lowStockThreshold": 5,
       "tags": [],
       "images": [
@@ -178,11 +178,75 @@
       "rating": 5,
       "numReviews": 0,
       "createdAt": "2026-09-25T09:17:47.828Z",
-      "updatedAt": "2026-10-18T16:15:30.934Z"
+      "updatedAt": "2026-10-18T16:18:53.683Z"
     }
   ],
   "categories": [],
   "orders": [
+    {
+      "_id": "mve15oji_f4girpi",
+      "id": "mve15oji_f4girpi",
+      "orderId": "ORD-2026-B50F15B8",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "trackingNumber": "LXF147D6DD",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/22/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T16:18:53.694Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T16:18:53.694Z",
+      "updatedAt": "2026-10-18T16:18:53.694Z"
+    },
     {
       "_id": "mve11c3m_793dxyc",
       "id": "mve11c3m_793dxyc",
@@ -3443,6 +3507,18 @@
   "reviews": [],
   "notifications": [
     {
+      "_id": "mve15okb_5clllpy",
+      "id": "mve15okb_5clllpy",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-B50F15B8 for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-B50F15B8",
+      "isRead": false,
+      "createdAt": "2026-10-18T16:18:53.723Z",
+      "updatedAt": "2026-10-18T16:18:53.723Z"
+    },
+    {
       "_id": "mve11c4g_1qfyc13",
       "id": "mve11c4g_1qfyc13",
       "userId": "mugn6zkm_8s5tc4t",
@@ -4139,6 +4215,30 @@
     }
   ],
   "auditLogs": [
+    {
+      "_id": "mve15okh_aw7ahsp",
+      "id": "mve15okh_aw7ahsp",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve15oji_f4girpi",
+      "metadata": {
+        "orderId": "ORD-2026-B50F15B8",
+        "paymentId": "2cb05196-c6ab-4599-bf1e-64c7db1741be",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T16:18:53.729Z",
+      "createdAt": "2026-10-18T16:18:53.729Z",
+      "updatedAt": "2026-10-18T16:18:53.729Z"
+    },
     {
       "_id": "mve11c4o_xjplb47",
       "id": "mve11c4o_xjplb47",
