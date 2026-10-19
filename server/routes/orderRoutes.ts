@@ -39,6 +39,15 @@ router.post('/', requireAuth, async (req: AuthenticatedRequest, res: Response) =
       return res.status(400).json({ success: false, message: 'Valid shipping address is required.' });
     }
 
+    // Normalize addresses to India (store operates across India only)
+    if (!/^[1-9][0-9]{5}$/.test(String(shippingAddress.postalCode || '').trim())) {
+      return res.status(400).json({ success: false, message: 'Please enter a valid 6-digit Indian PIN code.' });
+    }
+    shippingAddress.country = 'India';
+    if (billingAddress && billingAddress.postalCode) {
+      billingAddress.country = 'India';
+    }
+
     // UPI payments must be created via /api/payments/create endpoint
     if (paymentMethod === 'UPI') {
       return res.status(400).json({

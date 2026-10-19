@@ -61,13 +61,13 @@ export const OrderTrackingPage: React.FC = () => {
 
   // Status Milestones sequence
   const milestones: { status: OrderStatus; label: string; icon: any }[] = [
-    { status: 'PLACED', label: 'Order Placed', icon: Clock },
-    { status: 'CONFIRMED', label: 'Confirmed by Atelier', icon: ShieldCheck },
-    { status: 'PROCESSING', label: 'In Preparation', icon: Package },
-    { status: 'PACKED', label: 'Packed & Inspected', icon: Package },
-    { status: 'SHIPPED', label: 'Shipped via Carrier', icon: Truck },
-    { status: 'OUT_FOR_DELIVERY', label: 'Out for Delivery', icon: Truck },
-    { status: 'DELIVERED', label: 'Delivered', icon: CheckCircle },
+    { status: OrderStatus.PLACED, label: 'Order Placed', icon: Clock },
+    { status: OrderStatus.CONFIRMED, label: 'Confirmed by Atelier', icon: ShieldCheck },
+    { status: OrderStatus.PROCESSING, label: 'In Preparation', icon: Package },
+    { status: OrderStatus.PACKED, label: 'Packed & Inspected', icon: Package },
+    { status: OrderStatus.SHIPPED, label: 'Shipped via Carrier', icon: Truck },
+    { status: OrderStatus.OUT_FOR_DELIVERY, label: 'Out for Delivery', icon: Truck },
+    { status: OrderStatus.DELIVERED, label: 'Delivered', icon: CheckCircle },
   ];
 
   const getMilestoneIndex = (status: string): number => {
@@ -253,7 +253,7 @@ export const OrderTrackingPage: React.FC = () => {
               <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 text-xs">
                 <strong className="text-stone-900 block mb-1">Destination Address:</strong>
                 <p className="text-stone-600">
-                  {orderData.shippingAddress.street}, {orderData.shippingAddress.city}, {orderData.shippingAddress.state} {orderData.shippingAddress.postalCode}, {orderData.shippingAddress.country}
+                  {orderData.shippingAddress.street}, {orderData.shippingAddress.city}{orderData.shippingAddress.district ? `, ${orderData.shippingAddress.district}` : ''}, {orderData.shippingAddress.state} {orderData.shippingAddress.postalCode}, {orderData.shippingAddress.country || 'India'}
                 </p>
               </div>
             )}

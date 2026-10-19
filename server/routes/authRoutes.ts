@@ -322,9 +322,13 @@ router.post('/change-password', requireAuth, async (req: AuthenticatedRequest, r
 // POST /api/auth/addresses
 router.post('/addresses', requireAuth, async (req: AuthenticatedRequest, res: Response) => {
   try {
-    const { street, city, state, postalCode, country, isDefault } = req.body;
+    const { street, city, state, district, postalCode, country, isDefault } = req.body;
     if (!street || !city || !postalCode) {
-      return res.status(400).json({ success: false, message: 'Street, city, and postal code are required.' });
+      return res.status(400).json({ success: false, message: 'Street, city, and PIN code are required.' });
+    }
+    // Indian PIN codes are exactly 6 digits and never start with 0
+    if (!/^[1-9][0-9]{5}$/.test(String(postalCode).trim())) {
+      return res.status(400).json({ success: false, message: 'Please enter a valid 6-digit Indian PIN code.' });
     }
 
     const user = await db.users.findById(req.user!.id);
@@ -335,8 +339,9 @@ router.post('/addresses', requireAuth, async (req: AuthenticatedRequest, res: Re
       street,
       city,
       state: state || '',
+      district: district || '',
       postalCode,
-      country: country || 'United States',
+      country: country || 'India',
       isDefault: isDefault || addresses.length === 0,
     };
 

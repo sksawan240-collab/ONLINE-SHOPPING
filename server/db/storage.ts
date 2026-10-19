@@ -163,7 +163,7 @@ export async function initDatabaseConnection(): Promise<void> {
     isConnectedToMongo = true;
     console.log('[Database] MongoDB Compass connection established (db: shopfusion). MongoDB is now PRIMARY store.');
     await ensureDefaultSettingsInMongo();
-    await migrateLocalFileToMongoOnce();
+    // await migrateLocalFileToMongoOnce();
   } catch (err) {
     console.warn('[Database] MongoDB Compass unreachable. Falling back to local persistent document store.', err);
     isConnectedToMongo = false;

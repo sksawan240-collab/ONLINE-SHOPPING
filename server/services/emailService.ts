@@ -228,7 +228,7 @@ export const emailTemplates = {
             </div>
             <div style="margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;">
               <strong>Delivery Address:</strong><br>
-              ${order.shippingAddress?.street || ''}, ${order.shippingAddress?.city || ''}, ${order.shippingAddress?.state || ''} ${order.shippingAddress?.postalCode || ''}, ${order.shippingAddress?.country || ''}
+              ${order.shippingAddress?.street || ''}, ${order.shippingAddress?.city || ''}${order.shippingAddress?.district ? `, ${order.shippingAddress.district}` : ''}, ${order.shippingAddress?.state || ''} ${order.shippingAddress?.postalCode || ''}, ${order.shippingAddress?.country || 'India'}
             </div>
             <div style="text-align: center; margin-top: 32px;">
               <a href="${process.env.APP_URL || 'http://localhost:3000'}/track-order?id=${order.orderId}" class="btn">Track Order Status</a>

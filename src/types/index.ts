@@ -5,6 +5,7 @@ export interface Address {
   street: string;
   city: string;
   state?: string;
+  district?: string;
   postalCode: string;
   country: string;
   isDefault?: boolean;
@@ -115,19 +116,21 @@ export interface CartState {
   itemCount: number;
 }
 
-export type OrderStatus =
-  | 'PLACED'
-  | 'PAYMENT_CONFIRMED'
-  | 'CONFIRMED'
-  | 'PROCESSING'
-  | 'PACKED'
-  | 'SHIPPED'
-  | 'OUT_FOR_DELIVERY'
-  | 'DELIVERED'
-  | 'CANCELLED'
-  | 'RETURN_REQUESTED'
-  | 'RETURNED'
-  | 'REFUNDED';
+export enum OrderStatus {
+  PLACED = 'PLACED',
+  PAYMENT_CONFIRMED = 'PAYMENT_CONFIRMED',
+  CONFIRMED = 'CONFIRMED',
+  PROCESSING = 'PROCESSING',
+  PACKED = 'PACKED',
+  SHIPPED = 'SHIPPED',
+  OUT_FOR_DELIVERY = 'OUT_FOR_DELIVERY',
+  DELIVERED = 'DELIVERED',
+  CANCELLED = 'CANCELLED',
+  RETURN_REQUESTED = 'RETURN_REQUESTED',
+  RETURNED = 'RETURNED',
+  REFUNDED = 'REFUNDED',
+  PAID = 'PAID',
+}
 
 export interface TimelineEvent {
   status: OrderStatus;

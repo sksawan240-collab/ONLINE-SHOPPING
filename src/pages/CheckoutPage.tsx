@@ -18,7 +18,13 @@ import {
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
-import { Address, Order } from '../types';
+import { Address, Order, OrderStatus } from '../types';
+import {
+  INDIAN_STATE_NAMES,
+  getDistrictsForState,
+  isValidIndianPinCode,
+  DEFAULT_COUNTRY,
+} from '../data/indiaStates';
 
 export const CheckoutPage: React.FC = () => {
   const { items, subtotal, clearCart } = useCart();
@@ -30,8 +36,9 @@ export const CheckoutPage: React.FC = () => {
     street: '',
     city: '',
     state: '',
+    district: '',
     postalCode: '',
-    country: 'United States',
+    country: DEFAULT_COUNTRY,
   });
 
   const [paymentMethod, setPaymentMethod] = useState<'COD' | 'UPI'>('COD');
@@ -64,7 +71,7 @@ export const CheckoutPage: React.FC = () => {
             setShowPaymentModal(false);
             
             // Update order status in our backend
-            const updateRes = await api.orders.updateStatus(orderIdRef.current!, 'PAID');
+            const updateRes = await api.orders.updateStatus(orderIdRef.current!, OrderStatus.PAID);
             if (updateRes.success && updateRes.order) {
               setCreatedOrder(updateRes.order);
               await clearCart();
@@ -94,7 +101,12 @@ export const CheckoutPage: React.FC = () => {
   useEffect(() => {
     if (user?.addresses && user.addresses.length > 0) {
       const defaultAddr = user.addresses.find(a => a.isDefault) || user.addresses[0];
-      setShippingAddress(defaultAddr);
+      setShippingAddress({
+        ...defaultAddr,
+        state: defaultAddr.state || '',
+        district: defaultAddr.district || '',
+        country: DEFAULT_COUNTRY,
+      });
     }
   }, [user]);
 
@@ -127,6 +139,14 @@ export const CheckoutPage: React.FC = () => {
     e.preventDefault();
     if (!shippingAddress.street || !shippingAddress.city || !shippingAddress.postalCode) {
       setErrorMsg('Please complete all mandatory shipping address fields.');
+      return;
+    }
+    if (!shippingAddress.state || !shippingAddress.district) {
+      setErrorMsg('Please select your State and District for delivery.');
+      return;
+    }
+    if (!isValidIndianPinCode(shippingAddress.postalCode)) {
+      setErrorMsg('Please enter a valid 6-digit Indian PIN code (e.g. 585102).');
       return;
     }
 
@@ -296,48 +316,83 @@ export const CheckoutPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="sm:col-span-2">
-                    <label className="block text-xs font-medium text-stone-700 mb-1">Street Address *</label>
+                    <label className="block text-xs font-medium text-stone-700 mb-1">Street Address / House No. *</label>
                     <input
                       type="text"
                       required
                       value={shippingAddress.street}
                       onChange={e => setShippingAddress({ ...shippingAddress, street: e.target.value })}
-                      placeholder="540 Madison Ave, Penthouse 4"
+                      placeholder="Plot No 33, Jayateerth Nagar, Udnoor Road"
                       className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-lg text-xs focus:ring-1 focus:ring-stone-900 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-stone-700 mb-1">City *</label>
+                    <label className="block text-xs font-medium text-stone-700 mb-1">City / Town *</label>
                     <input
                       type="text"
                       required
                       value={shippingAddress.city}
                       onChange={e => setShippingAddress({ ...shippingAddress, city: e.target.value })}
-                      placeholder="New York"
+                      placeholder="Kalaburagi"
                       className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-lg text-xs focus:ring-1 focus:ring-stone-900 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-stone-700 mb-1">State / Province</label>
-                    <input
-                      type="text"
+                    <label className="block text-xs font-medium text-stone-700 mb-1">State / Union Territory *</label>
+                    <select
+                      required
                       value={shippingAddress.state || ''}
-                      onChange={e => setShippingAddress({ ...shippingAddress, state: e.target.value })}
-                      placeholder="NY"
+                      onChange={e =>
+                        setShippingAddress({ ...shippingAddress, state: e.target.value, district: '' })
+                      }
                       className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-lg text-xs focus:ring-1 focus:ring-stone-900 focus:bg-white"
-                    />
+                    >
+                      <option value="">Select State / UT</option>
+                      {INDIAN_STATE_NAMES.map(name => (
+                        <option key={name} value={name}>
+                          {name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-stone-700 mb-1">Postal Code *</label>
+                    <label className="block text-xs font-medium text-stone-700 mb-1">District *</label>
+                    <select
+                      required
+                      disabled={!shippingAddress.state}
+                      value={shippingAddress.district || ''}
+                      onChange={e => setShippingAddress({ ...shippingAddress, district: e.target.value })}
+                      className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-lg text-xs focus:ring-1 focus:ring-stone-900 focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <option value="">
+                        {shippingAddress.state ? 'Select District' : 'Select state first'}
+                      </option>
+                      {getDistrictsForState(shippingAddress.state).map(district => (
+                        <option key={district} value={district}>
+                          {district}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-stone-700 mb-1">PIN Code *</label>
                     <input
                       type="text"
                       required
+                      inputMode="numeric"
+                      maxLength={6}
                       value={shippingAddress.postalCode}
-                      onChange={e => setShippingAddress({ ...shippingAddress, postalCode: e.target.value })}
-                      placeholder="10022"
+                      onChange={e =>
+                        setShippingAddress({
+                          ...shippingAddress,
+                          postalCode: e.target.value.replace(/[^0-9]/g, '').slice(0, 6),
+                        })
+                      }
+                      placeholder="585102"
                       className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-lg text-xs focus:ring-1 focus:ring-stone-900 focus:bg-white"
                     />
                   </div>
@@ -346,16 +401,10 @@ export const CheckoutPage: React.FC = () => {
                     <label className="block text-xs font-medium text-stone-700 mb-1">Country</label>
                     <select
                       value={shippingAddress.country}
-                      onChange={e => setShippingAddress({ ...shippingAddress, country: e.target.value })}
-                      className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-lg text-xs focus:ring-1 focus:ring-stone-900 focus:bg-white"
+                      disabled
+                      className="w-full px-3 py-2 bg-stone-100 border border-stone-300 rounded-lg text-xs text-stone-600 cursor-not-allowed"
                     >
-                      <option value="United States">United States</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="France">France</option>
-                      <option value="Italy">Italy</option>
-                      <option value="Germany">Germany</option>
-                      <option value="Canada">Canada</option>
-                      <option value="Australia">Australia</option>
+                      <option value="India">India</option>
                     </select>
                   </div>
                 </div>

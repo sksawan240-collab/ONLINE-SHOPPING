@@ -22,6 +22,12 @@ import { useWishlist } from '../context/WishlistContext';
 import { useCart } from '../context/CartContext';
 import { api } from '../services/api';
 import { Order, Address, NotificationItem } from '../types';
+import {
+  INDIAN_STATE_NAMES,
+  getDistrictsForState,
+  isValidIndianPinCode,
+  DEFAULT_COUNTRY,
+} from '../data/indiaStates';
 
 export const CustomerDashboard: React.FC = () => {
   const { user, logout, logoutAll, refreshProfile } = useAuth();
@@ -45,7 +51,9 @@ export const CustomerDashboard: React.FC = () => {
   const [newStreet, setNewStreet] = useState('');
   const [newCity, setNewCity] = useState('');
   const [newState, setNewState] = useState('');
+  const [newDistrict, setNewDistrict] = useState('');
   const [newPostal, setNewPostal] = useState('');
+  const [addressError, setAddressError] = useState<string | null>(null);
   const [showAddressForm, setShowAddressForm] = useState(false);
 
   // Notifications
@@ -127,13 +135,23 @@ export const CustomerDashboard: React.FC = () => {
 
   const handleAddAddress = async (e: React.FormEvent) => {
     e.preventDefault();
+    setAddressError(null);
+    if (!newState || !newDistrict) {
+      setAddressError('Please select both State and District.');
+      return;
+    }
+    if (!isValidIndianPinCode(newPostal)) {
+      setAddressError('Please enter a valid 6-digit Indian PIN code (e.g. 585102).');
+      return;
+    }
     try {
       const res = await api.auth.addAddress({
         street: newStreet,
         city: newCity,
         state: newState,
+        district: newDistrict,
         postalCode: newPostal,
-        country: 'United States',
+        country: DEFAULT_COUNTRY,
       });
       if (res.success) {
         setAddresses(res.addresses);
@@ -141,6 +159,7 @@ export const CustomerDashboard: React.FC = () => {
         setNewStreet('');
         setNewCity('');
         setNewState('');
+        setNewDistrict('');
         setNewPostal('');
       }
     } catch (err: any) {
@@ -477,25 +496,55 @@ export const CustomerDashboard: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <input
-                          type="text"
+                        <select
+                          required
                           value={newState}
-                          onChange={e => setNewState(e.target.value)}
-                          placeholder="State / Province"
+                          onChange={e => {
+                            setNewState(e.target.value);
+                            setNewDistrict('');
+                          }}
                           className="w-full px-3 py-2 bg-white border border-stone-300 rounded-lg text-xs"
-                        />
+                        >
+                          <option value="">State / Union Territory *</option>
+                          {INDIAN_STATE_NAMES.map(name => (
+                            <option key={name} value={name}>
+                              {name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <select
+                          required
+                          disabled={!newState}
+                          value={newDistrict}
+                          onChange={e => setNewDistrict(e.target.value)}
+                          className="w-full px-3 py-2 bg-white border border-stone-300 rounded-lg text-xs disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          <option value="">{newState ? 'District *' : 'Select state first'}</option>
+                          {getDistrictsForState(newState).map(district => (
+                            <option key={district} value={district}>
+                              {district}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <div className="col-span-2">
                         <input
                           type="text"
                           required
+                          inputMode="numeric"
+                          maxLength={6}
                           value={newPostal}
-                          onChange={e => setNewPostal(e.target.value)}
-                          placeholder="Postal Code *"
+                          onChange={e => setNewPostal(e.target.value.replace(/[^0-9]/g, '').slice(0, 6))}
+                          placeholder="PIN Code * (6 digits)"
                           className="w-full px-3 py-2 bg-white border border-stone-300 rounded-lg text-xs"
                         />
                       </div>
                     </div>
+                    {addressError && (
+                      <p className="text-xs text-rose-600 font-medium">{addressError}</p>
+                    )}
                     <div className="flex justify-end gap-2">
                       <button
                         type="button"
@@ -522,8 +571,10 @@ export const CustomerDashboard: React.FC = () => {
                       <div key={addr.id} className="p-4 rounded-xl border border-stone-200 bg-stone-50/50 flex justify-between items-start">
                         <div>
                           <p className="text-xs font-semibold text-stone-900">{addr.street}</p>
-                          <p className="text-xs text-stone-600">{addr.city}, {addr.state} {addr.postalCode}</p>
-                          <p className="text-[11px] text-stone-500 mt-1">{addr.country}</p>
+                          <p className="text-xs text-stone-600">
+                            {addr.city}{addr.district ? `, ${addr.district}` : ''}{addr.state ? `, ${addr.state}` : ''} {addr.postalCode}
+                          </p>
+                          <p className="text-[11px] text-stone-500 mt-1">{addr.country || 'India'}</p>
                         </div>
                         <button
                           onClick={() => handleDeleteAddress(addr.id)}

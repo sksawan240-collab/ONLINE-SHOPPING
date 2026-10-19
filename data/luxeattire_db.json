@@ -129,9 +129,9 @@
         "newsletter": true
       },
       "sessionVersion": 1,
-      "lastLogin": "2026-10-19T14:37:30.846Z",
+      "lastLogin": "2026-10-19T16:43:04.258Z",
       "createdAt": "2026-09-25T07:31:36.214Z",
-      "updatedAt": "2026-10-19T14:37:30.847Z"
+      "updatedAt": "2026-10-19T16:43:04.258Z"
     },
     {
       "_id": "mugn0udt_zgwrqm9",
@@ -158,6 +158,60 @@
     }
   ],
   "products": [
+    {
+      "_id": "mvfhcqub_hiwkew0",
+      "id": "mvfhcqub_hiwkew0",
+      "name": "Men's White Oversized T-Shirt with Sailboat Graphic | Minimalist Streetwear Fashion",
+      "slug": "mens-white-oversized-t-shirt-with-sailboat-graphic-minimalist-streetwear-fashion-bya0",
+      "description": "Upgrade your everyday style with this stylish white oversized T-shirt featuring a unique sailboat graphic. ⚓🤍 Designed for men who love a clean, modern, and effortless look, this T-shirt pairs perfectly with black jeans, sneakers, and sunglasses. Ideal for casual outings, college wear, streetwear outfits, and everyday fashion.",
+      "shortDescription": "",
+      "brand": "NAVEOR WEARYOUR STORY",
+      "category": "Outerwear & Coats",
+      "subcategory": "",
+      "gender": "Men",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        {
+          "name": "Camel",
+          "hex": "#1c1917"
+        },
+        {
+          "name": "Black",
+          "hex": "#1c1917"
+        },
+        {
+          "name": "Charcoal",
+          "hex": "#1c1917"
+        }
+      ],
+      "material": "100% Cashmere & Virgin Wool",
+      "price": 499,
+      "discount": 0,
+      "salePrice": 499,
+      "sku": "LUXE-OUT-MVFHCQU9",
+      "barcode": "",
+      "stock": 14,
+      "lowStockThreshold": 5,
+      "tags": [],
+      "images": [
+        "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop"
+      ],
+      "videoUrl": "",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "isTrending": false,
+      "status": "PUBLISHED",
+      "rating": 5,
+      "numReviews": 0,
+      "createdAt": "2026-10-19T16:40:03.299Z",
+      "updatedAt": "2026-10-19T16:43:29.282Z"
+    },
     {
       "_id": "mvffd9ws_g9dzg67",
       "id": "mvffd9ws_g9dzg67",
@@ -602,6 +656,74 @@
   ],
   "orders": [
     {
+      "_id": "mvfhh5sa_3e1apy9",
+      "id": "mvfhh5sa_3e1apy9",
+      "orderId": "ORD-2026-C5B0906E",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mvfhcqub_hiwkew0",
+          "name": "Men's White Oversized T-Shirt with Sailboat Graphic | Minimalist Streetwear Fashion",
+          "sku": "LUXE-OUT-MVFHCQU9",
+          "image": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800&auto=format&fit=crop",
+          "size": "S",
+          "color": "Camel",
+          "quantity": 1,
+          "price": 499,
+          "subtotal": 499
+        }
+      ],
+      "subtotal": 499,
+      "discount": 0,
+      "tax": 39.92,
+      "shipping": 0,
+      "total": 538.92,
+      "couponCode": "",
+      "paymentMethod": "COD",
+      "paymentStatus": "UNPAID",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "India",
+        "isDefault": true,
+        "district": "Kalaburagi (Gulbarga)"
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "India",
+        "isDefault": true,
+        "district": "Kalaburagi (Gulbarga)"
+      },
+      "trackingNumber": "LXC09F6AF2",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed with Cash on Delivery. Payment will be collected on delivery.",
+          "timestamp": "2026-10-19T16:43:29.290Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-19T16:43:29.290Z",
+      "updatedAt": "2026-10-19T16:43:29.290Z"
+    },
+    {
       "_id": "mve9idq8_1kquymb",
       "id": "mve9idq8_1kquymb",
       "orderId": "ORD-2026-C128702A",
@@ -638,7 +760,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -647,7 +769,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LX5FE20C53",
@@ -704,7 +826,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -713,7 +835,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LX5D212EC0",
@@ -770,7 +892,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -779,7 +901,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LX93151E3D",
@@ -836,7 +958,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -845,7 +967,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LXC9A2490C",
@@ -902,7 +1024,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -911,7 +1033,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LX52FD8C26",
@@ -968,7 +1090,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -977,7 +1099,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LXEABFB365",
@@ -1034,7 +1156,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -1043,7 +1165,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LXB5983C9F",
@@ -1097,14 +1219,14 @@
       "shippingAddress": {
         "street": "12 Marine Drive",
         "city": "Mumbai",
-        "state": "MH",
+        "state": "Maharashtra",
         "postalCode": "400001",
         "country": "India"
       },
       "billingAddress": {
         "street": "12 Marine Drive",
         "city": "Mumbai",
-        "state": "MH",
+        "state": "Maharashtra",
         "postalCode": "400001",
         "country": "India"
       },
@@ -1162,7 +1284,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -1171,7 +1293,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LX64289A52",
@@ -1228,7 +1350,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "billingAddress": {
@@ -1237,7 +1359,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States",
+        "country": "India",
         "isDefault": true
       },
       "trackingNumber": "LX18929AF2",
@@ -1294,7 +1416,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1302,7 +1424,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX7168D0B1",
       "carrier": "DHL Express",
@@ -1358,7 +1480,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1366,7 +1488,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX39C60DEF",
       "carrier": "DHL Express",
@@ -1422,7 +1544,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1430,7 +1552,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX56DCF33E",
       "carrier": "DHL Express",
@@ -1486,7 +1608,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1494,7 +1616,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXF147D6DD",
       "carrier": "DHL Express",
@@ -1550,7 +1672,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1558,7 +1680,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX8D76568D",
       "carrier": "DHL Express",
@@ -1614,7 +1736,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1622,7 +1744,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXB53263A2",
       "carrier": "DHL Express",
@@ -1678,7 +1800,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1686,7 +1808,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX73A7BAA0",
       "carrier": "DHL Express",
@@ -1742,7 +1864,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1750,7 +1872,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX1B4BFC1F",
       "carrier": "DHL Express",
@@ -1806,7 +1928,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1814,7 +1936,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXBDC29C53",
       "carrier": "DHL Express",
@@ -1870,7 +1992,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1878,7 +2000,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXFC742BFC",
       "carrier": "DHL Express",
@@ -1934,7 +2056,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -1942,7 +2064,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX3C314739",
       "carrier": "FedEx Priority Overnight",
@@ -1998,7 +2120,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2006,7 +2128,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX58A3C706",
       "carrier": "DHL Express",
@@ -2062,7 +2184,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2070,7 +2192,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX5C00C98B",
       "carrier": "DHL Express",
@@ -2124,7 +2246,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2132,7 +2254,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX79533381",
       "carrier": "DHL Express",
@@ -2188,7 +2310,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2196,7 +2318,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX497AE51F",
       "carrier": "DHL Express",
@@ -2252,7 +2374,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2260,7 +2382,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX67FE0DB3",
       "carrier": "DHL Express",
@@ -2316,7 +2438,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2324,7 +2446,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX41720988",
       "carrier": "FedEx Priority Overnight",
@@ -2380,7 +2502,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2388,7 +2510,7 @@
         "city": "Kalaburagi",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX0EE4AB79",
       "carrier": "FedEx Priority Overnight",
@@ -2444,7 +2566,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2452,7 +2574,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX7517D757",
       "carrier": "DHL Express",
@@ -2508,7 +2630,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "Italy"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2516,7 +2638,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "Italy"
+        "country": "India"
       },
       "trackingNumber": "LXABFB678D",
       "carrier": "DHL Express",
@@ -2572,7 +2694,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2580,7 +2702,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX7E44DC20",
       "carrier": "FedEx Priority Overnight",
@@ -2636,7 +2758,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2644,7 +2766,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX3ADEF078",
       "carrier": "DHL Express",
@@ -2700,7 +2822,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2708,7 +2830,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXEACD8822",
       "carrier": "DHL Express",
@@ -2770,7 +2892,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2778,7 +2900,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX72DCCAE9",
       "carrier": "FedEx Priority Overnight",
@@ -2834,7 +2956,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2842,7 +2964,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX6395645E",
       "carrier": "DHL Express",
@@ -2898,7 +3020,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United Kingdom"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2906,7 +3028,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United Kingdom"
+        "country": "India"
       },
       "trackingNumber": "LXB6198EAA",
       "carrier": "DHL Express",
@@ -2962,7 +3084,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -2970,7 +3092,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXCF0397DF",
       "carrier": "DHL Express",
@@ -3026,7 +3148,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3034,7 +3156,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX290C9F85",
       "carrier": "FedEx Priority Overnight",
@@ -3090,7 +3212,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3098,7 +3220,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "trackingNumber": "LX845AFB51",
       "carrier": "DHL Express",
@@ -3154,7 +3276,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3162,7 +3284,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX69088EE5",
       "carrier": "DHL Express",
@@ -3218,7 +3340,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3226,7 +3348,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXF55C2944",
       "carrier": "DHL Express",
@@ -3282,7 +3404,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3290,7 +3412,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX6D569B5F",
       "carrier": "FedEx Priority Overnight",
@@ -3346,7 +3468,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3354,7 +3476,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX387294A3",
       "carrier": "DHL Express",
@@ -3410,7 +3532,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3418,7 +3540,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX6C8F9C28",
       "carrier": "DHL Express",
@@ -3474,7 +3596,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3482,7 +3604,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXDC4DF079",
       "carrier": "DHL Express",
@@ -3538,7 +3660,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3546,7 +3668,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXDE4CBE55",
       "carrier": "DHL Express",
@@ -3602,7 +3724,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3610,7 +3732,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX68B31302",
       "carrier": "DHL Express",
@@ -3666,7 +3788,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3674,7 +3796,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXBC6DCCB4",
       "carrier": "DHL Express",
@@ -3730,7 +3852,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3738,7 +3860,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXD008D680",
       "carrier": "DHL Express",
@@ -3800,7 +3922,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3808,7 +3930,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXBBE0825C",
       "carrier": "DHL Express",
@@ -3864,7 +3986,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3872,7 +3994,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXA84C0D6D",
       "carrier": "DHL Express",
@@ -3928,7 +4050,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -3936,7 +4058,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX518E0D31",
       "carrier": "DHL Express",
@@ -3992,7 +4114,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4000,7 +4122,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX19E7D100",
       "carrier": "DHL Express",
@@ -4062,7 +4184,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4070,7 +4192,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX26B9327B",
       "carrier": "DHL Express",
@@ -4132,7 +4254,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4140,7 +4262,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX31C92364",
       "carrier": "DHL Express",
@@ -4202,7 +4324,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4210,7 +4332,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXB1410429",
       "carrier": "DHL Express",
@@ -4272,7 +4394,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4280,7 +4402,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX67BE0752",
       "carrier": "DHL Express",
@@ -4342,7 +4464,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4350,7 +4472,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "trackingNumber": "LX7387D5B3",
       "carrier": "DHL Express",
@@ -4412,7 +4534,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4420,7 +4542,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "trackingNumber": "LXFDFC3CA3",
       "carrier": "DHL Express",
@@ -4482,7 +4604,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4490,7 +4612,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LX805B041C",
       "carrier": "DHL Express",
@@ -4552,7 +4674,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4560,7 +4682,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "United States"
+        "country": "India"
       },
       "trackingNumber": "LXE7AACC8A",
       "carrier": "DHL Express",
@@ -4624,7 +4746,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "billingAddress": {
         "id": "",
@@ -4632,7 +4754,7 @@
         "city": "KALABURAGI",
         "state": "Karnataka",
         "postalCode": "585102",
-        "country": "France"
+        "country": "India"
       },
       "trackingNumber": "LXCB63C022",
       "carrier": "DHL Express",
@@ -4677,6 +4799,31 @@
     }
   ],
   "carts": [
+    {
+      "_id": "mvfhgmi0_ba6qhs9",
+      "id": "mvfhgmi0_ba6qhs9",
+      "userId": "mugn6zkm_8s5tc4t",
+      "items": [],
+      "createdAt": "2026-10-19T16:43:04.296Z",
+      "updatedAt": "2026-10-19T16:43:29.393Z"
+    },
+    {
+      "_id": "mvffo8cz_hgd5mef",
+      "id": "mvffo8cz_hgd5mef",
+      "userId": "mugpvl8d_husvy8g",
+      "items": [
+        {
+          "itemId": "mvfhcqub_hiwkew0_S_Camel_1792428158700",
+          "productId": "mvfhcqub_hiwkew0",
+          "size": "S",
+          "color": "Camel",
+          "quantity": 1,
+          "addedAt": "2026-10-19T16:42:38.700Z"
+        }
+      ],
+      "createdAt": "2026-10-19T15:52:59.987Z",
+      "updatedAt": "2026-10-19T16:42:38.700Z"
+    },
     {
       "_id": "mvfffgbf_jh19iq9",
       "id": "mvfffgbf_jh19iq9",
@@ -4801,6 +4948,18 @@
   ],
   "reviews": [],
   "notifications": [
+    {
+      "_id": "mvfhh5t0_kp8233f",
+      "id": "mvfhh5t0_kp8233f",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Cash on Delivery",
+      "message": "Your order ORD-2026-C5B0906E for $538.92 has been placed with Cash on Delivery. Payment will be collected on delivery.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-C5B0906E",
+      "isRead": false,
+      "createdAt": "2026-10-19T16:43:29.316Z",
+      "updatedAt": "2026-10-19T16:43:29.316Z"
+    },
     {
       "_id": "mve9idr3_vnms7lm",
       "id": "mve9idr3_vnms7lm",
@@ -5483,13 +5642,25 @@
   ],
   "emailLogs": [
     {
+      "_id": "mvfhhk73_u8is1os",
+      "id": "mvfhhk73_u8is1os",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_CONFIRMATION",
+      "subject": "Order Confirmation - ORD-2026-C5B0906E",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-C5B0906E</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>Men's White Oversized T-Shirt with Sailboat Graphic | Minimalist Streetwear Fashion</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$499.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $499.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $538.92</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Kalaburagi (Gulbarga), Karnataka 585102, India\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-C5B0906E\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-10-19T16:43:47.967Z",
+      "createdAt": "2026-10-19T16:43:47.967Z",
+      "updatedAt": "2026-10-19T16:43:47.967Z"
+    },
+    {
       "_id": "mve9inr0_bub9ro2",
       "id": "mve9inr0_bub9ro2",
       "recipient": "halliramesh5@gmail.com",
       "emailType": "ORDER_CONFIRMATION",
       "subject": "Order Confirmation - ORD-2026-C128702A",
       "status": "FAILED",
-      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-C128702A</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, United States\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-C128702A\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-C128702A</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, India\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-C128702A\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
       "sentAt": "2026-10-18T20:12:56.123Z",
       "errorMessage": "read ECONNRESET",
       "createdAt": "2026-10-18T20:12:56.123Z",
@@ -5502,7 +5673,7 @@
       "emailType": "ORDER_CONFIRMATION",
       "subject": "Order Confirmation - ORD-2026-6261528A",
       "status": "SENT",
-      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-6261528A</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: M | Color: Default | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, United States\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-6261528A\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-6261528A</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: M | Color: Default | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, India\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-6261528A\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
       "sentAt": "2026-10-18T19:46:02.043Z",
       "createdAt": "2026-10-18T19:46:02.043Z",
       "updatedAt": "2026-10-18T19:46:02.043Z"
@@ -5514,7 +5685,7 @@
       "emailType": "ORDER_CONFIRMATION",
       "subject": "Order Confirmation - ORD-2026-C34E14B2",
       "status": "SENT",
-      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-C34E14B2</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Default | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, United States\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-C34E14B2\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-C34E14B2</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Default | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, India\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-C34E14B2\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
       "sentAt": "2026-10-18T19:40:52.074Z",
       "createdAt": "2026-10-18T19:40:52.074Z",
       "updatedAt": "2026-10-18T19:40:52.074Z"
@@ -5548,7 +5719,7 @@
       "emailType": "ORDER_CONFIRMATION",
       "subject": "Order Confirmation - ORD-2026-B214B8D1",
       "status": "SENT",
-      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-B214B8D1</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: $25.00</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $268.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              KALABURAGI, KALABURAGI, Karnataka 585102, United States\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B214B8D1\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-B214B8D1</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: $25.00</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $268.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              KALABURAGI, KALABURAGI, Karnataka 585102, India\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B214B8D1\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
       "sentAt": "2026-10-18T09:52:02.161Z",
       "_id": "mvdnc6ep_z3h4kgn",
       "id": "mvdnc6ep_z3h4kgn",
@@ -5612,7 +5783,7 @@
       "emailType": "ORDER_CONFIRMATION",
       "subject": "Order Confirmation - ORD-2026-B88745A9",
       "status": "SENT",
-      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-B88745A9</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              PLOT NO 34 SAI NIVAS JAYATEETH NAGAR AKLABURAGI , KALABURAGI, Karnataka 585102, France\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B88745A9\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-B88745A9</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              PLOT NO 34 SAI NIVAS JAYATEETH NAGAR AKLABURAGI , KALABURAGI, Karnataka 585102, India\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-B88745A9\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
       "sentAt": "2026-09-25T09:19:40.485Z",
       "createdAt": "2026-09-25T09:19:40.485Z",
       "updatedAt": "2026-09-25T09:19:40.485Z"
@@ -5715,6 +5886,55 @@
     }
   ],
   "auditLogs": [
+    {
+      "_id": "mvfhh5tp_vom0qww",
+      "id": "mvfhh5tp_vom0qww",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED",
+      "entity": "Order",
+      "entityId": "mvfhh5sa_3e1apy9",
+      "metadata": {
+        "orderId": "ORD-2026-C5B0906E",
+        "total": 538.92,
+        "itemCount": 1
+      },
+      "timestamp": "2026-10-19T16:43:29.341Z",
+      "createdAt": "2026-10-19T16:43:29.341Z",
+      "updatedAt": "2026-10-19T16:43:29.341Z"
+    },
+    {
+      "_id": "mvfhcqut_wlz9eg1",
+      "id": "mvfhcqut_wlz9eg1",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_CREATED",
+      "entity": "Product",
+      "entityId": "mvfhcqub_hiwkew0",
+      "metadata": {
+        "name": "Men's White Oversized T-Shirt with Sailboat Graphic | Minimalist Streetwear Fashion",
+        "sku": "LUXE-OUT-MVFHCQU9",
+        "price": 499,
+        "stock": 15
+      },
+      "timestamp": "2026-10-19T16:40:03.317Z",
+      "createdAt": "2026-10-19T16:40:03.317Z",
+      "updatedAt": "2026-10-19T16:40:03.317Z"
+    },
     {
       "_id": "mvffd9xt_i24be75",
       "id": "mvffd9xt_i24be75",
