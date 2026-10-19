@@ -144,11 +144,11 @@ export const CartDrawer: React.FC = () => {
                       {/* Price */}
                       <div className="text-right">
                         <span className="text-xs font-bold text-stone-900">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toFixed(2)}
                         </span>
                         {item.originalPrice > item.price && (
                           <div className="text-[10px] text-stone-400 line-through">
-                            ${(item.originalPrice * item.quantity).toFixed(2)}
+                            ₹{(item.originalPrice * item.quantity).toFixed(2)}
                           </div>
                         )}
                       </div>
@@ -186,7 +186,7 @@ export const CartDrawer: React.FC = () => {
                 {appliedCoupon && (
                   <div className="flex items-center gap-1.5 text-emerald-700 text-xs">
                     <Check className="w-3.5 h-3.5" />
-                    <span>Coupon <strong>{appliedCoupon.code}</strong> applied (-${appliedCoupon.discountAmount.toFixed(2)})</span>
+                    <span>Coupon <strong>{appliedCoupon.code}</strong> applied (-₹{appliedCoupon.discountAmount.toFixed(2)})</span>
                   </div>
                 )}
                 {couponError && (
@@ -201,27 +201,27 @@ export const CartDrawer: React.FC = () => {
               <div className="space-y-1.5 text-xs text-stone-600 pt-2 border-t border-stone-200">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-stone-900">${subtotal.toFixed(2)}</span>
+                  <span className="font-semibold text-stone-900">₹{subtotal.toFixed(2)}</span>
                 </div>
                 {discountVal > 0 && (
                   <div className="flex justify-between text-emerald-700 font-medium">
                     <span>Voucher Discount</span>
-                    <span>-${discountVal.toFixed(2)}</span>
+                    <span>-₹{discountVal.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
                   <span>Estimated Shipping</span>
                   <span className="font-semibold text-stone-900">
-                    {shippingFee === 0 ? 'Complimentary' : `$${shippingFee.toFixed(2)}`}
+                    {shippingFee === 0 ? 'Complimentary' : `₹${shippingFee.toFixed(2)}`}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Estimated Sales Tax (8%)</span>
-                  <span>${estimatedTax.toFixed(2)}</span>
+                  <span>₹{estimatedTax.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm font-bold text-stone-900 pt-2 border-t border-stone-200">
                   <span>Estimated Total</span>
-                  <span>${totalAmount.toFixed(2)}</span>
+                  <span>₹{totalAmount.toFixed(2)}</span>
                 </div>
               </div>
 

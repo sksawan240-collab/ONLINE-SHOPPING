@@ -392,9 +392,9 @@ export class LocalCollection<T extends DocumentItem> {
     if (this.useMongo()) {
       try {
         let updated =
-          (await this.model.findByIdAndUpdate(id, { $set: payload }, { new: true }).lean().exec().catch(() => null)) as any;
+          (await this.model.findByIdAndUpdate(id, { $set: payload }, { returnDocument: 'after' }).lean().exec().catch(() => null)) as any;
         if (!updated) {
-          updated = (await this.model.findOneAndUpdate({ id }, { $set: payload }, { new: true }).lean().exec()) as any;
+          updated = (await this.model.findOneAndUpdate({ id }, { $set: payload }, { returnDocument: 'after' }).lean().exec()) as any;
         }
         if (updated) {
           const plain = toPlain<T>(updated);

@@ -162,7 +162,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAuth }) => {
               </div>
               <div>
                 <p className="text-xs font-bold text-stone-900">Complimentary Shipping</p>
-                <p className="text-[11px] text-stone-500">Worldwide on orders over $200</p>
+                <p className="text-[11px] text-stone-500">Worldwide on orders over ₹15000</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
@@ -348,7 +348,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenAuth }) => {
               Enjoy 15% Off Your Entire Signature Wardrobe
             </h2>
             <p className="text-stone-300 text-xs sm:text-sm">
-              Use code <strong className="text-amber-300 font-mono tracking-widest">LUXE15</strong> at checkout on qualifying orders above $100. Applied directly to verified items.
+              Use code <strong className="text-amber-300 font-mono tracking-widest">LUXE15</strong> at checkout on qualifying orders above ₹7500. Applied directly to verified items.
             </p>
 
             <div className="flex items-center gap-3 pt-2">

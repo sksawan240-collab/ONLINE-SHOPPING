@@ -26,8 +26,28 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { api } from '../services/api';
-import { Product, Category, Order, User, EmailLog, AuditLog, StoreSettings } from '../types';
+import { Product, Category, Order, User, EmailLog, AuditLog, StoreSettings, OrderStatus } from '../types';
 import { useAuth } from '../context/AuthContext';
+
+const getStatusClass = (status: OrderStatus | undefined) => {
+  switch (status) {
+    case 'PLACED':
+    case 'CONFIRMED':
+      return 'bg-stone-100 text-stone-800';
+    case 'PROCESSING':
+    case 'PACKED':
+      return 'bg-blue-100 text-blue-800';
+    case 'SHIPPED':
+    case 'OUT_FOR_DELIVERY':
+      return 'bg-amber-100 text-amber-800';
+    case 'DELIVERED':
+      return 'bg-emerald-100 text-emerald-800';
+    case 'CANCELLED':
+      return 'bg-rose-100 text-rose-800';
+    default:
+      return 'bg-stone-100 text-stone-800';
+  }
+};
 
 export const AdminDashboard: React.FC = () => {
   const { user } = useAuth();
@@ -81,7 +101,7 @@ export const AdminDashboard: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
-  const [orderStatusUpdate, setOrderStatusUpdate] = useState('');
+  const [orderStatusUpdate, setOrderStatusUpdate] = useState<OrderStatus | ''>('');
   const [orderCarrierUpdate, setOrderCarrierUpdate] = useState('');
   const [orderTrackingUpdate, setOrderTrackingUpdate] = useState('');
   const [statusNote, setStatusNote] = useState('');
@@ -294,8 +314,7 @@ export const AdminDashboard: React.FC = () => {
     e.preventDefault();
     if (!selectedOrder || !orderStatusUpdate) return;
     try {
-      const res = await api.orders.updateStatus(selectedOrder._id, {
-        orderStatus: orderStatusUpdate,
+      const res = await api.orders.updateStatus(selectedOrder._id, orderStatusUpdate, {
         carrier: orderCarrierUpdate || selectedOrder.carrier,
         trackingNumber: orderTrackingUpdate || selectedOrder.trackingNumber,
         note: statusNote || undefined,
@@ -482,9 +501,9 @@ export const AdminDashboard: React.FC = () => {
                   <div className="p-2 bg-emerald-50 text-emerald-700 rounded-lg"><DollarSign className="w-4 h-4" /></div>
                 </div>
                 <p className="text-2xl font-bold font-serif text-stone-900 mt-2">
-                  ${stats?.totalRevenue ? stats.totalRevenue.toFixed(2) : '0.00'}
+                  ₹{stats?.totalRevenue ? stats.totalRevenue.toFixed(2) : '0.00'}
                 </p>
-                <p className="text-[11px] text-stone-500 mt-1">Today: ${stats?.todaySales ? stats.todaySales.toFixed(2) : '0.00'}</p>
+                <p className="text-[11px] text-stone-500 mt-1">Today: ₹{stats?.todaySales ? stats.todaySales.toFixed(2) : '0.00'}</p>
               </div>
 
               <div className="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs">
@@ -596,8 +615,8 @@ export const AdminDashboard: React.FC = () => {
                           <td className="p-3 font-mono font-bold text-stone-900">{o.orderId}</td>
                           <td className="p-3">{o.customer?.name} ({o.customer?.email})</td>
                           <td className="p-3 font-bold">${Number(o.total).toFixed(2)}</td>
-                          <td className="p-3">
-                            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-stone-100 text-stone-800">
+                                                    <td className="p-3">
+                            <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${getStatusClass(o.orderStatus)}`}>
                               {o.orderStatus?.replace(/_/g, ' ')}
                             </span>
                           </td>
@@ -1159,8 +1178,8 @@ export const AdminDashboard: React.FC = () => {
                             {o.paymentStatus}
                           </span>
                         </td>
-                        <td className="p-3">
-                          <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-stone-900 text-white">
+                                                <td className="p-3">
+                          <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${getStatusClass(o.orderStatus)}`}>
                             {o.orderStatus?.replace(/_/g, ' ')}
                           </span>
                         </td>
@@ -1203,7 +1222,7 @@ export const AdminDashboard: React.FC = () => {
                       <label className="block font-semibold mb-1">Status Milestone</label>
                       <select
                         value={orderStatusUpdate}
-                        onChange={e => setOrderStatusUpdate(e.target.value)}
+                        onChange={e => setOrderStatusUpdate(e.target.value as OrderStatus)}
                         className="w-full px-3 py-2 bg-stone-50 border rounded-lg"
                       >
                         <option value="PLACED">PLACED</option>

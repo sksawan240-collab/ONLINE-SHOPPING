@@ -13,7 +13,7 @@ import categoryRoutes from './server/routes/categoryRoutes';
 import cartRoutes from './server/routes/cartRoutes';
 import wishlistRoutes from './server/routes/wishlistRoutes';
 import orderRoutes from './server/routes/orderRoutes';
-import paymentRoutes from './server/routes/paymentRoutes';
+
 import dashboardRoutes from './server/routes/dashboardRoutes';
 import adminRoutes from './server/routes/adminRoutes';
 import couponRoutes from './server/routes/couponRoutes';
@@ -35,7 +35,15 @@ async function startServer() {
     credentials: true,
   }));
   app.use(cookieParser());
-  app.use(express.json({ limit: '10mb' }));
+  // Capture the raw body for HMAC webhook signature verification (YOUPI-PG).
+  // Without `verify`, express.json() consumes the stream and the webhook route
+  // would only ever see an empty body, breaking signature checks.
+  app.use(express.json({
+    limit: '10mb',
+    verify: (req: any, _res, buf: Buffer) => {
+      req.rawBody = buf.toString('utf8');
+    },
+  }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
   // Initialize Database (MongoDB via Mongoose if MONGODB_URI set, or persistent disk storage)
@@ -48,7 +56,7 @@ async function startServer() {
   app.use('/api/cart', cartRoutes);
   app.use('/api/wishlist', wishlistRoutes);
   app.use('/api/orders', orderRoutes);
-  app.use('/api/payments', paymentRoutes);
+  
   app.use('/api/dashboard', dashboardRoutes);
   app.use('/api/admin', adminRoutes);
   app.use('/api/coupons', couponRoutes);

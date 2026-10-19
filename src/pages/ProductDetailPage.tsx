@@ -243,10 +243,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onOpenAuth
 
               {/* Price */}
               <div className="flex items-baseline space-x-3 pt-2">
-                <span className="text-3xl font-bold text-stone-950">${price.toFixed(2)}</span>
+                <span className="text-3xl font-bold text-stone-950">₹{price.toFixed(2)}</span>
                 {product.discount > 0 && (
                   <>
-                    <span className="text-base text-stone-400 line-through">${product.price.toFixed(2)}</span>
+                    <span className="text-base text-stone-400 line-through">₹{product.price.toFixed(2)}</span>
                     <span className="text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">
                       Special Saving -{product.discount}%
                     </span>
@@ -399,7 +399,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onOpenAuth
               <div className="grid grid-cols-2 gap-3 pt-3 text-[11px] text-stone-600 border-t border-stone-100">
                 <div className="flex items-center gap-2">
                   <Truck className="w-4 h-4 text-stone-400 flex-shrink-0" />
-                  <span>Complimentary shipping over $200</span>
+                  <span>Complimentary shipping over ₹15000</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <RotateCcw className="w-4 h-4 text-stone-400 flex-shrink-0" />

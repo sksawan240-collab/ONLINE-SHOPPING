@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchSuggestions, setSearchSuggestions] = useState<Product[]>([]);
-  const [announcement, setAnnouncement] = useState('Complimentary Worldwide Shipping on Orders Over $200 · Use Code LUXE15 for 15% Off');
+  const [announcement, setAnnouncement] = useState('Complimentary Worldwide Shipping on Orders Over ₹15000 · Use Code LUXE15 for 15% Off');
   const [announcementActive, setAnnouncementActive] = useState(true);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -409,7 +409,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth }) => {
                         <p className="text-[11px] text-stone-500">{product.brand} · {product.category}</p>
                       </div>
                       <span className="text-xs font-bold text-stone-900">
-                        ${Number(product.salePrice || product.price).toFixed(2)}
+                        ₹{Number(product.salePrice || product.price).toFixed(2)}
                       </span>
                     </Link>
                   ))}

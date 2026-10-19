@@ -102,10 +102,10 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, onClose
 
             {/* Price */}
             <div className="flex items-baseline space-x-2 mt-3">
-              <span className="text-2xl font-bold text-stone-900">${price.toFixed(2)}</span>
+              <span className="text-2xl font-bold text-stone-900">₹{price.toFixed(2)}</span>
               {product.discount > 0 && (
                 <>
-                  <span className="text-sm text-stone-400 line-through">${product.price.toFixed(2)}</span>
+                  <span className="text-sm text-stone-400 line-through">₹{product.price.toFixed(2)}</span>
                   <span className="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">
                     Save {product.discount}%
                   </span>

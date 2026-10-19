@@ -1,4 +1,5 @@
 import { Router, Response } from 'express';
+import multer from 'multer';
 import { db } from '../db/storage';
 import {
   requireAuth,
@@ -8,8 +9,12 @@ import {
   logAuditEvent,
 } from '../middleware/auth';
 import { sendEmail, emailTemplates } from '../services/emailService';
+import { cloudinary } from '../utils/cloudinary';
 
 const router = Router();
+
+// Multer configuration
+const upload = multer({ dest: 'uploads/' });
 
 // Helper to slugify string
 function slugify(text: string): string {
@@ -249,7 +254,7 @@ router.get('/:idOrSlug', optionalAuth, async (req: AuthenticatedRequest, res: Re
 });
 
 // POST /api/products (Admin or SalesManager with products.write)
-router.post('/', requireAuth, requirePermission('products.write'), async (req: AuthenticatedRequest, res: Response) => {
+router.post('/', requireAuth, requirePermission('products.write'), upload.single('image'), async (req: AuthenticatedRequest, res: Response) => {
   try {
     const {
       name,
@@ -269,7 +274,6 @@ router.post('/', requireAuth, requirePermission('products.write'), async (req: A
       stock = 0,
       lowStockThreshold = 5,
       tags = [],
-      images = [],
       videoUrl,
       isFeatured = false,
       isNewArrival = true,
@@ -278,6 +282,12 @@ router.post('/', requireAuth, requirePermission('products.write'), async (req: A
       status = 'PUBLISHED',
       notifySubscribers = false,
     } = req.body;
+
+    let images = [];
+    if (req.file) {
+      const result = await cloudinary.uploader.upload(req.file.path);
+      images.push(result.secure_url);
+    }
 
     if (!name || price === undefined || !brand || !category) {
       return res.status(400).json({

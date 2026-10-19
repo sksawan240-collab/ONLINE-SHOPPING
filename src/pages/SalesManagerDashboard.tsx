@@ -216,7 +216,7 @@ export const SalesManagerDashboard: React.FC = () => {
                   <div key={o._id} className="py-3 flex items-center justify-between text-xs">
                     <div>
                       <span className="font-mono font-bold text-stone-900">{o.orderId}</span>
-                      <p className="text-[11px] text-stone-500">{o.customer?.name} · ${Number(o.total).toFixed(2)}</p>
+                      <p className="text-[11px] text-stone-500">{o.customer?.name} · ₹{Number(o.total).toFixed(2)}</p>
                       <span className="inline-block mt-0.5 px-2 py-0.5 bg-stone-100 rounded text-[10px] font-bold">
                         {o.orderStatus}
                       </span>

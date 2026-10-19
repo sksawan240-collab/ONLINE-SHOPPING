@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <h4 className="text-sm font-semibold text-white">White-Glove Express</h4>
-              <p className="text-xs text-stone-400 mt-1">Complimentary worldwide delivery on qualifying orders over $200.</p>
+              <p className="text-xs text-stone-400 mt-1">Complimentary worldwide delivery on qualifying orders over ₹15000.</p>
             </div>
           </div>
           <div className="flex items-start space-x-4">

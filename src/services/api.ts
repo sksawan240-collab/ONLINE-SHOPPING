@@ -11,6 +11,7 @@ import {
   AuditLog,
   StoreSettings,
   RegistrationData,
+  OrderStatus,
 } from '../types';
 
 const API_BASE = '/api';
@@ -242,10 +243,10 @@ export const api = {
     },
     get: (id: string) => request<{ success: boolean; order: Order }>(`/orders/${id}`),
     track: (orderId: string) => request<{ success: boolean; order: Partial<Order> }>(`/orders/track/${orderId}`),
-    updateStatus: (id: string, payload: { orderStatus: string; note?: string; carrier?: string; trackingNumber?: string }) =>
+    updateStatus: (id: string, status: OrderStatus, data?: { carrier?: string, trackingNumber?: string, note?: string }) =>
       request<{ success: boolean; order: Order }>(`/orders/${id}/status`, {
-        method: 'PATCH',
-        body: JSON.stringify(payload),
+        method: 'PUT',
+        body: JSON.stringify({ status, ...data }),
       }),
     requestReturn: (id: string, reason: string) =>
       request<{ success: boolean; message: string; order: Order }>(`/orders/${id}/return`, {
@@ -257,6 +258,29 @@ export const api = {
         method: 'PATCH',
         body: JSON.stringify(payload),
       }),
+  },
+
+  // Payments
+  payments: {
+    create: (orderData: any) =>
+      request<{
+        success: boolean;
+        message?: string;
+        order: Order;
+        paymentId: string;
+        checkoutUrl: string;
+        amount: number;
+      }>('/payments/create', {
+        method: 'POST',
+        body: JSON.stringify(orderData),
+      }),
+    initiateYoupi: (payload: { orderId: string; amount: number; customer: { name: string; email: string; phone: string; } }) =>
+      request<{ success: boolean; paymentId: string; iframeUrl: string; message: string }>('/youpi', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      }),
+    getYoupiStatus: (paymentId: string) =>
+      request<{ success: boolean; status: 'PAID' | 'PENDING' | 'FAILED' }>(`/youpi?paymentId=${paymentId}`),
   },
 
   // Dashboards
@@ -341,18 +365,7 @@ export const api = {
       }),
   },
 
-  // Payments (YouPI-PG UPI)
-  payments: {
-    create: (payload: { items: any[]; shippingAddress: any; billingAddress?: any; couponCode?: string; deliveryOption?: string }) =>
-      request<{ success: boolean; order: any; paymentId?: string; checkoutUrl?: string; amount?: number; message: string }>(
-        '/payments/create',
-        { method: 'POST', body: JSON.stringify(payload) }
-      ),
-    status: (paymentId: string) =>
-      request<{ success: boolean; paymentId: string; orderId: string; status: string; isTerminal?: boolean; message: string }>(
-        `/payments/status/${paymentId}`
-      ),
-  },
+
 
   // Notifications
   notifications: {

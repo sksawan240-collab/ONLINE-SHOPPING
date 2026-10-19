@@ -338,7 +338,7 @@ export const CustomerDashboard: React.FC = () => {
                             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-900 text-white">
                               {order.orderStatus?.replace(/_/g, ' ')}
                             </span>
-                            <span className="text-xs font-bold text-stone-900">${Number(order.total).toFixed(2)}</span>
+                            <span className="text-xs font-bold text-stone-900">₹{Number(order.total).toFixed(2)}</span>
                           </div>
                         </div>
 
@@ -357,7 +357,7 @@ export const CustomerDashboard: React.FC = () => {
                                   <p className="text-[11px] text-stone-500">Size: {item.size} · Color: {item.color} · Qty: {item.quantity}</p>
                                 </div>
                               </div>
-                              <span className="font-bold text-stone-800">${Number(item.subtotal).toFixed(2)}</span>
+                              <span className="font-bold text-stone-800">₹{Number(item.subtotal).toFixed(2)}</span>
                             </div>
                           ))}
                         </div>

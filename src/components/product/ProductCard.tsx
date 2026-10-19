@@ -178,10 +178,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView, 
           </div>
 
           <div className="flex items-baseline space-x-1.5">
-            <span className="text-sm font-bold text-stone-900">${Number(price).toFixed(2)}</span>
+            <span className="text-sm font-bold text-stone-900">₹{Number(price).toFixed(2)}</span>
             {hasDiscount && (
               <span className="text-xs text-stone-400 line-through">
-                ${Number(product.price).toFixed(2)}
+                ₹{Number(product.price).toFixed(2)}
               </span>
             )}
           </div>

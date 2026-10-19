@@ -34,8 +34,7 @@ export const CheckoutPage: React.FC = () => {
     country: 'United States',
   });
 
-  const [deliveryOption, setDeliveryOption] = useState<'STANDARD' | 'EXPRESS'>('STANDARD');
-  const [paymentMethod, setPaymentMethod] = useState<'UPI' | 'COD'>('UPI');
+  const [paymentMethod, setPaymentMethod] = useState<'COD' | 'UPI'>('COD');
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [paymentIframeUrl, setPaymentIframeUrl] = useState<string | null>(null);
   const [paymentId, setPaymentId] = useState<string | null>(null);
@@ -53,6 +52,44 @@ export const CheckoutPage: React.FC = () => {
   const [createdOrder, setCreatedOrder] = useState<Order | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
+  useEffect(() => {
+    let pollInterval: NodeJS.Timeout;
+
+    if (polling && paymentId && orderIdRef.current) {
+      pollInterval = setInterval(async () => {
+        try {
+          const res = await api.payments.getYoupiStatus(paymentId);
+          if (res.success && res.status === 'PAID') {
+            setPolling(false);
+            setShowPaymentModal(false);
+            
+            // Update order status in our backend
+            const updateRes = await api.orders.updateStatus(orderIdRef.current!, 'PAID');
+            if (updateRes.success && updateRes.order) {
+              setCreatedOrder(updateRes.order);
+              await clearCart();
+            } else {
+              setErrorMsg('Failed to update order status after payment.');
+            }
+          } else if (res.status === 'FAILED') {
+            setPolling(false);
+            setShowPaymentModal(false);
+            setErrorMsg(`Payment ${res.status.toLowerCase()}. Please try again.`);
+          }
+        } catch (err) {
+          console.error('Error polling payment status:', err);
+          // Continue polling
+        }
+      }, 3000); // Poll every 3 seconds
+    }
+
+    return () => {
+      if (pollInterval) {
+        clearInterval(pollInterval);
+      }
+    };
+  }, [polling, paymentId, clearCart, navigate]);
+
   // Initialize address from user profile if available
   useEffect(() => {
     if (user?.addresses && user.addresses.length > 0) {
@@ -64,7 +101,7 @@ export const CheckoutPage: React.FC = () => {
   // Calculations
   const discountAmount = appliedCoupon ? appliedCoupon.discountAmount : 0;
   const taxableSubtotal = Math.max(0, subtotal - discountAmount);
-  const shippingFee = deliveryOption === 'EXPRESS' ? 25.0 : (taxableSubtotal >= 200 ? 0.0 : 15.0);
+  const shippingFee = taxableSubtotal >= 200 ? 0.0 : 15.0;
   const taxAmount = Number((taxableSubtotal * 0.08).toFixed(2));
   const finalTotal = Number((taxableSubtotal + taxAmount + shippingFee).toFixed(2));
 
@@ -109,8 +146,7 @@ export const CheckoutPage: React.FC = () => {
           price: item.price,
         })),
         shippingAddress,
-        deliveryOption,
-        paymentMethod: paymentMethod === 'COD' ? 'COD' : 'UPI',
+        paymentMethod: 'COD',
         couponCode: appliedCoupon?.code || '',
       };
 
@@ -121,21 +157,29 @@ export const CheckoutPage: React.FC = () => {
           setCreatedOrder(res.order);
           await clearCart();
         }
-      } else {
-        // UPI - create order (PENDING) + YouPI-PG payment session.
-        // Do NOT show success or clear cart yet - wait for server-verified payment.
-        const res = await api.payments.create(orderPayload);
-        if (res.success && res.order && res.paymentId && res.checkoutUrl) {
+      } else if (paymentMethod === 'UPI') {
+        // UPI Payment - create order with PENDING status, then initiate payment
+        const res = await api.orders.create({ ...orderPayload, paymentMethod: 'UPI' });
+        if (res.success && res.order) {
           orderIdRef.current = res.order.orderId;
-          setPaymentId(res.paymentId);
-          setPaymentIframeUrl(res.checkoutUrl);
-          setShowPaymentModal(true);
-        } else if (res.success && res.order && !res.checkoutUrl) {
-          // Session was created but gateway didn't return a checkout URL -
-          // surface it instead of opening an empty modal that can never finish.
-          setErrorMsg(res.message || 'Payment session created but no checkout URL was returned. Please contact support with your order.');
-        } else {
-          setErrorMsg(res.message || 'Failed to initialize payment session. Please try again.');
+          // Initiate YouPI-PG payment
+          const youpiRes = await api.payments.initiateYoupi({ 
+            orderId: res.order.orderId,
+            amount: finalTotal,
+            customer: {
+              name: user?.name || 'Anonymous',
+              email: user?.email || 'no-email@example.com',
+              phone: user?.phone || '0000000000'
+            }
+          });
+          if (youpiRes.success && youpiRes.paymentId && youpiRes.iframeUrl) {
+            setPaymentId(youpiRes.paymentId);
+            setPaymentIframeUrl(youpiRes.iframeUrl);
+            setShowPaymentModal(true);
+            setPolling(true);
+          } else {
+            setErrorMsg(youpiRes.message || 'Could not initiate UPI payment.');
+          }
         }
       }
     } catch (err: any) {
@@ -145,128 +189,7 @@ export const CheckoutPage: React.FC = () => {
     }
   };
 
-  // Finalize a completed payment: close the modal, load the confirmed order and clear the bag.
-  const finalizeSuccessfulPayment = async () => {
-    setPolling(false);
-    setShowPaymentModal(false);
-    if (orderIdRef.current) {
-      try {
-        const orderRes = await api.orders.get(orderIdRef.current);
-        if (orderRes.success && orderRes.order) {
-          setCreatedOrder(orderRes.order);
-          await clearCart();
-        }
-      } catch {
-        setErrorMsg('Payment succeeded but we could not load your order confirmation. Please check your order history.');
-      }
-    }
-  };
-
-  // Poll YouPI-PG payment status (order only marked done after server verification).
-  // Key fixes vs. the old version:
-  //  - depends on real state (paymentId/showPaymentModal), not a ref
-  //  - only closes the modal on a TERMINAL gateway status (isTerminal), never on
-  //    transient states like INITIATED/ACTIVE/PROCESSING
-  //  - counts consecutive poll failures and reports them instead of failing silently
-  useEffect(() => {
-    if (!paymentId || !showPaymentModal) return;
-
-    let cancelled = false;
-    let attempts = 0;
-    let consecutiveErrors = 0;
-    const maxAttempts = 90; // 90 x 2s = 3 minutes of verification window
-    setPolling(true);
-
-    const poll = async () => {
-      if (cancelled) return;
-      attempts += 1;
-      try {
-        const res = await api.payments.status(paymentId);
-        if (cancelled) return;
-        consecutiveErrors = 0;
-
-        if (res.success && res.isTerminal) {
-          cancelled = true;
-          clearInterval(interval);
-          if (res.status === 'SUCCESS') {
-            await finalizeSuccessfulPayment();
-          } else {
-            setPolling(false);
-            setShowPaymentModal(false);
-            setErrorMsg('Payment ' + (res.status || 'failed').toLowerCase() + '. No money was deducted — please try again.');
-          }
-        }
-        // Non-terminal (INITIATED / QUEUED / ACTIVE / PROCESSING): keep the modal
-        // open and keep polling — this is the normal in-progress state.
-      } catch (err: any) {
-        if (cancelled) return;
-        consecutiveErrors += 1;
-        // Surface persistent failures (gateway down / session vanished) instead
-        // of swallowing them forever.
-        if (consecutiveErrors >= 10) {
-          cancelled = true;
-          clearInterval(interval);
-          setPolling(false);
-          setShowPaymentModal(false);
-          setErrorMsg(err?.message || 'Unable to verify payment status. Your payment has NOT been confirmed — please try again.');
-        }
-      } finally {
-        if (!cancelled && attempts >= maxAttempts) {
-          cancelled = true;
-          clearInterval(interval);
-          setPolling(false);
-          setShowPaymentModal(false);
-          setErrorMsg('Payment verification timed out. If you completed a payment, please check your orders before retrying.');
-        }
-      }
-    };
-
-    const interval = setInterval(poll, 2000);
-    poll();
-
-    return () => {
-      cancelled = true;
-      clearInterval(interval);
-      setPolling(false);
-    };
-  }, [paymentId, showPaymentModal]);
-
-  // Listen for postMessage events from the YouPI-PG iframe (cancel / failure /
-  // success). The gateway notifies the embedding parent directly, so honour those
-  // instead of leaving the modal stuck on a session the gateway already closed.
-  useEffect(() => {
-    if (!showPaymentModal) return;
-
-    const onMessage = async (e: MessageEvent) => {
-      const data = e.data;
-      if (!data || typeof data.event !== 'string') return;
-      if (!String(data.event).startsWith('youpi.')) return;
-
-      if (data.event === 'youpi.payment_failed' || data.event === 'youpi.modal_close' || data.event === 'youpi.payment_cancelled' || data.event === 'youpi.payment_blocked_exit') {
-        // Give the gateway a beat to persist the terminal state, then verify server-side.
-        await new Promise(r => setTimeout(r, 800));
-        if (paymentId) {
-          try {
-            const res = await api.payments.status(paymentId);
-            if (res.success && res.isTerminal && res.status === 'SUCCESS') {
-              await finalizeSuccessfulPayment();
-              return;
-            }
-          } catch { /* fall through to generic close */ }
-        }
-        setShowPaymentModal(false);
-        setPolling(false);
-        if (data.event === 'youpi.payment_failed' || data.event === 'youpi.payment_blocked_exit') {
-          setErrorMsg('Payment failed or was cancelled in the gateway. Please try again.');
-        }
-      } else if (data.event === 'youpi.payment_success') {
-        await finalizeSuccessfulPayment();
-      }
-    };
-
-    window.addEventListener('message', onMessage);
-    return () => window.removeEventListener('message', onMessage);
-  }, [showPaymentModal, paymentId]);
+  
 
   // ORDER SUCCESS CONFIRMATION VIEW
   if (createdOrder) {
@@ -302,7 +225,7 @@ export const CheckoutPage: React.FC = () => {
             </div>
             <div className="flex justify-between border-t border-stone-200 pt-2 font-bold text-sm text-stone-900">
               <span>Total Paid:</span>
-              <span>${Number(createdOrder.total).toFixed(2)}</span>
+              <span>₹{Number(createdOrder.total).toFixed(2)}</span>
             </div>
           </div>
 
@@ -438,116 +361,63 @@ export const CheckoutPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Step 2: Delivery Option */}
-              <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-4">
-                <div className="flex items-center space-x-2 pb-2 border-b border-stone-100">
-                  <Truck className="w-5 h-5 text-stone-900" />
-                  <h2 className="font-serif text-lg font-bold text-stone-900">2. Delivery Service</h2>
-                </div>
 
-                <div className="space-y-3">
-                  <label
-                    onClick={() => setDeliveryOption('STANDARD')}
-                    className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
-                      deliveryOption === 'STANDARD' ? 'border-stone-900 bg-stone-50/50 shadow-xs' : 'border-stone-200 hover:border-stone-300'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <input
-                        type="radio"
-                        name="delivery"
-                        checked={deliveryOption === 'STANDARD'}
-                        onChange={() => setDeliveryOption('STANDARD')}
-                        className="text-stone-900"
-                      />
-                      <div>
-                        <p className="text-xs font-bold text-stone-900">DHL Express / Standard Courier</p>
-                        <p className="text-[11px] text-stone-500">Delivered within 3 to 4 business days</p>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold text-stone-900">
-                      {taxableSubtotal >= 200 ? 'Complimentary' : '$15.00'}
-                    </span>
-                  </label>
-
-                  <label
-                    onClick={() => setDeliveryOption('EXPRESS')}
-                    className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
-                      deliveryOption === 'EXPRESS' ? 'border-stone-900 bg-stone-50/50 shadow-xs' : 'border-stone-200 hover:border-stone-300'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <input
-                        type="radio"
-                        name="delivery"
-                        checked={deliveryOption === 'EXPRESS'}
-                        onChange={() => setDeliveryOption('EXPRESS')}
-                        className="text-stone-900"
-                      />
-                      <div>
-                        <p className="text-xs font-bold text-stone-900">FedEx Priority Overnight</p>
-                        <p className="text-[11px] text-stone-500">Dispatched in dedicated temperature-controlled van</p>
-                      </div>
-                    </div>
-                    <span className="text-xs font-bold text-stone-900">$25.00</span>
-                  </label>
-                </div>
-              </div>
 
               {/* Step 3: Payment Method */}
               <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-4">
                 <div className="flex items-center space-x-2 pb-2 border-b border-stone-100">
-                  <Lock className="w-5 h-5 text-stone-900" />
-                  <h2 className="font-serif text-lg font-bold text-stone-900">3. Payment Authorization</h2>
+                  <CreditCard className="w-5 h-5 text-stone-900" />
+                  <h2 className="font-serif text-lg font-bold text-stone-900">3. Payment Method</h2>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod('UPI')}
-                      className={`flex-1 py-3 px-4 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
-                        paymentMethod === 'UPI' ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-200 text-stone-700 hover:bg-stone-50'
-                      }`}
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span>UPI (YouPI-PG)</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod('COD')}
-                      className={`flex-1 py-3 px-4 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
-                        paymentMethod === 'COD' ? 'border-stone-900 bg-stone-900 text-white' : 'border-stone-200 text-stone-700 hover:bg-stone-50'
-                      }`}
-                    >
-                      <Truck className="w-4 h-4" />
-                      <span>Cash on Delivery</span>
-                    </button>
-                  </div>
-
-                  {paymentMethod === 'UPI' && (
-                    <div className="p-4 bg-amber-50 rounded-xl border border-amber-200 text-left text-xs space-y-2">
-                      <div className="flex items-start gap-2">
-                        <Clock className="w-3 h-3 text-amber-600 mt-0.5" />
-                        <span className="text-amber-700 text-xs leading-relaxed">
-                          You will be redirected to a secure UPI checkout iframe. Scan the QR code or use any UPI app (Google Pay, PhonePe, Paytm, etc.) to complete payment.
-                        </span>
+                <div className="space-y-3">
+                  <label
+                    onClick={() => setPaymentMethod('COD')}
+                    className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
+                      paymentMethod === 'COD' ? 'border-stone-900 bg-stone-50/50 shadow-xs' : 'border-stone-200 hover:border-stone-300'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <input
+                        type="radio"
+                        name="payment"
+                        checked={paymentMethod === 'COD'}
+                        onChange={() => setPaymentMethod('COD')}
+                        className="text-stone-900"
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-xs font-semibold text-stone-800">Cash on Delivery (COD)</span>
+                        <span className="text-xs text-stone-500">Pay upon arrival. Extra handling fees may apply.</span>
                       </div>
                     </div>
-                  )}
+                    <ShieldCheck className="w-5 h-5 text-emerald-600" />
+                  </label>
 
-                  {paymentMethod === 'COD' && (
-                    <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 text-left text-xs space-y-2">
-                      <div className="flex items-start gap-2">
-                        <Truck className="w-3 h-3 text-stone-600 mt-0.5" />
-                        <span className="text-stone-700 text-xs leading-relaxed">
-                          Pay cash when your order is delivered. Order will be created as UNPAID until delivery confirmation.
-                        </span>
+                  <label
+                    onClick={() => setPaymentMethod('UPI')}
+                    className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
+                      paymentMethod === 'UPI' ? 'border-stone-900 bg-stone-50/50 shadow-xs' : 'border-stone-200 hover:border-stone-300'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <input
+                        type="radio"
+                        name="payment"
+                        checked={paymentMethod === 'UPI'}
+                        onChange={() => setPaymentMethod('UPI')}
+                        className="text-stone-900"
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-xs font-semibold text-stone-800">Pay with UPI</span>
+                        <span className="text-xs text-stone-500">Use any UPI app to pay.</span>
                       </div>
                     </div>
-                  )}
+                    <CreditCard className="w-5 h-5 text-blue-600" />
+                  </label>
                 </div>
               </div>
+
+
             </div>
 
             {/* Right Summary & Place Order (5 cols) */}
@@ -664,40 +534,31 @@ export const CheckoutPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowPaymentModal(false)}
-                className="p-1 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors"
-                aria-label="Close payment window"
+                className="p-1 rounded-full hover:bg-stone-100"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4 text-stone-500" />
               </button>
             </div>
-
-            <div className="relative">
+            <div className="p-2 bg-stone-50">
               {paymentIframeUrl ? (
                 <iframe
                   ref={iframeRef}
                   src={paymentIframeUrl}
-                  title="YouPI-PG Secure Checkout"
-                  className="w-full h-[560px] border-0"
+                  className="w-full h-[600px] border-0"
+                  title="YouPI Secure Payment"
                   allow="payment"
-                />
+                ></iframe>
               ) : (
-                <div className="h-[560px] flex flex-col items-center justify-center gap-3 text-xs text-stone-500">
-                  <Clock className="w-8 h-8 text-stone-300 animate-pulse" />
-                  <span>Preparing secure checkout...</span>
-                </div>
-              )}
-
-              {polling && (
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-4 py-2 bg-stone-900/90 text-white text-[11px] rounded-full flex items-center gap-2 whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                  Verifying payment with server...
+                <div className="w-full h-[600px] flex items-center justify-center">
+                  <p className="text-xs text-stone-600">Initializing payment gateway...</p>
                 </div>
               )}
             </div>
-
-            <p className="px-5 py-3 text-[10px] text-stone-400 border-t border-stone-100 text-center leading-tight">
-              Powered by YouPI-PG. Order status is confirmed server-side after payment verification.
-            </p>
+            <div className="px-5 py-3 bg-stone-100 border-t border-stone-200 text-center">
+              <p className="text-[10px] text-stone-500">
+                Do not close this window. Your order will be confirmed automatically after payment.
+              </p>
+            </div>
           </div>
         </div>
       )}

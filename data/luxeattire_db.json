@@ -1,6 +1,29 @@
 {
   "users": [
     {
+      "_id": "mve7tucj_81ltbnx",
+      "id": "mve7tucj_81ltbnx",
+      "name": "Payment Tester",
+      "email": "paytester@example.com",
+      "passwordHash": "$2b$10$Wm0u.vAaCmalMAcGv4EcDObSIdwWsW7eB3C86cD6NFtRpMLR62Az6",
+      "role": "CUSTOMER",
+      "permissions": [],
+      "isVerified": true,
+      "phone": "9876543210",
+      "addresses": [],
+      "emailPreferences": {
+        "orderEmails": true,
+        "shipmentEmails": true,
+        "promotionalEmails": true,
+        "newLaunchEmails": true,
+        "newsletter": true
+      },
+      "sessionVersion": 1,
+      "lastLogin": "2026-10-18T19:28:56.539Z",
+      "createdAt": "2026-10-18T19:25:38.659Z",
+      "updatedAt": "2026-10-18T19:28:56.539Z"
+    },
+    {
       "_id": "mugq1t60_n1t5kua",
       "id": "mugq1t60_n1t5kua",
       "name": "SALES MANAGER",
@@ -73,9 +96,9 @@
         "newsletter": true
       },
       "sessionVersion": 1,
-      "lastLogin": "2026-10-18T10:29:33.464Z",
+      "lastLogin": "2026-10-19T15:39:07.864Z",
       "createdAt": "2026-09-25T08:46:43.261Z",
-      "updatedAt": "2026-10-18T10:29:33.464Z"
+      "updatedAt": "2026-10-19T15:39:07.864Z"
     },
     {
       "_id": "mugn6zkm_8s5tc4t",
@@ -87,7 +110,17 @@
       "permissions": [],
       "isVerified": true,
       "phone": "",
-      "addresses": [],
+      "addresses": [
+        {
+          "id": "addr_1792350964094",
+          "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+          "city": "Kalaburagi",
+          "state": "Karnataka",
+          "postalCode": "585102",
+          "country": "United States",
+          "isDefault": true
+        }
+      ],
       "emailPreferences": {
         "orderEmails": true,
         "shipmentEmails": true,
@@ -96,9 +129,9 @@
         "newsletter": true
       },
       "sessionVersion": 1,
-      "lastLogin": "2026-10-18T15:47:05.863Z",
+      "lastLogin": "2026-10-19T14:37:30.846Z",
       "createdAt": "2026-09-25T07:31:36.214Z",
-      "updatedAt": "2026-10-18T15:47:05.865Z"
+      "updatedAt": "2026-10-19T14:37:30.847Z"
     },
     {
       "_id": "mugn0udt_zgwrqm9",
@@ -126,16 +159,188 @@
   ],
   "products": [
     {
-      "_id": "mugqzjxw_x5bw16i",
-      "id": "mugqzjxw_x5bw16i",
-      "name": "DOUBLE FACED CASHMERE OVERCOAT",
-      "slug": "double-faced-cashmere-overcoat-moki",
-      "description": "BOOK IT FAST AS SOON AS POSSIBLE",
-      "shortDescription": "",
+      "_id": "mvffd9ws_g9dzg67",
+      "id": "mvffd9ws_g9dzg67",
+      "name": "Riviera Linen Chore Jacket",
+      "slug": "riviera-linen-chore-jacket",
+      "description": "Unstructured chore coat tailored from heavyweight 380gsm washed French flax linen. Patch pockets, contrast horn buttons, and unlined interior.",
+      "shortDescription": "French flax heavyweight linen chore jacket.",
       "brand": "Luxe Atelier",
       "category": "Outerwear & Coats",
-      "subcategory": "",
+      "subcategory": "Tailored Blazers",
       "gender": "Men",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        {
+          "name": "Natural Sand",
+          "hex": "#d6c7b2"
+        },
+        {
+          "name": "Indigo Washed",
+          "hex": "#312e81"
+        },
+        {
+          "name": "Olive Drab",
+          "hex": "#3f6212"
+        }
+      ],
+      "material": "100% French Flax Linen",
+      "price": 320,
+      "discount": 25,
+      "salePrice": 240,
+      "sku": "LUXE-OUT-RIVI-06",
+      "stock": 14,
+      "lowStockThreshold": 3,
+      "tags": [
+        "Linen",
+        "Jacket",
+        "Summer",
+        "Casual Chic"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "isTrending": true,
+      "status": "PUBLISHED",
+      "rating": 4.6,
+      "numReviews": 5,
+      "createdAt": "2026-10-19T15:44:28.780Z",
+      "updatedAt": "2026-10-19T15:44:28.780Z"
+    },
+    {
+      "_id": "mvffd9we_zpeqyst",
+      "id": "mvffd9we_zpeqyst",
+      "name": "Florence Wide-Leg Pleated Wool Trousers",
+      "slug": "florence-wide-leg-pleated-wool-trousers",
+      "description": "High-waisted tailored trousers featuring deep front pleats, slant pockets, and an architectural wide-leg drop in fluid tropical wool.",
+      "shortDescription": "High-waisted double-pleated trousers in fine tropical wool.",
+      "brand": "Sartorial Knit",
+      "category": "Trousers & Denim",
+      "subcategory": "Wide-Leg Trousers",
+      "gender": "Women",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        {
+          "name": "Pecan Brown",
+          "hex": "#78350f"
+        },
+        {
+          "name": "Caviar Black",
+          "hex": "#18181b"
+        },
+        {
+          "name": "Dove Grey",
+          "hex": "#9ca3af"
+        }
+      ],
+      "material": "100% Fine Merino Tropical Wool",
+      "price": 285,
+      "discount": 0,
+      "salePrice": 285,
+      "sku": "LUXE-TRS-FLOR-05",
+      "stock": 22,
+      "lowStockThreshold": 4,
+      "tags": [
+        "Trousers",
+        "Pleated",
+        "Tailored",
+        "Minimalist"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "isTrending": true,
+      "status": "PUBLISHED",
+      "rating": 4.9,
+      "numReviews": 7,
+      "createdAt": "2026-10-19T15:44:28.766Z",
+      "updatedAt": "2026-10-19T15:44:28.766Z"
+    },
+    {
+      "_id": "mvffd9vo_cbypj8a",
+      "id": "mvffd9vo_cbypj8a",
+      "name": "Sartoriale Giza Poplin Spread Collar Shirt",
+      "slug": "sartoriale-giza-poplin-spread-collar-shirt",
+      "description": "Woven with 140/2 double-twist Egyptian Giza cotton for a crisp hand and silky luster. Mother-of-pearl buttons and removable brass collar stays.",
+      "shortDescription": "140/2 Egyptian Giza poplin dress shirt.",
+      "brand": "Luxe Atelier",
+      "category": "Tailored Shirts & Tops",
+      "subcategory": "Dress Shirts",
+      "gender": "Men",
+      "sizes": [
+        "15",
+        "15.5",
+        "16",
+        "16.5",
+        "17"
+      ],
+      "colors": [
+        {
+          "name": "Optic White",
+          "hex": "#ffffff"
+        },
+        {
+          "name": "Sky Stripe",
+          "hex": "#bae6fd"
+        },
+        {
+          "name": "Soft Lilac",
+          "hex": "#f3e8ff"
+        }
+      ],
+      "material": "100% Egyptian Giza Cotton",
+      "price": 195,
+      "discount": 10,
+      "salePrice": 175.5,
+      "sku": "LUXE-SHT-GIZA-04",
+      "stock": 40,
+      "lowStockThreshold": 5,
+      "tags": [
+        "Dress Shirt",
+        "Poplin",
+        "Formal",
+        "Business"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "isFeatured": false,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "isTrending": false,
+      "status": "PUBLISHED",
+      "rating": 4.7,
+      "numReviews": 14,
+      "createdAt": "2026-10-19T15:44:28.740Z",
+      "updatedAt": "2026-10-19T15:44:28.740Z"
+    },
+    {
+      "_id": "mvffd9v7_khf8t3g",
+      "id": "mvffd9v7_khf8t3g",
+      "name": "Heritage Grade-A Cashmere Turtleneck",
+      "slug": "heritage-grade-a-cashmere-turtleneck",
+      "description": "Spun from sustainably harvested Mongolian cashmere. Unmatched cloud-soft warmth with ribbed collar, cuffs, and hem. Resistant to pilling.",
+      "shortDescription": "Pure Mongolian 2-ply cashmere ribbed turtleneck.",
+      "brand": "Sartorial Knit",
+      "category": "Knitwear & Sweaters",
+      "subcategory": "Turtlenecks",
+      "gender": "Unisex",
       "sizes": [
         "S",
         "M",
@@ -145,44 +350,1105 @@
       ],
       "colors": [
         {
-          "name": "Camel",
-          "hex": "#1c1917"
+          "name": "Oatmeal Heather",
+          "hex": "#e2d9cc"
         },
         {
-          "name": "Black",
-          "hex": "#1c1917"
+          "name": "Deep Navy",
+          "hex": "#1e3a8a"
         },
         {
-          "name": "Charcoal",
-          "hex": "#1c1917"
+          "name": "Forest Green",
+          "hex": "#14532d"
         }
       ],
-      "material": "100% Cashmere & Virgin Wool",
-      "price": 250,
-      "discount": 10,
-      "salePrice": 225,
-      "sku": "LUXE-OUT-MUGQZJXU",
-      "barcode": "",
-      "stock": 2,
-      "lowStockThreshold": 5,
-      "tags": [],
-      "images": [
-        "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18"
+      "material": "100% Grade-A Mongolian Cashmere",
+      "price": 295,
+      "discount": 20,
+      "salePrice": 236,
+      "sku": "LUXE-KNT-TURT-03",
+      "stock": 35,
+      "lowStockThreshold": 6,
+      "tags": [
+        "Cashmere",
+        "Sweater",
+        "Winter",
+        "Essential"
       ],
-      "videoUrl": "",
+      "images": [
+        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "isTrending": true,
+      "status": "PUBLISHED",
+      "rating": 4.8,
+      "numReviews": 19,
+      "createdAt": "2026-10-19T15:44:28.723Z",
+      "updatedAt": "2026-10-19T15:44:28.723Z"
+    },
+    {
+      "_id": "mvffd9ux_4yp1lfs",
+      "id": "mvffd9ux_4yp1lfs",
+      "name": "Monroe Silk Charmeuse Bias Maxi Slip",
+      "slug": "monroe-silk-charmeuse-bias-maxi-slip",
+      "description": "Cut on the bias from 100% 22-momme mulberry silk charmeuse. Glides gracefully along the body with delicate adjustable straps and French seam finishing.",
+      "shortDescription": "22-momme pure mulberry silk bias-cut slip dress.",
+      "brand": "Lumière Haute",
+      "category": "Dresses & Gowns",
+      "subcategory": "Slip Dresses",
+      "gender": "Women",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        {
+          "name": "Emerald",
+          "hex": "#047857"
+        },
+        {
+          "name": "Champagne Rose",
+          "hex": "#fbcfe8"
+        },
+        {
+          "name": "Obsidian Black",
+          "hex": "#0f172a"
+        }
+      ],
+      "material": "100% Grade 6A Mulberry Silk",
+      "price": 360,
+      "discount": 0,
+      "salePrice": 360,
+      "sku": "LUXE-DRS-SLIP-02",
+      "stock": 24,
+      "lowStockThreshold": 5,
+      "tags": [
+        "Silk",
+        "Maxi",
+        "Evening",
+        "Cocktail",
+        "Summer"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?q=80&w=1000&auto=format&fit=crop"
+      ],
       "isFeatured": true,
       "isNewArrival": true,
-      "isBestSeller": false,
+      "isBestSeller": true,
       "isTrending": false,
       "status": "PUBLISHED",
       "rating": 5,
-      "numReviews": 0,
-      "createdAt": "2026-09-25T09:17:47.828Z",
-      "updatedAt": "2026-10-18T16:18:53.683Z"
+      "numReviews": 8,
+      "createdAt": "2026-10-19T15:44:28.713Z",
+      "updatedAt": "2026-10-19T15:44:28.713Z"
+    },
+    {
+      "_id": "mvffd9ug_s9h1o4h",
+      "id": "mvffd9ug_s9h1o4h",
+      "name": "Atelier Double-Breasted Wool Overcoat",
+      "slug": "atelier-double-breasted-wool-overcoat",
+      "description": "Masterfully crafted from double-faced Italian virgin wool. Features notch lapels, horn buttons, dual welt pockets, and a timeless relaxed silhouette.",
+      "shortDescription": "Double-faced Italian virgin wool overcoat with horn buttons.",
+      "brand": "Luxe Atelier",
+      "category": "Outerwear & Coats",
+      "subcategory": "Overcoats",
+      "gender": "Men",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        {
+          "name": "Camel Tan",
+          "hex": "#c19a6b"
+        },
+        {
+          "name": "Midnight Charcoal",
+          "hex": "#1e293b"
+        },
+        {
+          "name": "Noir Black",
+          "hex": "#000000"
+        }
+      ],
+      "material": "90% Italian Virgin Wool, 10% Cashmere",
+      "price": 580,
+      "discount": 15,
+      "salePrice": 493,
+      "sku": "LUXE-OUT-COAT-01",
+      "stock": 18,
+      "lowStockThreshold": 4,
+      "tags": [
+        "Overcoat",
+        "Wool",
+        "Winter",
+        "Luxury",
+        "Outerwear"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "isTrending": true,
+      "status": "PUBLISHED",
+      "rating": 4.9,
+      "numReviews": 12,
+      "createdAt": "2026-10-19T15:44:28.696Z",
+      "updatedAt": "2026-10-19T15:44:28.696Z"
     }
   ],
-  "categories": [],
+  "categories": [
+    {
+      "_id": "mvffd9u3_4gw4hdw",
+      "id": "mvffd9u3_4gw4hdw",
+      "name": "Trousers & Denim",
+      "slug": "trousers-denim",
+      "description": "Pleated wide-leg wool trousers, relaxed selvedge denim, and tailored chinos.",
+      "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop",
+      "subcategories": [
+        "Wide-Leg Trousers",
+        "Selvedge Denim",
+        "Pleated Slacks",
+        "Tailored Shorts"
+      ],
+      "isVisible": true,
+      "order": 5,
+      "createdAt": "2026-10-19T15:44:28.683Z",
+      "updatedAt": "2026-10-19T15:44:28.683Z"
+    },
+    {
+      "_id": "mvffd9th_uaug5zx",
+      "id": "mvffd9th_uaug5zx",
+      "name": "Tailored Shirts & Tops",
+      "slug": "tailored-shirts-tops",
+      "description": "Egyptian Giza cotton poplin button-downs, silk blouses, and minimal tees.",
+      "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop",
+      "subcategories": [
+        "Dress Shirts",
+        "Silk Blouses",
+        "Oxford Shirts",
+        "Linen Tops"
+      ],
+      "isVisible": true,
+      "order": 4,
+      "createdAt": "2026-10-19T15:44:28.661Z",
+      "updatedAt": "2026-10-19T15:44:28.661Z"
+    },
+    {
+      "_id": "mvffd9t6_afcrnjy",
+      "id": "mvffd9t6_afcrnjy",
+      "name": "Knitwear & Sweaters",
+      "slug": "knitwear-sweaters",
+      "description": "Grade-A Mongolian cashmere jumpers, ribbed turtlenecks, and merino knits.",
+      "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop",
+      "subcategories": [
+        "Cashmere Crewnecks",
+        "Cardigans",
+        "Turtlenecks",
+        "V-Necks"
+      ],
+      "isVisible": true,
+      "order": 3,
+      "createdAt": "2026-10-19T15:44:28.650Z",
+      "updatedAt": "2026-10-19T15:44:28.650Z"
+    },
+    {
+      "_id": "mvffd9sr_ncw3qas",
+      "id": "mvffd9sr_ncw3qas",
+      "name": "Dresses & Gowns",
+      "slug": "dresses-gowns",
+      "description": "Evening silk gowns, structural cocktail dresses, and fluid daywear.",
+      "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800&auto=format&fit=crop",
+      "subcategories": [
+        "Evening Gowns",
+        "Slip Dresses",
+        "Maxi Dresses",
+        "Party Dresses"
+      ],
+      "isVisible": true,
+      "order": 2,
+      "createdAt": "2026-10-19T15:44:28.635Z",
+      "updatedAt": "2026-10-19T15:44:28.635Z"
+    },
+    {
+      "_id": "mvffd9se_404g6zc",
+      "id": "mvffd9se_404g6zc",
+      "name": "Outerwear & Coats",
+      "slug": "outerwear-coats",
+      "description": "Tailored cashmere overcoats, Italian wool jackets, and structural blazers.",
+      "image": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=800&auto=format&fit=crop",
+      "subcategories": [
+        "Trench Coats",
+        "Overcoats",
+        "Tailored Blazers",
+        "Leather Jackets"
+      ],
+      "isVisible": true,
+      "order": 1,
+      "createdAt": "2026-10-19T15:44:28.622Z",
+      "updatedAt": "2026-10-19T15:44:28.622Z"
+    }
+  ],
   "orders": [
+    {
+      "_id": "mve9idq8_1kquymb",
+      "id": "mve9idq8_1kquymb",
+      "orderId": "ORD-2026-C128702A",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Camel",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "COD",
+      "paymentStatus": "UNPAID",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LX5FE20C53",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed with Cash on Delivery. Payment will be collected on delivery.",
+          "timestamp": "2026-10-18T20:12:43.136Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T20:12:43.136Z",
+      "updatedAt": "2026-10-18T20:12:43.136Z"
+    },
+    {
+      "_id": "mve8jut1_paelihm",
+      "id": "mve8jut1_paelihm",
+      "orderId": "ORD-2026-6261528A",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "M",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "COD",
+      "paymentStatus": "UNPAID",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LX5D212EC0",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed with Cash on Delivery. Payment will be collected on delivery.",
+          "timestamp": "2026-10-18T19:45:52.309Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:45:52.309Z",
+      "updatedAt": "2026-10-18T19:45:52.309Z"
+    },
+    {
+      "_id": "mve8dbuh_6vjsd6y",
+      "id": "mve8dbuh_6vjsd6y",
+      "orderId": "ORD-2026-C34E14B2",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "COD",
+      "paymentStatus": "UNPAID",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LX93151E3D",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed with Cash on Delivery. Payment will be collected on delivery.",
+          "timestamp": "2026-10-18T19:40:47.801Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:40:47.801Z",
+      "updatedAt": "2026-10-18T19:40:47.801Z"
+    },
+    {
+      "_id": "mve8c32a_y868h9b",
+      "id": "mve8c32a_y868h9b",
+      "orderId": "ORD-2026-79D8F10D",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LXC9A2490C",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:39:49.762Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:39:49.762Z",
+      "updatedAt": "2026-10-18T19:39:49.762Z"
+    },
+    {
+      "_id": "mve8c1cg_ssu2wp5",
+      "id": "mve8c1cg_ssu2wp5",
+      "orderId": "ORD-2026-D47722C2",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LX52FD8C26",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:39:47.536Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:39:47.536Z",
+      "updatedAt": "2026-10-18T19:39:47.536Z"
+    },
+    {
+      "_id": "mve818xs_0z5lqd3",
+      "id": "mve818xs_0z5lqd3",
+      "orderId": "ORD-2026-9FB1B95F",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LXEABFB365",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:31:24.160Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:31:24.160Z",
+      "updatedAt": "2026-10-18T19:31:24.160Z"
+    },
+    {
+      "_id": "mve813q3_7rhvu9z",
+      "id": "mve813q3_7rhvu9z",
+      "orderId": "ORD-2026-7CD6391D",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LXB5983C9F",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:31:17.403Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:31:17.403Z",
+      "updatedAt": "2026-10-18T19:31:17.403Z"
+    },
+    {
+      "_id": "mve7usjf_qa4ku2a",
+      "id": "mve7usjf_qa4ku2a",
+      "orderId": "ORD-2026-772E86C1",
+      "customer": {
+        "id": "mve7tucj_81ltbnx",
+        "name": "Payment Tester",
+        "email": "paytester@example.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "M",
+          "color": "Black",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "street": "12 Marine Drive",
+        "city": "Mumbai",
+        "state": "MH",
+        "postalCode": "400001",
+        "country": "India"
+      },
+      "billingAddress": {
+        "street": "12 Marine Drive",
+        "city": "Mumbai",
+        "state": "MH",
+        "postalCode": "400001",
+        "country": "India"
+      },
+      "trackingNumber": "LXF7D67243",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:26:22.971Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:26:22.971Z",
+      "updatedAt": "2026-10-18T19:26:22.971Z"
+    },
+    {
+      "_id": "mve7jk3w_voxtfe2",
+      "id": "mve7jk3w_voxtfe2",
+      "orderId": "ORD-2026-815F9342",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LX64289A52",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:17:38.827Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:17:38.827Z",
+      "updatedAt": "2026-10-18T19:17:38.827Z"
+    },
+    {
+      "_id": "mve7i0p1_vv076gw",
+      "id": "mve7i0p1_vv076gw",
+      "orderId": "ORD-2026-E6939102",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "billingAddress": {
+        "id": "addr_1792350964094",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States",
+        "isDefault": true
+      },
+      "trackingNumber": "LX18929AF2",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:16:27.013Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:16:27.013Z",
+      "updatedAt": "2026-10-18T19:16:27.013Z"
+    },
+    {
+      "_id": "mve7c614_mqsmrdu",
+      "id": "mve7c614_mqsmrdu",
+      "orderId": "ORD-2026-2507631A",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 2,
+          "price": 225,
+          "subtotal": 450
+        }
+      ],
+      "subtotal": 450,
+      "discount": 0,
+      "tax": 36,
+      "shipping": 0,
+      "total": 486,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "trackingNumber": "LX7168D0B1",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:11:53.992Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:11:53.992Z",
+      "updatedAt": "2026-10-18T19:11:53.992Z"
+    },
+    {
+      "_id": "mve755ci_ohvjp6l",
+      "id": "mve755ci_ohvjp6l",
+      "orderId": "ORD-2026-397B44A5",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "trackingNumber": "LX39C60DEF",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:06:26.514Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:06:26.514Z",
+      "updatedAt": "2026-10-18T19:06:26.514Z"
+    },
+    {
+      "_id": "mve74yox_ipwzo0y",
+      "id": "mve74yox_ipwzo0y",
+      "orderId": "ORD-2026-C47C8EB8",
+      "customer": {
+        "id": "mugn6zkm_8s5tc4t",
+        "name": "SAWAN HALLI",
+        "email": "halliramesh5@gmail.com"
+      },
+      "items": [
+        {
+          "productId": "mugqzjxw_x5bw16i",
+          "name": "DOUBLE FACED CASHMERE OVERCOAT",
+          "sku": "LUXE-OUT-MUGQZJXU",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQOoxVOaZs9i_kQdhRcDXvq6cztmnYCr4FfM1DpGOEaKm4kh3nxMgXrApU_a7HpxcEUa-NO1tEFXZw2czqWePrZMsOjiNqUvrSwFqfdA0qCQaga85cYYFJIN18",
+          "size": "S",
+          "color": "Default",
+          "quantity": 1,
+          "price": 225,
+          "subtotal": 225
+        }
+      ],
+      "subtotal": 225,
+      "discount": 0,
+      "tax": 18,
+      "shipping": 0,
+      "total": 243,
+      "couponCode": "",
+      "paymentMethod": "UPI",
+      "paymentStatus": "PENDING",
+      "orderStatus": "PLACED",
+      "shippingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "billingAddress": {
+        "id": "",
+        "street": "Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi",
+        "city": "Kalaburagi",
+        "state": "Karnataka",
+        "postalCode": "585102",
+        "country": "United States"
+      },
+      "trackingNumber": "LX56DCF33E",
+      "carrier": "DHL Express",
+      "estimatedDelivery": "10/23/2026",
+      "timeline": [
+        {
+          "status": "PLACED",
+          "note": "Order placed. Awaiting payment confirmation via YouPI-PG.",
+          "timestamp": "2026-10-18T19:06:17.889Z",
+          "updatedBy": "Customer Checkout"
+        }
+      ],
+      "returnRequest": {
+        "status": "NONE"
+      },
+      "createdAt": "2026-10-18T19:06:17.889Z",
+      "updatedAt": "2026-10-18T19:06:17.889Z"
+    },
     {
       "_id": "mve15oji_f4girpi",
       "id": "mve15oji_f4girpi",
@@ -3412,6 +4678,14 @@
   ],
   "carts": [
     {
+      "_id": "mvfffgbf_jh19iq9",
+      "id": "mvfffgbf_jh19iq9",
+      "userId": "mugpvl8d_husvy8g",
+      "items": [],
+      "createdAt": "2026-10-19T15:46:10.395Z",
+      "updatedAt": "2026-10-19T15:46:10.395Z"
+    },
+    {
       "_id": "mugq2y0q_r36fniw",
       "id": "mugq2y0q_r36fniw",
       "userId": "mugq1t60_n1t5kua",
@@ -3439,18 +4713,9 @@
       "_id": "mugn7e59_4thmbgo",
       "id": "mugn7e59_4thmbgo",
       "userId": "mugn6zkm_8s5tc4t",
-      "items": [
-        {
-          "itemId": "mugqzjxw_x5bw16i_S_Default_1792318586340",
-          "productId": "mugqzjxw_x5bw16i",
-          "size": "S",
-          "color": "Default",
-          "quantity": 1,
-          "addedAt": "2026-10-18T10:16:26.341Z"
-        }
-      ],
+      "items": [],
       "createdAt": "2026-09-25T07:31:55.101Z",
-      "updatedAt": "2026-10-18T10:16:26.341Z"
+      "updatedAt": "2026-10-18T20:12:43.252Z"
     },
     {
       "_id": "mugn13m2_r2gx8w5",
@@ -3503,9 +4768,195 @@
       "updatedAt": "2026-09-25T07:27:01.513Z"
     }
   ],
-  "coupons": [],
+  "coupons": [
+    {
+      "_id": "mvffd9xi_ynzfirw",
+      "id": "mvffd9xi_ynzfirw",
+      "code": "WELCOME50",
+      "discountType": "FIXED",
+      "discountValue": 50,
+      "minPurchase": 250,
+      "expiryDate": "2027-04-17T15:44:28.806Z",
+      "usageLimit": 1000,
+      "usedCount": 0,
+      "isActive": true,
+      "createdAt": "2026-10-19T15:44:28.806Z",
+      "updatedAt": "2026-10-19T15:44:28.806Z"
+    },
+    {
+      "_id": "mvffd9x4_1rp20az",
+      "id": "mvffd9x4_1rp20az",
+      "code": "LUXE15",
+      "discountType": "PERCENTAGE",
+      "discountValue": 15,
+      "minPurchase": 100,
+      "maxDiscount": 150,
+      "expiryDate": "2027-04-17T15:44:28.792Z",
+      "usageLimit": 500,
+      "usedCount": 0,
+      "isActive": true,
+      "createdAt": "2026-10-19T15:44:28.792Z",
+      "updatedAt": "2026-10-19T15:44:28.792Z"
+    }
+  ],
   "reviews": [],
   "notifications": [
+    {
+      "_id": "mve9idr3_vnms7lm",
+      "id": "mve9idr3_vnms7lm",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Cash on Delivery",
+      "message": "Your order ORD-2026-C128702A for $243.00 has been placed with Cash on Delivery. Payment will be collected on delivery.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-C128702A",
+      "isRead": false,
+      "createdAt": "2026-10-18T20:12:43.167Z",
+      "updatedAt": "2026-10-18T20:12:43.167Z"
+    },
+    {
+      "_id": "mve8juuc_m86q1ks",
+      "id": "mve8juuc_m86q1ks",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Cash on Delivery",
+      "message": "Your order ORD-2026-6261528A for $243.00 has been placed with Cash on Delivery. Payment will be collected on delivery.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-6261528A",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:45:52.356Z",
+      "updatedAt": "2026-10-18T19:45:52.356Z"
+    },
+    {
+      "_id": "mve8dbvd_dkejl3z",
+      "id": "mve8dbvd_dkejl3z",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Cash on Delivery",
+      "message": "Your order ORD-2026-C34E14B2 for $243.00 has been placed with Cash on Delivery. Payment will be collected on delivery.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-C34E14B2",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:40:47.833Z",
+      "updatedAt": "2026-10-18T19:40:47.833Z"
+    },
+    {
+      "_id": "mve8c333_nnyau86",
+      "id": "mve8c333_nnyau86",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-79D8F10D for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-79D8F10D",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:39:49.791Z",
+      "updatedAt": "2026-10-18T19:39:49.791Z"
+    },
+    {
+      "_id": "mve8c1dl_vat2jfm",
+      "id": "mve8c1dl_vat2jfm",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-D47722C2 for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-D47722C2",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:39:47.577Z",
+      "updatedAt": "2026-10-18T19:39:47.577Z"
+    },
+    {
+      "_id": "mve818yn_7fhzbih",
+      "id": "mve818yn_7fhzbih",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-9FB1B95F for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-9FB1B95F",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:31:24.191Z",
+      "updatedAt": "2026-10-18T19:31:24.191Z"
+    },
+    {
+      "_id": "mve813r9_0z3py43",
+      "id": "mve813r9_0z3py43",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-7CD6391D for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-7CD6391D",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:31:17.445Z",
+      "updatedAt": "2026-10-18T19:31:17.445Z"
+    },
+    {
+      "_id": "mve7usl6_d9t3z77",
+      "id": "mve7usl6_d9t3z77",
+      "userId": "mve7tucj_81ltbnx",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-772E86C1 for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-772E86C1",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:26:23.034Z",
+      "updatedAt": "2026-10-18T19:26:23.034Z"
+    },
+    {
+      "_id": "mve7jk5z_5muphey",
+      "id": "mve7jk5z_5muphey",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-815F9342 for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-815F9342",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:17:38.903Z",
+      "updatedAt": "2026-10-18T19:17:38.903Z"
+    },
+    {
+      "_id": "mve7i0qt_mayzr87",
+      "id": "mve7i0qt_mayzr87",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-E6939102 for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-E6939102",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:16:27.076Z",
+      "updatedAt": "2026-10-18T19:16:27.076Z"
+    },
+    {
+      "_id": "mve7c62z_dz60h37",
+      "id": "mve7c62z_dz60h37",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-2507631A for $486.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-2507631A",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:11:54.059Z",
+      "updatedAt": "2026-10-18T19:11:54.059Z"
+    },
+    {
+      "_id": "mve755d8_phjqi6p",
+      "id": "mve755d8_phjqi6p",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-397B44A5 for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-397B44A5",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:06:26.540Z",
+      "updatedAt": "2026-10-18T19:06:26.540Z"
+    },
+    {
+      "_id": "mve74yt0_we7f2gz",
+      "id": "mve74yt0_we7f2gz",
+      "userId": "mugn6zkm_8s5tc4t",
+      "title": "Order Placed - Awaiting Payment",
+      "message": "Your order ORD-2026-C47C8EB8 for $243.00 has been placed. Please complete payment via YouPI-PG.",
+      "type": "ORDER",
+      "link": "/track-order?id=ORD-2026-C47C8EB8",
+      "isRead": false,
+      "createdAt": "2026-10-18T19:06:18.036Z",
+      "updatedAt": "2026-10-18T19:06:18.036Z"
+    },
     {
       "_id": "mve15okb_5clllpy",
       "id": "mve15okb_5clllpy",
@@ -4032,6 +5483,55 @@
   ],
   "emailLogs": [
     {
+      "_id": "mve9inr0_bub9ro2",
+      "id": "mve9inr0_bub9ro2",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_CONFIRMATION",
+      "subject": "Order Confirmation - ORD-2026-C128702A",
+      "status": "FAILED",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-C128702A</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Camel | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, United States\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-C128702A\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-10-18T20:12:56.123Z",
+      "errorMessage": "read ECONNRESET",
+      "createdAt": "2026-10-18T20:12:56.123Z",
+      "updatedAt": "2026-10-18T20:12:56.123Z"
+    },
+    {
+      "_id": "mve8k2bf_1aavv4h",
+      "id": "mve8k2bf_1aavv4h",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_CONFIRMATION",
+      "subject": "Order Confirmation - ORD-2026-6261528A",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-6261528A</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: M | Color: Default | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, United States\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-6261528A\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-10-18T19:46:02.043Z",
+      "createdAt": "2026-10-18T19:46:02.043Z",
+      "updatedAt": "2026-10-18T19:46:02.043Z"
+    },
+    {
+      "_id": "mve8df56_v3dir51",
+      "id": "mve8df56_v3dir51",
+      "recipient": "halliramesh5@gmail.com",
+      "emailType": "ORDER_CONFIRMATION",
+      "subject": "Order Confirmation - ORD-2026-C34E14B2",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }\n          .header { background: #0f172a; padding: 32px; text-align: center; color: #ffffff; }\n          .order-id { font-size: 18px; font-weight: 700; color: #38bdf8; margin-top: 8px; }\n          .content { padding: 32px; }\n          .table { width: 100%; border-collapse: collapse; margin: 24px 0; }\n          .totals { margin-top: 16px; border-top: 2px solid #e2e8f0; padding-top: 16px; }\n          .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <h1 style=\"margin: 0; font-size: 22px; color: #ffffff;\">Order Confirmed</h1>\n            <div class=\"order-id\">ORD-2026-C34E14B2</div>\n          </div>\n          <div class=\"content\">\n            <p>Thank you for shopping with us, <strong>SAWAN HALLI</strong>!</p>\n            <p>Your order has been received and is being prepared with utmost care.</p>\n            <table class=\"table\">\n              <thead>\n                <tr style=\"text-align: left; font-size: 12px; color: #64748b; text-transform: uppercase; border-bottom: 1px solid #cbd5e1;\">\n                  <th style=\"padding-bottom: 8px;\">Item</th>\n                  <th style=\"padding-bottom: 8px; text-align: right;\">Amount</th>\n                </tr>\n              </thead>\n              <tbody>\n                \n      <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n        <td style=\"padding: 12px 0;\">\n          <strong>DOUBLE FACED CASHMERE OVERCOAT</strong><br>\n          <span style=\"font-size: 12px; color: #64748b;\">Size: S | Color: Default | Qty: 1</span>\n        </td>\n        <td style=\"padding: 12px 0; text-align: right; font-weight: 600;\">$225.00</td>\n      </tr>\n    \n              </tbody>\n            </table>\n            <div class=\"totals\">\n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Subtotal: $225.00</div>\n              \n              <div style=\"text-align: right; font-size: 14px; margin-bottom: 6px;\">Shipping: Free</div>\n              <div style=\"text-align: right; font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 8px;\">Total Paid: $243.00</div>\n            </div>\n            <div style=\"margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; font-size: 13px;\">\n              <strong>Delivery Address:</strong><br>\n              Plot No 33 Jayateerth Nagar Udnoor Road Kallaburagi, Kalaburagi, Karnataka 585102, United States\n            </div>\n            <div style=\"text-align: center; margin-top: 32px;\">\n              <a href=\"http://localhost:3000/track-order?id=ORD-2026-C34E14B2\" class=\"btn\">Track Order Status</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            Questions? Contact customer care at support@luxeattire.fashion\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-10-18T19:40:52.074Z",
+      "createdAt": "2026-10-18T19:40:52.074Z",
+      "updatedAt": "2026-10-18T19:40:52.074Z"
+    },
+    {
+      "_id": "mve7tyfo_58h99dy",
+      "id": "mve7tyfo_58h99dy",
+      "recipient": "paytester@example.com",
+      "emailType": "WELCOME",
+      "subject": "Welcome to LuxeAttire - Exclusive Fashion & Ready-to-Wear",
+      "status": "SENT",
+      "htmlContent": "\n      <!DOCTYPE html>\n      <html>\n      <head>\n        <meta charset=\"utf-8\">\n        <style>\n          body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 0; color: #1e293b; }\n          .container { max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }\n          .header { background: linear-gradient(135deg, #0f172a 0%, #312e81 100%); padding: 48px 32px; text-align: center; color: #ffffff; }\n          .logo { font-size: 28px; font-weight: 800; letter-spacing: 2px; color: #fbbf24; }\n          .content { padding: 40px 32px; line-height: 1.6; }\n          .btn { display: inline-block; background: #0f172a; color: #ffffff !important; text-decoration: none; padding: 14px 32px; font-weight: 600; border-radius: 8px; margin-top: 20px; font-size: 14px; }\n          .footer { background: #f8fafc; padding: 24px 32px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n        </style>\n      </head>\n      <body>\n        <div class=\"container\">\n          <div class=\"header\">\n            <div class=\"logo\">NAVEOR</div>\n            <h1 style=\"font-size: 24px; margin: 16px 0 0 0; color: #ffffff;\">Welcome to the Inner Circle</h1>\n          </div>\n          <div class=\"content\">\n            <p>Dear Payment Tester,</p>\n            <p>Your account is now fully verified. Welcome to Naveor, where contemporary craftsmanship meets uncompromising luxury.</p>\n            <p>As a valued member, enjoy tailored styling suggestions, expedited express shipping, and exclusive invitations to seasonal private sales.</p>\n            <div style=\"text-align: center; margin: 30px 0;\">\n              <a href=\"http://localhost:3000\" class=\"btn\">Explore The New Collection</a>\n            </div>\n          </div>\n          <div class=\"footer\">\n            © 2026 Naveor Inc. · 540 Madison Ave, New York, NY 10022\n          </div>\n        </div>\n      </body>\n      </html>\n    ",
+      "sentAt": "2026-10-18T19:25:43.956Z",
+      "createdAt": "2026-10-18T19:25:43.956Z",
+      "updatedAt": "2026-10-18T19:25:43.956Z"
+    },
+    {
       "recipient": "halliramesh5@gmail.com",
       "emailType": "ORDER_STATUS_UPDATE",
       "subject": "Order Update: ORD-2026-9449FAE5 is now CANCELLED",
@@ -4215,6 +5715,456 @@
     }
   ],
   "auditLogs": [
+    {
+      "_id": "mvffd9xt_i24be75",
+      "id": "mvffd9xt_i24be75",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "DATABASE_SEEDED",
+      "entity": "Catalog",
+      "entityId": "seed_initial",
+      "timestamp": "2026-10-19T15:44:28.817Z",
+      "createdAt": "2026-10-19T15:44:28.817Z",
+      "updatedAt": "2026-10-19T15:44:28.817Z"
+    },
+    {
+      "_id": "mvff72r3_cpazhcp",
+      "id": "mvff72r3_cpazhcp",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_DELETED",
+      "entity": "Product",
+      "entityId": "mugqzjxw_x5bw16i",
+      "metadata": {
+        "name": "DOUBLE FACED CASHMERE OVERCOAT",
+        "sku": "LUXE-OUT-MUGQZJXU"
+      },
+      "timestamp": "2026-10-19T15:39:39.566Z",
+      "createdAt": "2026-10-19T15:39:39.566Z",
+      "updatedAt": "2026-10-19T15:39:39.566Z"
+    },
+    {
+      "_id": "mve9idrl_hweaum7",
+      "id": "mve9idrl_hweaum7",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED",
+      "entity": "Order",
+      "entityId": "mve9idq8_1kquymb",
+      "metadata": {
+        "orderId": "ORD-2026-C128702A",
+        "total": 243,
+        "itemCount": 1
+      },
+      "timestamp": "2026-10-18T20:12:43.185Z",
+      "createdAt": "2026-10-18T20:12:43.185Z",
+      "updatedAt": "2026-10-18T20:12:43.185Z"
+    },
+    {
+      "_id": "mve8juuv_y6zsr4q",
+      "id": "mve8juuv_y6zsr4q",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED",
+      "entity": "Order",
+      "entityId": "mve8jut1_paelihm",
+      "metadata": {
+        "orderId": "ORD-2026-6261528A",
+        "total": 243,
+        "itemCount": 1
+      },
+      "timestamp": "2026-10-18T19:45:52.375Z",
+      "createdAt": "2026-10-18T19:45:52.375Z",
+      "updatedAt": "2026-10-18T19:45:52.375Z"
+    },
+    {
+      "_id": "mve8dbvr_nvwvjye",
+      "id": "mve8dbvr_nvwvjye",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED",
+      "entity": "Order",
+      "entityId": "mve8dbuh_6vjsd6y",
+      "metadata": {
+        "orderId": "ORD-2026-C34E14B2",
+        "total": 243,
+        "itemCount": 1
+      },
+      "timestamp": "2026-10-18T19:40:47.847Z",
+      "createdAt": "2026-10-18T19:40:47.847Z",
+      "updatedAt": "2026-10-18T19:40:47.847Z"
+    },
+    {
+      "_id": "mve8c33b_1ppsvpz",
+      "id": "mve8c33b_1ppsvpz",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve8c32a_y868h9b",
+      "metadata": {
+        "orderId": "ORD-2026-79D8F10D",
+        "paymentId": "ed9ceeff-b914-4586-9b3f-73664d37246f",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:39:49.799Z",
+      "createdAt": "2026-10-18T19:39:49.799Z",
+      "updatedAt": "2026-10-18T19:39:49.799Z"
+    },
+    {
+      "_id": "mve8c1dw_t7bzqiz",
+      "id": "mve8c1dw_t7bzqiz",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve8c1cg_ssu2wp5",
+      "metadata": {
+        "orderId": "ORD-2026-D47722C2",
+        "paymentId": "18db18a8-590b-4028-9ab9-cdfe4e08234c",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:39:47.588Z",
+      "createdAt": "2026-10-18T19:39:47.588Z",
+      "updatedAt": "2026-10-18T19:39:47.588Z"
+    },
+    {
+      "_id": "mve818yu_c5gfbji",
+      "id": "mve818yu_c5gfbji",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve818xs_0z5lqd3",
+      "metadata": {
+        "orderId": "ORD-2026-9FB1B95F",
+        "paymentId": "e790c59a-2e35-4826-b491-2019b54daaf4",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:31:24.198Z",
+      "createdAt": "2026-10-18T19:31:24.198Z",
+      "updatedAt": "2026-10-18T19:31:24.198Z"
+    },
+    {
+      "_id": "mve813rh_pywb9ur",
+      "id": "mve813rh_pywb9ur",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve813q3_7rhvu9z",
+      "metadata": {
+        "orderId": "ORD-2026-7CD6391D",
+        "paymentId": "b691ba7b-0451-454f-b2d0-2001c97b712d",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:31:17.453Z",
+      "createdAt": "2026-10-18T19:31:17.453Z",
+      "updatedAt": "2026-10-18T19:31:17.453Z"
+    },
+    {
+      "_id": "mve7usn7_4gvicoi",
+      "id": "mve7usn7_4gvicoi",
+      "actor": {
+        "id": "mve7tucj_81ltbnx",
+        "email": "paytester@example.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "Payment Tester",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve7usjf_qa4ku2a",
+      "metadata": {
+        "orderId": "ORD-2026-772E86C1",
+        "paymentId": "96895f20-a8a8-4261-810f-ee49470d2dd6",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:26:23.107Z",
+      "createdAt": "2026-10-18T19:26:23.107Z",
+      "updatedAt": "2026-10-18T19:26:23.107Z"
+    },
+    {
+      "_id": "mve7jk6f_xnhdos9",
+      "id": "mve7jk6f_xnhdos9",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve7jk3w_voxtfe2",
+      "metadata": {
+        "orderId": "ORD-2026-815F9342",
+        "paymentId": "ed0c07bc-1430-4f0b-9093-0ce7ae04606a",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:17:38.919Z",
+      "createdAt": "2026-10-18T19:17:38.919Z",
+      "updatedAt": "2026-10-18T19:17:38.919Z"
+    },
+    {
+      "_id": "mve7i0r1_nlc49rf",
+      "id": "mve7i0r1_nlc49rf",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve7i0p1_vv076gw",
+      "metadata": {
+        "orderId": "ORD-2026-E6939102",
+        "paymentId": "7907ed8c-3aa2-4145-bebf-2c6f0ed502fa",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:16:27.085Z",
+      "createdAt": "2026-10-18T19:16:27.085Z",
+      "updatedAt": "2026-10-18T19:16:27.085Z"
+    },
+    {
+      "_id": "mve7c63b_clb851m",
+      "id": "mve7c63b_clb851m",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve7c614_mqsmrdu",
+      "metadata": {
+        "orderId": "ORD-2026-2507631A",
+        "paymentId": "a9368fc6-0cb7-4a79-99c5-756c82a4a723",
+        "total": 486
+      },
+      "timestamp": "2026-10-18T19:11:54.071Z",
+      "createdAt": "2026-10-18T19:11:54.071Z",
+      "updatedAt": "2026-10-18T19:11:54.071Z"
+    },
+    {
+      "_id": "mve7ad19_58fobi3",
+      "id": "mve7ad19_58fobi3",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_UPDATED",
+      "entity": "Product",
+      "entityId": "mugqzjxw_x5bw16i",
+      "metadata": {
+        "changedFields": [
+          "stock"
+        ]
+      },
+      "timestamp": "2026-10-18T19:10:29.757Z",
+      "createdAt": "2026-10-18T19:10:29.757Z",
+      "updatedAt": "2026-10-18T19:10:29.757Z"
+    },
+    {
+      "_id": "mve7a9zs_09zesz2",
+      "id": "mve7a9zs_09zesz2",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_UPDATED",
+      "entity": "Product",
+      "entityId": "mugqzjxw_x5bw16i",
+      "metadata": {
+        "changedFields": [
+          "stock"
+        ]
+      },
+      "timestamp": "2026-10-18T19:10:25.816Z",
+      "createdAt": "2026-10-18T19:10:25.816Z",
+      "updatedAt": "2026-10-18T19:10:25.816Z"
+    },
+    {
+      "_id": "mve7a7a4_a0jo7fm",
+      "id": "mve7a7a4_a0jo7fm",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_UPDATED",
+      "entity": "Product",
+      "entityId": "mugqzjxw_x5bw16i",
+      "metadata": {
+        "changedFields": [
+          "stock"
+        ]
+      },
+      "timestamp": "2026-10-18T19:10:22.300Z",
+      "createdAt": "2026-10-18T19:10:22.300Z",
+      "updatedAt": "2026-10-18T19:10:22.300Z"
+    },
+    {
+      "_id": "mve7a4dn_a6myjup",
+      "id": "mve7a4dn_a6myjup",
+      "actor": {
+        "id": "mugpvl8d_husvy8g",
+        "email": "sksawan240@gmail.com",
+        "role": "ADMIN",
+        "permissions": [],
+        "name": "ADMIN",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "PRODUCT_UPDATED",
+      "entity": "Product",
+      "entityId": "mugqzjxw_x5bw16i",
+      "metadata": {
+        "changedFields": [
+          "stock"
+        ]
+      },
+      "timestamp": "2026-10-18T19:10:18.539Z",
+      "createdAt": "2026-10-18T19:10:18.539Z",
+      "updatedAt": "2026-10-18T19:10:18.539Z"
+    },
+    {
+      "_id": "mve755dg_elm6t0g",
+      "id": "mve755dg_elm6t0g",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve755ci_ohvjp6l",
+      "metadata": {
+        "orderId": "ORD-2026-397B44A5",
+        "paymentId": "1d8f721b-9390-4401-9587-85f572c9a73c",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:06:26.548Z",
+      "createdAt": "2026-10-18T19:06:26.548Z",
+      "updatedAt": "2026-10-18T19:06:26.548Z"
+    },
+    {
+      "_id": "mve74yu3_eag66ur",
+      "id": "mve74yu3_eag66ur",
+      "actor": {
+        "id": "mugn6zkm_8s5tc4t",
+        "email": "halliramesh5@gmail.com",
+        "role": "CUSTOMER",
+        "permissions": [],
+        "name": "SAWAN HALLI",
+        "isVerified": true,
+        "sessionVersion": 1
+      },
+      "action": "ORDER_CREATED_PENDING_PAYMENT",
+      "entity": "Order",
+      "entityId": "mve74yox_ipwzo0y",
+      "metadata": {
+        "orderId": "ORD-2026-C47C8EB8",
+        "paymentId": "4b8cb16a-af6f-4d78-ab1c-c9ba1ad51616",
+        "total": 243
+      },
+      "timestamp": "2026-10-18T19:06:18.075Z",
+      "createdAt": "2026-10-18T19:06:18.075Z",
+      "updatedAt": "2026-10-18T19:06:18.075Z"
+    },
     {
       "_id": "mve15okh_aw7ahsp",
       "id": "mve15okh_aw7ahsp",
