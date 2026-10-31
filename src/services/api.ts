@@ -260,8 +260,35 @@ export const api = {
       }),
   },
 
-  // Payments
+  // Payments — PayU production gateway + legacy stubs
   payments: {
+    payuConfig: () =>
+      request<{ success: boolean; env: string; enabled: boolean; payUrl: string }>('/payu/config'),
+    payuCreate: (orderData: any) =>
+      request<{
+        success: boolean; message?: string; reused?: boolean; order: Order;
+        payuUrl: string; payuFields: Record<string, string>;
+      }>('/payu/create', {
+        method: 'POST',
+        body: JSON.stringify(orderData),
+      }),
+    payuStatus: (orderId: string) =>
+      request<{ success: boolean; verified: boolean; paymentStatus: string; order: Order }>(`/payu/status/${encodeURIComponent(orderId)}`),
+    payuRetry: (orderId: string) =>
+      request<{ success: boolean; message?: string; order: Order; payuUrl: string; payuFields: Record<string, string> }>(`/payu/retry/${encodeURIComponent(orderId)}`, {
+        method: 'POST',
+      }),
+    payuAdminTransactions: (params: Record<string, string | number | undefined> = {}) => {
+      const sp = new URLSearchParams();
+      Object.entries(params).forEach(([k, v]) => {
+        if (v !== undefined && v !== '') sp.append(k, String(v));
+      });
+      return request<{ success: boolean; transactions: any[]; pagination: any }>(`/payu/admin/transactions?${sp.toString()}`);
+    },
+    payuAdminVerify: (orderId: string) =>
+      request<{ success: boolean; payuResult: any; order: Order }>(`/payu/admin/verify/${encodeURIComponent(orderId)}`, {
+        method: 'POST',
+      }),
     create: (orderData: any) =>
       request<{
         success: boolean;

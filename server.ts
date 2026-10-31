@@ -13,6 +13,7 @@ import categoryRoutes from './server/routes/categoryRoutes';
 import cartRoutes from './server/routes/cartRoutes';
 import wishlistRoutes from './server/routes/wishlistRoutes';
 import orderRoutes from './server/routes/orderRoutes';
+import payuRoutes from './server/routes/payuRoutes';
 
 import dashboardRoutes from './server/routes/dashboardRoutes';
 import adminRoutes from './server/routes/adminRoutes';
@@ -56,6 +57,7 @@ async function startServer() {
   app.use('/api/cart', cartRoutes);
   app.use('/api/wishlist', wishlistRoutes);
   app.use('/api/orders', orderRoutes);
+  app.use('/api/payu', payuRoutes);
   
   app.use('/api/dashboard', dashboardRoutes);
   app.use('/api/admin', adminRoutes);

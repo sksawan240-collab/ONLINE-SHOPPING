@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   ShieldCheck,
@@ -13,12 +13,12 @@ import {
   Lock,
   Phone,
   Clock,
-  X,
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
-import { Address, Order, OrderStatus } from '../types';
+import { Address, Order } from '../types';
+import { postToPayU } from './PaymentFailedPage';
 import {
   INDIAN_STATE_NAMES,
   getDistrictsForState,
@@ -41,14 +41,8 @@ export const CheckoutPage: React.FC = () => {
     country: DEFAULT_COUNTRY,
   });
 
-  const [paymentMethod, setPaymentMethod] = useState<'COD' | 'UPI'>('COD');
-  const [showPaymentModal, setShowPaymentModal] = useState(false);
-  const [paymentIframeUrl, setPaymentIframeUrl] = useState<string | null>(null);
-  const [paymentId, setPaymentId] = useState<string | null>(null);
-  const [polling, setPolling] = useState(false);
-
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const orderIdRef = useRef<string | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<'COD' | 'PAYU'>('PAYU');
+  const [payuAvailable, setPayuAvailable] = useState<boolean | null>(null);
 
   // Coupon
   const [couponCode, setCouponCode] = useState('');
@@ -60,42 +54,10 @@ export const CheckoutPage: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
-    let pollInterval: NodeJS.Timeout;
-
-    if (polling && paymentId && orderIdRef.current) {
-      pollInterval = setInterval(async () => {
-        try {
-          const res = await api.payments.getYoupiStatus(paymentId);
-          if (res.success && res.status === 'PAID') {
-            setPolling(false);
-            setShowPaymentModal(false);
-            
-            // Update order status in our backend
-            const updateRes = await api.orders.updateStatus(orderIdRef.current!, OrderStatus.PAID);
-            if (updateRes.success && updateRes.order) {
-              setCreatedOrder(updateRes.order);
-              await clearCart();
-            } else {
-              setErrorMsg('Failed to update order status after payment.');
-            }
-          } else if (res.status === 'FAILED') {
-            setPolling(false);
-            setShowPaymentModal(false);
-            setErrorMsg(`Payment ${res.status.toLowerCase()}. Please try again.`);
-          }
-        } catch (err) {
-          console.error('Error polling payment status:', err);
-          // Continue polling
-        }
-      }, 3000); // Poll every 3 seconds
-    }
-
-    return () => {
-      if (pollInterval) {
-        clearInterval(pollInterval);
-      }
-    };
-  }, [polling, paymentId, clearCart, navigate]);
+    api.payments.payuConfig()
+      .then(r => { setPayuAvailable(!!r.enabled); if (!r.enabled) setPaymentMethod('COD'); })
+      .catch(() => { setPayuAvailable(false); setPaymentMethod('COD'); });
+  }, []);
 
   // Initialize address from user profile if available
   useEffect(() => {
@@ -137,6 +99,10 @@ export const CheckoutPage: React.FC = () => {
 
   const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isAuthenticated) {
+      setErrorMsg('Please sign in to complete your purchase.');
+      return;
+    }
     if (!shippingAddress.street || !shippingAddress.city || !shippingAddress.postalCode) {
       setErrorMsg('Please complete all mandatory shipping address fields.');
       return;
@@ -171,39 +137,40 @@ export const CheckoutPage: React.FC = () => {
       };
 
       if (paymentMethod === 'COD') {
-        // Cash on Delivery - create order directly with UNPAID status
         const res = await api.orders.create(orderPayload);
         if (res.success && res.order) {
           setCreatedOrder(res.order);
           await clearCart();
         }
-      } else if (paymentMethod === 'UPI') {
-        // UPI Payment - create order with PENDING status, then initiate payment
-        const res = await api.orders.create({ ...orderPayload, paymentMethod: 'UPI' });
-        if (res.success && res.order) {
-          orderIdRef.current = res.order.orderId;
-          // Initiate YouPI-PG payment
-          const youpiRes = await api.payments.initiateYoupi({ 
-            orderId: res.order.orderId,
-            amount: finalTotal,
-            customer: {
-              name: user?.name || 'Anonymous',
-              email: user?.email || 'no-email@example.com',
-              phone: user?.phone || '0000000000'
-            }
-          });
-          if (youpiRes.success && youpiRes.paymentId && youpiRes.iframeUrl) {
-            setPaymentId(youpiRes.paymentId);
-            setPaymentIframeUrl(youpiRes.iframeUrl);
-            setShowPaymentModal(true);
-            setPolling(true);
-          } else {
-            setErrorMsg(youpiRes.message || 'Could not initiate UPI payment.');
-          }
+      } else {
+        // ONLINE (PayU): Cart -> Checkout -> Place Order -> PayU gateway -> success => Order confirmed
+        // 1. Backend creates PENDING order + generates Order ID + signed PayU fields.
+        // 2. We POST synchronously to PayU gateway (DO NOT clear cart / no await before this).
+        // 3. Backend clears cart + decrements stock ONLY after verified payment success.
+        const res = await api.payments.payuCreate({
+          ...orderPayload,
+          paymentMethod: 'PAYU',
+          phone: user?.phone || '',
+        });
+        if (res.success && res.payuUrl && res.payuFields) {
+          // Show a redirecting state, then submit — synchronous, keeps user gesture
+          setErrorMsg(null);
+          postToPayU(res.payuUrl, res.payuFields);
+          // Page will unload to PayU. Do NOT clearCart() here — cart is cleared
+          // server-side in markPaid() after verified success. Clearing here
+          // unmounts Checkout (items.length===0 view) and blocks the gateway.
+          return;
+        } else {
+          console.error('PayU create failed:', res);
+          setErrorMsg(res.message || 'Could not initiate PayU payment.');
         }
       }
     } catch (err: any) {
-      setErrorMsg(err.message || 'Failed to place order. Please verify your bag inventory.');
+      console.error('Order placement error:', err);
+      const msg = err?.data?.message || err.message || 'Failed to place order. Please verify your bag inventory.';
+      setErrorMsg(err?.data?.code === 'PAYU_NOT_CONFIGURED'
+        ? 'Online payments are not enabled yet on this store. Please choose Cash on Delivery.'
+        : msg);
     } finally {
       setIsProcessing(false);
     }
@@ -443,22 +410,22 @@ export const CheckoutPage: React.FC = () => {
                   </label>
 
                   <label
-                    onClick={() => setPaymentMethod('UPI')}
+                    onClick={() => setPaymentMethod('PAYU')}
                     className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
-                      paymentMethod === 'UPI' ? 'border-stone-900 bg-stone-50/50 shadow-xs' : 'border-stone-200 hover:border-stone-300'
+                      paymentMethod === 'PAYU' ? 'border-stone-900 bg-stone-50/50 shadow-xs' : 'border-stone-200 hover:border-stone-300'
                     }`}
                   >
                     <div className="flex items-center space-x-3">
                       <input
                         type="radio"
                         name="payment"
-                        checked={paymentMethod === 'UPI'}
-                        onChange={() => setPaymentMethod('UPI')}
+                        checked={paymentMethod === 'PAYU'}
+                        onChange={() => setPaymentMethod('PAYU')}
                         className="text-stone-900"
                       />
                       <div className="flex flex-col">
-                        <span className="text-xs font-semibold text-stone-800">Pay with UPI</span>
-                        <span className="text-xs text-stone-500">Use any UPI app to pay.</span>
+                        <span className="text-xs font-semibold text-stone-800">Pay Online via PayU</span>
+                        <span className="text-xs text-stone-500">UPI, GPay, PhonePe, Cards, Net Banking, Wallets — secured by PayU.</span>
                       </div>
                     </div>
                     <CreditCard className="w-5 h-5 text-blue-600" />
@@ -563,54 +530,13 @@ export const CheckoutPage: React.FC = () => {
                 </button>
 
                 <p className="text-[10px] text-stone-400 text-center leading-tight">
-                  {paymentMethod === 'COD' ? 'Pay cash on delivery. Order will be created as UNPAID until delivery confirmation.' : 'Pay securely via UPI using any UPI app. Order confirmed after payment verification.'}
+                  {paymentMethod === 'COD' ? 'Pay cash on delivery. Order will be created as UNPAID until delivery confirmation.' : 'Pay securely via PayU (UPI, cards, net banking). Order confirmed only after server-side verification.'}
                 </p>
               </div>
             </div>
           </div>
         </form>
       </div>
-
-      {/* YouPI-PG UPI Payment Modal */}
-      {showPaymentModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-stone-200">
-              <div className="flex items-center gap-2">
-                <Lock className="w-4 h-4 text-stone-900" />
-                <h3 className="font-serif text-sm font-bold text-stone-900">Secure UPI Payment</h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowPaymentModal(false)}
-                className="p-1 rounded-full hover:bg-stone-100"
-              >
-                <X className="w-4 h-4 text-stone-500" />
-              </button>
-            </div>
-            <div className="p-2 bg-stone-50">
-              {paymentIframeUrl ? (
-                <iframe
-                  ref={iframeRef}
-                  src={paymentIframeUrl}
-                  className="w-full h-[600px] border-0"
-                  title="YouPI Secure Payment"
-                  allow="payment"
-                ></iframe>
-              ) : (
-                <div className="w-full h-[600px] flex items-center justify-center">
-                  <p className="text-xs text-stone-600">Initializing payment gateway...</p>
-                </div>
-              )}
-            </div>
-            <div className="px-5 py-3 bg-stone-100 border-t border-stone-200 text-center">
-              <p className="text-[10px] text-stone-500">
-                Do not close this window. Your order will be confirmed automatically after payment.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

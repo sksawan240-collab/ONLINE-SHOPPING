@@ -60,8 +60,7 @@ export const SalesManagerDashboard: React.FC = () => {
     e.preventDefault();
     if (!selectedOrder) return;
     try {
-      const res = await api.orders.updateStatus(selectedOrder._id, {
-        orderStatus: newStatus || selectedOrder.orderStatus,
+      const res = await api.orders.updateStatus(selectedOrder._id, (newStatus || selectedOrder.orderStatus) as any, {
         carrier: carrier || selectedOrder.carrier,
         trackingNumber: trackingNumber || selectedOrder.trackingNumber,
         note: statusNote || undefined,

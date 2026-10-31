@@ -51,7 +51,7 @@ const getStatusClass = (status: OrderStatus | undefined) => {
 
 export const AdminDashboard: React.FC = () => {
   const { user } = useAuth();
-  const [activeTab, setActiveTab] = useState<'analytics' | 'products' | 'categories' | 'inventory' | 'orders' | 'users' | 'cms' | 'audit' | 'emails'>('analytics');
+  const [activeTab, setActiveTab] = useState<'analytics' | 'products' | 'categories' | 'inventory' | 'orders' | 'payments' | 'users' | 'cms' | 'audit' | 'emails'>('analytics');
 
   // Analytics State
   const [stats, setStats] = useState<any>(null);
@@ -142,6 +142,36 @@ export const AdminDashboard: React.FC = () => {
   const [seeding, setSeeding] = useState(false);
   const [seedSuccess, setSeedSuccess] = useState<string | null>(null);
 
+  // PayU transactions state
+  const [payuTxns, setPayuTxns] = useState<any[]>([]);
+  const [payuLoading, setPayuLoading] = useState(false);
+  const [payuSearch, setPayuSearch] = useState('');
+  const [payuStatus, setPayuStatus] = useState('');
+  const [payuMsg, setPayuMsg] = useState<string | null>(null);
+
+  const loadPayuTxns = async () => {
+    setPayuLoading(true); setPayuMsg(null);
+    try {
+      const res = await api.payments.payuAdminTransactions({ search: payuSearch || undefined, status: payuStatus || undefined, limit: 50 });
+      if (res.success) setPayuTxns(res.transactions || []);
+    } catch (e: any) {
+      setPayuMsg(e?.message || 'Failed to load PayU transactions.');
+    } finally { setPayuLoading(false); }
+  };
+
+  const handlePayuVerify = async (orderId: string) => {
+    setPayuMsg(null);
+    try {
+      const res = await api.payments.payuAdminVerify(orderId);
+      if (res.success) {
+        setPayuMsg(`PayU verification for ${orderId}: ${(res.payuResult as any)?.status || 'checked'}. Order is now ${(res.order as any)?.paymentStatus}.`);
+        loadPayuTxns();
+      }
+    } catch (e: any) {
+      setPayuMsg(e?.message || 'Verification failed.');
+    }
+  };
+
   // 1. Load Analytics
   const loadAnalytics = async () => {
     try {
@@ -200,6 +230,9 @@ export const AdminDashboard: React.FC = () => {
     }
     if (activeTab === 'audit') {
       api.admin.getAuditLogs().then(res => res.success && setAuditLogs(res.logs || []));
+    }
+    if (activeTab === 'payments') {
+      loadPayuTxns();
     }
     if (activeTab === 'emails') {
       api.emails.list().then(res => res.success && setEmailLogs(res.logs || []));
@@ -467,6 +500,7 @@ export const AdminDashboard: React.FC = () => {
             { id: 'categories', label: 'Categories', icon: Layers },
             { id: 'inventory', label: 'Stock & Inventory', icon: AlertTriangle },
             { id: 'orders', label: 'Orders & Shipments', icon: ShoppingBag },
+            { id: 'payments', label: 'PayU Payments', icon: DollarSign },
             { id: 'users', label: 'Users & Roles', icon: Users },
             { id: 'cms', label: 'Store CMS & Hero', icon: Settings },
             { id: 'audit', label: 'Audit Trail', icon: FileText },
@@ -1275,6 +1309,71 @@ export const AdminDashboard: React.FC = () => {
                 </div>
               </div>
             )}
+          </div>
+        )}
+
+        {/* TAB: PAYU PAYMENTS */}
+        {activeTab === 'payments' && (
+          <div className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-4">
+            <div className="flex flex-col sm:flex-row justify-between gap-4">
+              <div>
+                <h2 className="font-serif text-xl font-bold text-stone-900">PayU Transactions</h2>
+                <p className="text-xs text-stone-500 mt-0.5">Successful, failed and pending payments. Status changes only after PayU server verification.</p>
+              </div>
+              <button onClick={loadPayuTxns} className="px-4 py-2 bg-stone-900 text-white text-xs font-semibold rounded-xl flex items-center gap-1.5">
+                <RefreshCw className={`w-4 h-4 ${payuLoading ? 'animate-spin' : ''}`} /> Refresh
+              </button>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" />
+                <input value={payuSearch} onChange={e => setPayuSearch(e.target.value)} onKeyDown={e => e.key === 'Enter' && loadPayuTxns()} placeholder="Search order ID, TXN, PayU ID, email…" className="w-full pl-9 pr-3 py-2 bg-stone-50 border rounded-xl text-xs" />
+              </div>
+              <select value={payuStatus} onChange={e => setPayuStatus(e.target.value)} className="px-3 py-2 bg-stone-50 border rounded-xl text-xs">
+                <option value="">All statuses</option>
+                <option value="SUCCESS">Successful</option>
+                <option value="PENDING">Pending</option>
+                <option value="FAILED">Failed</option>
+                <option value="REFUNDED">Refunded</option>
+              </select>
+              <button onClick={loadPayuTxns} className="px-4 py-2 bg-stone-100 rounded-xl text-xs font-semibold">Search</button>
+            </div>
+            {payuMsg && <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-800">{payuMsg}</div>}
+            <div className="overflow-x-auto border rounded-xl">
+              <table className="w-full text-xs">
+                <thead className="bg-stone-50 text-stone-500 uppercase text-[10px] tracking-wider">
+                  <tr>
+                    <th className="text-left px-3 py-2">Order / TXN</th>
+                    <th className="text-left px-3 py-2">Customer</th>
+                    <th className="text-right px-3 py-2">Amount</th>
+                    <th className="text-left px-3 py-2">PayU ID / Mode</th>
+                    <th className="text-left px-3 py-2">Status</th>
+                    <th className="text-left px-3 py-2">Verified</th>
+                    <th className="text-right px-3 py-2">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-stone-100">
+                  {payuTxns.map((t: any) => (
+                    <tr key={t.orderId} className="hover:bg-stone-50/60">
+                      <td className="px-3 py-2"><div className="font-mono font-bold text-stone-900">{t.orderId}</div><div className="font-mono text-[10px] text-stone-400">{t.txnid}</div><div className="text-[10px] text-stone-400">{t.env} · attempts {t.attempts}</div></td>
+                      <td className="px-3 py-2"><div className="font-semibold">{t.customer?.name}</div><div className="text-stone-500">{t.customer?.email}</div></td>
+                      <td className="px-3 py-2 text-right font-bold">₹{Number(t.total).toFixed(2)}</td>
+                      <td className="px-3 py-2"><div className="font-mono">{t.mihpayid || '—'}</div><div className="text-[10px] uppercase text-stone-500">{t.mode || '—'}</div>{t.failReason && <div className="text-[10px] text-rose-600 max-w-[220px] truncate" title={t.failReason}>{t.failReason}</div>}</td>
+                      <td className="px-3 py-2">
+                        <span className={`px-2 py-1 rounded-full text-[10px] font-bold ${t.paymentStatus === 'PAID' ? 'bg-emerald-100 text-emerald-800' : t.paymentStatus === 'FAILED' ? 'bg-rose-100 text-rose-800' : t.paymentStatus === 'REFUNDED' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'}`}>{t.paymentStatus}</span>
+                      </td>
+                      <td className="px-3 py-2 text-[10px] text-stone-500">{t.verifiedVia ? (<><div className="font-semibold text-emerald-700">{t.verifiedVia}</div><div>{t.verifiedAt ? new Date(t.verifiedAt).toLocaleString() : ''}</div></>) : '—'}</td>
+                      <td className="px-3 py-2 text-right">
+                        <button onClick={() => handlePayuVerify(t.orderId)} className="px-3 py-1.5 bg-stone-900 text-white rounded-lg text-[10px] font-semibold">Re-verify at PayU</button>
+                      </td>
+                    </tr>
+                  ))}
+                  {payuTxns.length === 0 && !payuLoading && (
+                    <tr><td colSpan={7} className="px-3 py-8 text-center text-stone-400 italic">No PayU transactions yet. They appear here once customers pay online.</td></tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
 

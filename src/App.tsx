@@ -12,6 +12,9 @@ import { CatalogPage } from './pages/CatalogPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 
+import { PaymentSuccessPage } from './pages/PaymentSuccessPage';
+import { PaymentFailedPage } from './pages/PaymentFailedPage';
+import { PaymentPendingPage } from './pages/PaymentPendingPage';
 import { OrderFailedPage } from './pages/OrderFailedPage';
 import { OrderTrackingPage } from './pages/OrderTrackingPage';
 import { CustomerDashboard } from './pages/CustomerDashboard';
@@ -100,8 +103,10 @@ function AppContent() {
           <Route path="/products/:idOrSlug" element={<ProductDetailPage onOpenAuth={() => handleOpenAuth('login')} />} />
           <Route path="/checkout" element={<CheckoutPage />} />
 
-          {/* YOUPI-PG payment gateway redirect landings */}
-          
+          {/* PayU payment result pages (server-verified) */}
+          <Route path="/payment/success" element={<PaymentSuccessPage />} />
+          <Route path="/payment/failed" element={<PaymentFailedPage />} />
+          <Route path="/payment/pending" element={<PaymentPendingPage />} />
           <Route path="/order-failed" element={<OrderFailedPage />} />
 
           <Route path="/track-order" element={<OrderTrackingPage />} />

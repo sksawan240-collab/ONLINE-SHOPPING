@@ -178,6 +178,19 @@ export interface Order {
   couponCode?: string;
   paymentMethod: string;
   paymentStatus: 'PENDING' | 'PAID' | 'FAILED' | 'REFUNDED';
+  payu?: {
+    txnid?: string;
+    mihpayid?: string;
+    mode?: string;
+    bankRef?: string;
+    env?: string;
+    amount?: string;
+    status?: string;
+    attempts?: number;
+    failReason?: string;
+    verifiedVia?: string;
+    verifiedAt?: string;
+  };
   orderStatus: OrderStatus;
   shippingAddress: Address;
   billingAddress?: Address;
