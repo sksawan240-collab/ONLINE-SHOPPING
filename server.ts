@@ -30,6 +30,22 @@ const isProd = process.env.NODE_ENV === 'production';
 async function startServer() {
   const app = express();
 
+  // Allow the frontend to load remote fonts while keeping a restrictive browser policy.
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    res.setHeader(
+      'Content-Security-Policy',
+      "default-src 'self'; " +
+      "base-uri 'self'; " +
+      "object-src 'none'; " +
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+      "font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; " +
+      "img-src 'self' data: https:; " +
+      "connect-src 'self' https:;"
+    );
+    next();
+  });
+
   // Basic security and parsing middleware
   app.use(cors({
     origin: true,
