@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx server.ts",
     "build": "vite build",
-    "start": "tsx server.ts",
+    "start": "npm run build && tsx server.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
@@ -19,9 +19,9 @@
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-query": "^5.103.2",
     "@vitejs/plugin-react": "^6.1.1",
-    "bcryptjs": "^3.0.3",
+    "bcryptjs": "^0.0.0",
     "cloudinary": "^2.11.0",
-    "cookie-parser": "^1.4.7",
+    "cookie-parser": "^4.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
@@ -36,13 +36,13 @@
     "react-dom": "^19.0.1",
     "react-router-dom": "^7.18.4",
     "vite": "^8.3.0",
-    "zod": "^4.6.5"
+    "zod": "^6.0.0"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^3.0.0",
-    "@types/cookie-parser": "^1.4.10",
+    "@types/bcryptjs": "^2.0.0",
+    "@types/cookie-parser": "^10.0.0",
     "@types/cors": "^2.8.19",
-    "@types/express": "^4.17.21",
+    "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^2.2.0",
     "@types/node": "^22.14.0",
