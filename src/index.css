@@ -1,14 +1,8 @@
 @import "tailwindcss";
 
-/*
-  Do not load external fonts here.
-  Many deployments enforce a strict Content-Security-Policy, and Google Fonts
-  are blocked when font-src is not explicitly allowed.
-  Use system fonts only to avoid CSP violations and 404/blocked font errors.
-*/
 @layer base {
   :root {
-    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-sans: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-serif: Georgia, 'Times New Roman', serif;
   }
 
