@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
+/*
+  Do not load external fonts here.
+  Many deployments enforce a strict Content-Security-Policy, and Google Fonts
+  are blocked when font-src is not explicitly allowed.
+  Use system fonts only to avoid CSP violations and 404/blocked font errors.
+*/
 @layer base {
   :root {
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-serif: Georgia, 'Times New Roman', serif;
   }
 
   body {
@@ -112,4 +118,3 @@
     animation: none;
   }
 }
-
